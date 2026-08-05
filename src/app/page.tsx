@@ -44,7 +44,7 @@ const stampClasses: Record<Stamp["tone"], string> = {
 export default function Home() {
   return (
     <main className="flex-1 w-full mx-auto max-w-3xl px-6 md:px-8 flex flex-col">
-      <header className="flex items-center justify-between py-8">
+      <header className="flex items-center justify-between py-6 md:py-8">
         <div className="flex items-center gap-2.5">
           <span
             aria-hidden
@@ -58,13 +58,13 @@ export default function Home() {
         </div>
         <a
           href="mailto:slstudio8495@gmail.com"
-          className="font-mono text-xs uppercase tracking-wide text-ink-soft hover:text-moss transition-colors rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-moss focus-visible:outline-offset-2"
+          className="inline-block py-2 -my-2 font-mono text-xs uppercase tracking-wide text-ink-soft hover:text-moss transition-colors rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-moss focus-visible:outline-offset-2"
         >
           Contact
         </a>
       </header>
 
-      <section className="pt-10 pb-16 md:pt-16 md:pb-24">
+      <section className="pt-6 pb-12 md:pt-16 md:pb-24">
         <p className="animate-rise-in font-mono text-xs uppercase tracking-[0.2em] text-moss">
           Build log — est. 2026
         </p>
@@ -77,7 +77,7 @@ export default function Home() {
         </p>
       </section>
 
-      <section className="pb-20">
+      <section className="pb-14 md:pb-20">
         <div className="flex items-end justify-between border-t border-rule pt-4">
           <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-ink-soft">
             Build log
@@ -90,8 +90,8 @@ export default function Home() {
         <ul className="mt-8 flex flex-col gap-6">
           {entries.map((entry) => (
             <li key={entry.number}>
-              <article className="group relative border border-rule bg-paper-card rounded-sm p-6 md:p-8 transition-shadow hover:shadow-[0_4px_0_0_var(--rule)]">
-                <div className="flex items-start justify-between gap-4">
+              <article className="group relative border border-rule bg-paper-card rounded-sm p-5 sm:p-6 md:p-8 transition-shadow hover:shadow-[0_4px_0_0_var(--rule)]">
+                <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-2">
                   <span className="font-mono text-xs text-ink-soft">
                     No. {entry.number}
                   </span>
@@ -117,7 +117,7 @@ export default function Home() {
                     href={entry.cta.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 mt-5 font-mono text-xs uppercase tracking-wide text-moss hover:text-moss-bright transition-colors rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-moss focus-visible:outline-offset-2"
+                    className="inline-flex items-center gap-1.5 mt-5 py-2 -my-2 font-mono text-xs uppercase tracking-wide text-moss hover:text-moss-bright transition-colors rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-moss focus-visible:outline-offset-2"
                   >
                     {entry.cta.label} <span aria-hidden>→</span>
                   </a>
@@ -128,13 +128,13 @@ export default function Home() {
         </ul>
       </section>
 
-      <footer className="mt-auto border-t border-rule py-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+      <footer className="mt-auto border-t border-rule py-6 md:py-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <p className="font-mono text-xs text-ink-soft">
           SL Studio — Sangho Lee. Built one small thing at a time.
         </p>
         <a
           href="mailto:slstudio8495@gmail.com"
-          className="font-mono text-xs uppercase tracking-wide text-moss hover:text-moss-bright transition-colors rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-moss focus-visible:outline-offset-2"
+          className="inline-block py-2 -my-2 font-mono text-xs uppercase tracking-wide text-moss hover:text-moss-bright transition-colors rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-moss focus-visible:outline-offset-2"
         >
           Say hello →
         </a>
