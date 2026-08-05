@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 type Stamp = {
   text: string;
   tone: "positive" | "pending";
@@ -12,7 +10,7 @@ type LogEntry = {
   stamp: Stamp;
   description: string;
   cta: { label: string; href: string } | null;
-  screenshot?: { src: string; width: number; height: number; alt: string };
+  demo?: { src: string; width: number; height: number; alt: string };
 };
 
 const entries: LogEntry[] = [
@@ -24,11 +22,11 @@ const entries: LogEntry[] = [
     description:
       'A private, shared journal for our son — milestones, photos, growth charts, and a chatbot that can answer "when did he first walk?" before we forget. Built for our own family first, and architected well enough that other families could use it too.',
     cta: null,
-    screenshot: {
-      src: "/screenshots/sprout-preview.jpg",
-      width: 1459,
-      height: 680,
-      alt: "Sprout's welcome screen, showing photo & voice memos, milestones, privacy, and bilingual features",
+    demo: {
+      src: "/demos/sprout-demo.gif",
+      width: 1512,
+      height: 793,
+      alt: "Screen recording of Sprout: writing a journal entry, tagging it as a milestone, and viewing it in the Feed and Milestones tabs",
     },
   },
   {
@@ -120,13 +118,14 @@ export default function Home() {
                 <p className="mt-4 text-ink-soft leading-relaxed max-w-xl">
                   {entry.description}
                 </p>
-                {entry.screenshot && (
+                {entry.demo && (
                   <div className="mt-6 rounded-md border border-border overflow-hidden bg-bg-subtle">
-                    <Image
-                      src={entry.screenshot.src}
-                      width={entry.screenshot.width}
-                      height={entry.screenshot.height}
-                      alt={entry.screenshot.alt}
+                    {/* eslint-disable-next-line @next/next/no-img-element -- animated GIF, next/image would strip animation */}
+                    <img
+                      src={entry.demo.src}
+                      width={entry.demo.width}
+                      height={entry.demo.height}
+                      alt={entry.demo.alt}
                       className="w-full h-auto"
                     />
                   </div>
