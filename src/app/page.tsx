@@ -23,10 +23,7 @@ const entries: LogEntry[] = [
     stamp: { text: "Pre-launch", tone: "positive" },
     description:
       'A private, shared journal for our son — milestones, photos, growth charts, and a chatbot that can answer "when did he first walk?" before we forget. Built for our own family first, and architected well enough that other families could use it too.',
-    cta: {
-      label: "Try Sprout",
-      href: "https://sprout-theta-rosy.vercel.app",
-    },
+    cta: null,
     screenshot: {
       src: "/screenshots/sprout-preview.jpg",
       width: 1459,
