@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f6f2e7;
+  --paper-card: #fffdf6;
+  --ink: #23261f;
+  --ink-soft: #5d5c4c;
+  --moss: #3f5d3a;
+  --moss-bright: #6b8f5c;
+  --stamp: #963a29;
+  --rule: #dbd5c1;
+
+  --grid-line: 35 33 22 / 0.05;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-card: var(--paper-card);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-moss: var(--moss);
+  --color-moss-bright: var(--moss-bright);
+  --color-stamp: var(--stamp);
+  --color-rule: var(--rule);
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #1a1c15;
+    --paper-card: #21241b;
+    --ink: #ece6d4;
+    --ink-soft: #a8a189;
+    --moss: #83a86f;
+    --moss-bright: #a3c68f;
+    --stamp: #d67c60;
+    --rule: #34362a;
+
+    --grid-line: 236 230 212 / 0.06;
+  }
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  background-image: linear-gradient(
+      to right,
+      rgb(var(--grid-line)) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgb(var(--grid-line)) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  }
+  .font-mono {
+    font-family: var(--font-mono), ui-monospace, monospace;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-rise-in {
+  animation: rise-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-rise-in {
+    animation: none;
+  }
+  * {
+    transition-duration: 0.01ms !important;
+  }
+}
