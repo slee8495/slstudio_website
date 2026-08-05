@@ -13,7 +13,9 @@
   계정 만들고 `sl-studio.dev` 도메인 등록, `support@` alias + 캐치올(`*@`) 둘 다 Gmail로 포워딩되게 설정.
   MX(`mx1`/`mx2.improvmx.com`, 우선순위 10/20) + SPF TXT 레코드를 `vercel dns add`로 추가, ImprovMX에서
   "Active"로 확인 완료. 다음 단계: Wordflow `/privacy`, `/terms`에 박힌 `slstudio8495@gmail.com`을
-  `support@sl-studio.dev`로 교체 (wordflow 레포 작업).
+  `support@sl-studio.dev`로 교체 (wordflow 레포 작업). **참고**: 답장은 여전히 `slstudio8495@gmail.com`
+  발신으로 나감 — Gmail의 "Send mail as"가 SMTP 릴레이 인증정보를 요구하는데 이건 ImprovMX 유료
+  플랜($9/mo)에서만 제공돼서, 일단 비용 안 쓰고 이대로 두기로 결정함. 나중에 필요해지면 업그레이드 고려.
 - [x] **프로페셔널 라이트 테마 + 실제 스크린샷** — Linear/Raycast(다크)와 Attio/Cursor(라이트) 벤치마킹한 후
   라이트 방향으로 결정. 웜페이퍼/그리드노트/회전 스탬프 배지를 걷어내고 화이트+잉크+그레이 모노크롬 톤으로
   전환, 상태 표시도 회전 배지 대신 작은 점(dot) + 라벨로 차분하게. Sprout 카드에 실제 로그인 전 마케팅
@@ -22,6 +24,9 @@
 
 ## 남은 것
 
+- [ ] **Sprout 데모 영상 (~20초)** — "Try Sprout" 링크는 실제 가족 앱으로 연결되는 문제라 제거함(배포 완료).
+  대신 테스트 계정으로 앱 핵심 동작(탭 이동, 글쓰기 등)을 짧게 녹화해서 GIF/영상으로 카드에 넣기로 함.
+  Google OAuth 로그인이 필요해서 본인이 직접 로그인해줘야 진행 가능 — 진행 중 일시 중단.
 - [ ] **모바일 반응형 다듬기 (진행 중)** — 터치 타겟 크기(Contact/CTA/Say hello 링크에 탭 여백 추가),
   좁은 화면에서 배지 줄바꿈 안전장치, 섹션 여백 축소는 코드 레벨로 반영해서 배포함. 다만 브라우저
   자동화 툴이 실제 좁은 뷰포트를 강제하지 못해서(창 크기 조절이 안 먹힘) 실기기 스크린샷으로는 확인
