@@ -21,7 +21,7 @@ export default function WordflowPage() {
   if (!app) notFound();
 
   return (
-    <main className="flex-1 w-full mx-auto max-w-3xl px-6 md:px-8 flex flex-col">
+    <main className="flex-1 w-full mx-auto max-w-6xl px-6 md:px-8 flex flex-col">
       <SiteHeader />
 
       <Link
@@ -59,7 +59,7 @@ export default function WordflowPage() {
         <p className="font-mono text-[11px] uppercase tracking-wide text-ink-soft mt-6">
           {app.meta}
         </p>
-        <p className="mt-4 max-w-xl text-base md:text-lg text-ink-soft leading-relaxed">
+        <p className="mt-4 max-w-2xl text-base md:text-lg text-ink-soft leading-relaxed">
           {app.description}
         </p>
       </section>
@@ -71,7 +71,7 @@ export default function WordflowPage() {
               Where it stands
             </h2>
           </div>
-          <ul className="mt-8 flex flex-col gap-3 max-w-xl">
+          <ul className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
             {app.statusItems.map((item) => (
               <li
                 key={item.label}

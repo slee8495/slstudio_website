@@ -35,11 +35,11 @@ export const apps: AppEntry[] = [
     number: "002",
     icon: "🌱",
     name: "Sprout",
-    tagline: "The bilingual baby journal built to actually stick.",
+    tagline: "The multilingual baby journal built to actually stick.",
     meta: "Family journal · web app · started 2026",
     stamp: { text: "Pre-launch", tone: "positive" },
     description:
-      "Most baby journal apps get abandoned by month two — too much friction, one parent carrying it alone, or built for families who only speak one language. Sprout is built differently: voice memos for the nights you're too tired to type, milestones that resurface on \"this day,\" both parents writing to the same journal, and full English/Korean parity. Private by default — only the people you invite can ever see it. Built for our own son first, and solid enough now that other families are next.",
+      "Most baby journal apps get abandoned by month two — too much friction, one parent carrying it alone, or built for families who only speak one language. Sprout is built differently: voice memos for the nights you're too tired to type, milestones that resurface on \"this day,\" both parents writing to the same journal, and full support in English, Korean, Japanese, Chinese, and Spanish. Private by default — only the people you invite can ever see it. Built for our own son first, and solid enough now that other families are next.",
     cta: null,
     demo: {
       src: "/demos/sprout-demo.gif",
@@ -68,8 +68,9 @@ export const apps: AppEntry[] = [
       },
       {
         icon: "🌐",
-        title: "English & Korean",
-        description: "Switch the app's language anytime from Settings.",
+        title: "5 languages",
+        description:
+          "English, Korean, Japanese, Chinese, and Spanish — switch anytime from Settings.",
       },
     ],
   },

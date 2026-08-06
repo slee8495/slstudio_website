@@ -21,7 +21,7 @@ export default function SproutPage() {
   if (!app) notFound();
 
   return (
-    <main className="flex-1 w-full mx-auto max-w-3xl px-6 md:px-8 flex flex-col">
+    <main className="flex-1 w-full mx-auto max-w-6xl px-6 md:px-8 flex flex-col">
       <SiteHeader />
 
       <Link
@@ -59,14 +59,14 @@ export default function SproutPage() {
         <p className="font-mono text-[11px] uppercase tracking-wide text-ink-soft mt-6">
           {app.meta}
         </p>
-        <p className="mt-4 max-w-xl text-base md:text-lg text-ink-soft leading-relaxed">
+        <p className="mt-4 max-w-2xl text-base md:text-lg text-ink-soft leading-relaxed">
           {app.description}
         </p>
       </section>
 
       {app.demo && (
         <section className="pb-14 md:pb-20">
-          <div className="rounded-md border border-border overflow-hidden bg-bg">
+          <div className="max-w-4xl mx-auto rounded-md border border-border overflow-hidden bg-bg">
             {/* eslint-disable-next-line @next/next/no-img-element -- animated GIF, next/image would strip animation */}
             <img
               src={app.demo.src}
@@ -86,7 +86,7 @@ export default function SproutPage() {
               What it does
             </h2>
           </div>
-          <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {app.features.map((feature) => (
               <li
                 key={feature.title}

@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #0b0c0e;
-  --bg-subtle: #141519;
-  --ink: #f4f4f5;
-  --ink-soft: #93969e;
-  --border: #232429;
-  --status-positive: #5ea377;
-  --status-pending: #c9a13f;
+  --bg: #ffffff;
+  --bg-subtle: #f7f7f5;
+  --ink: #191919;
+  --ink-soft: #787774;
+  --border: #e9e9e7;
+  --status-positive: #2f6b45;
+  --status-pending: #9a7b1f;
 }
 
 @theme inline {
