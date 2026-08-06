@@ -1,0 +1,98 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
+import { getApp } from "@/lib/apps";
+
+const app = getApp("wordflow");
+
+export const metadata: Metadata = {
+  title: `${app?.name} — SL Studio`,
+  description: app?.description,
+};
+
+const stampDotClasses: Record<"positive" | "pending", string> = {
+  positive: "bg-status-positive",
+  pending: "bg-status-pending",
+};
+
+export default function WordflowPage() {
+  if (!app) notFound();
+
+  return (
+    <main className="flex-1 w-full mx-auto max-w-3xl px-6 md:px-8 flex flex-col">
+      <SiteHeader />
+
+      <Link
+        href="/"
+        className="inline-flex items-center gap-1.5 py-2 -my-2 self-start font-mono text-xs uppercase tracking-wide text-ink-soft hover:text-ink transition-colors rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink focus-visible:outline-offset-2"
+      >
+        <span aria-hidden>←</span> Build log
+      </Link>
+
+      <section className="pt-8 pb-12 md:pt-12 md:pb-16">
+        <div className="flex items-center gap-4">
+          <span
+            aria-hidden
+            className="inline-flex h-14 w-14 items-center justify-center rounded-xl border border-border bg-bg text-2xl shrink-0"
+          >
+            {app.icon}
+          </span>
+          <div>
+            <span className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wide text-ink-soft">
+              No. {app.number}
+              <span aria-hidden>·</span>
+              <span
+                aria-hidden
+                className={`h-1.5 w-1.5 rounded-full ${
+                  stampDotClasses[app.stamp.tone]
+                }`}
+              />
+              {app.stamp.text}
+            </span>
+            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight mt-1">
+              {app.name}
+            </h1>
+          </div>
+        </div>
+        <p className="font-mono text-[11px] uppercase tracking-wide text-ink-soft mt-6">
+          {app.meta}
+        </p>
+        <p className="mt-4 max-w-xl text-base md:text-lg text-ink-soft leading-relaxed">
+          {app.description}
+        </p>
+      </section>
+
+      {app.statusItems && (
+        <section className="pb-14 md:pb-20">
+          <div className="border-t border-border pt-4">
+            <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-ink-soft">
+              Where it stands
+            </h2>
+          </div>
+          <ul className="mt-8 flex flex-col gap-3 max-w-xl">
+            {app.statusItems.map((item) => (
+              <li
+                key={item.label}
+                className="flex items-start gap-3 border border-border bg-bg-subtle rounded-lg p-4"
+              >
+                <span
+                  aria-hidden
+                  className={`mt-0.5 h-1.5 w-1.5 rounded-full shrink-0 ${
+                    item.done ? "bg-status-positive" : "bg-status-pending"
+                  }`}
+                />
+                <span className="text-sm text-ink-soft leading-relaxed">
+                  {item.label}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      <SiteFooter />
+    </main>
+  );
+}
