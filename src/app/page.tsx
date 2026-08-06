@@ -94,7 +94,7 @@ export default function Home() {
         <ul className="mt-8 flex flex-col gap-6">
           {entries.map((entry) => (
             <li key={entry.number}>
-              <article className="border border-border bg-bg rounded-lg p-5 sm:p-6 md:p-8 transition-colors hover:border-ink/30">
+              <article className="border border-border bg-bg-subtle rounded-lg p-5 sm:p-6 md:p-8 transition-colors hover:border-ink/30">
                 <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-2">
                   <span className="font-mono text-xs text-ink-soft">
                     No. {entry.number}
@@ -119,7 +119,7 @@ export default function Home() {
                   {entry.description}
                 </p>
                 {entry.demo && (
-                  <div className="mt-6 rounded-md border border-border overflow-hidden bg-bg-subtle">
+                  <div className="mt-6 rounded-md border border-border overflow-hidden bg-bg">
                     {/* eslint-disable-next-line @next/next/no-img-element -- animated GIF, next/image would strip animation */}
                     <img
                       src={entry.demo.src}
