@@ -35,11 +35,11 @@ export const apps: AppEntry[] = [
     number: "002",
     icon: "🌱",
     name: "Sprout",
-    tagline: "A private, lifelong journal for our son.",
+    tagline: "The bilingual baby journal built to actually stick.",
     meta: "Family journal · web app · started 2026",
     stamp: { text: "Pre-launch", tone: "positive" },
     description:
-      'A private, shared journal for our son — milestones, photos, growth charts, and a chatbot that can answer "when did he first walk?" before we forget. Built for our own family first, and architected well enough that other families could use it too.',
+      "Most baby journal apps get abandoned by month two — too much friction, one parent carrying it alone, or built for families who only speak one language. Sprout is built differently: voice memos for the nights you're too tired to type, milestones that resurface on \"this day,\" both parents writing to the same journal, and full English/Korean parity. Private by default — only the people you invite can ever see it. Built for our own son first, and solid enough now that other families are next.",
     cta: null,
     demo: {
       src: "/demos/sprout-demo.gif",
@@ -78,11 +78,11 @@ export const apps: AppEntry[] = [
     number: "001",
     icon: "📖",
     name: "Wordflow",
-    tagline: "A habit-sized way to read the Bible daily.",
+    tagline: "Bible reading that survives past January.",
     meta: "Daily Bible reading · web app · started 2026",
     stamp: { text: "Awaiting license", tone: "pending" },
     description:
-      "A habit-sized way to read the Bible daily, $3.99/month. Payments and the reading flow are built and tested — we're waiting on a commercial license from our translation's publisher before it can go live.",
+      "Most reading plans ask for more time than most days actually have, so they get abandoned fast. Wordflow breaks it into a few minutes a day — enough to build a real habit, not another app forgotten by February. $3.99/month with a 7-day free trial. Payments and the daily reading flow are built and tested; we're waiting on a commercial license from our translation's publisher before it goes live.",
     cta: null,
     statusItems: [
       { done: true, label: "Daily reading flow — built and tested" },

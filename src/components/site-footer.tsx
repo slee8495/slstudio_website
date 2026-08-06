@@ -2,7 +2,7 @@ export function SiteFooter() {
   return (
     <footer className="mt-auto border-t border-border py-6 md:py-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
       <p className="font-mono text-xs text-ink-soft">
-        SL Studio — Sangho Lee. Built one small thing at a time.
+        SL Studio. Built one small thing at a time.
       </p>
       <a
         href="mailto:support@sl-studio.dev"
