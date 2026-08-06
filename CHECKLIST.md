@@ -34,6 +34,12 @@
   페이지엔 데모 GIF + 실제 앱 기능 카드 4개(사진/음성메모, 마일스톤, 프라이버시, 다국어) 그대로 재사용.
   Wordflow는 보여줄 게 없어서 대신 "Where it stands" 상태 체크리스트(빌드 완료 vs 라이선스 대기)로
   정직하게 채움. `SiteHeader`/`SiteFooter`/`src/lib/apps.ts`로 공통 데이터·컴포넌트 분리.
+- [x] **카피 재작성 (마케팅 훅) + 이름 삭제** — 푸터의 "Sangho Lee" 삭제. Sprout 태그라인을 "A private,
+  lifelong journal for our son"(설명형) → "The bilingual baby journal built to actually stick"
+  (차별점 강조형)으로, Wordflow도 "Bible reading that survives past January"로 변경 — 둘 다 "이런 종류
+  앱은 보통 왜 금방 버려지는가" 문제 제기 후 우리 앱이 그걸 어떻게 해결하는지로 훅을 잡음. Sprout
+  설명에서 실제로 구현 안 된 챗봇 Q&A 언급도 제거함(README에 "brainstormed"로만 있던 기능, 실제 배포
+  안 됨 확인 — 안 만든 기능은 마케팅에도 안 씀).
 
 ## 남은 것
 
