@@ -49,13 +49,13 @@
   체크리스트는 3컬럼으로 펼쳐서 넓어진 폭을 실제 콘텐츠로 채움. Sprout 언어 카피도 "영어/한국어"에서
   실제 지원하는 5개 언어(영어/한국어/일본어/중국어/스페인어)로 정정.
 - [x] **웜페이퍼 테마 + 앱별 브랜드 컬러, About/Contact 섹션, 실전 연락 폼, 카피 명확화** (2026-08-07,
-  한 번에 처리) —
+  한 번에 처리).
   - 테마: 순백/블랙 대신 두 앱 실제 배경색(웜 파치먼트, Wordflow `globals.css`에서 정확한 hex 확인)에
     맞춘 웜톤 베이스로 전환. `/sprout`, `/wordflow` 페이지엔 각 앱 실제 브랜드 컬러(Sprout 세이지그린,
     Wordflow 클레이/골드)로 아이콘 뱃지 + 차별점 박스 틴트.
   - 헤더 네비에 "About" 추가, 홈페이지에 "About SL Studio" 섹션 신설.
-  - Contact를 mailto 팝업에서 **실제 폼**으로 전환 — Vercel 마켓플레이스로 Resend 설치
-    (`vercel integration discover --category messaging` → Resend가 유일한 결과), `sl-studio.dev`
+  - Contact를 mailto 팝업에서 **실제 폼**으로 전환. Vercel 마켓플레이스로 Resend 설치
+    (`vercel integration discover --category messaging` 결과 Resend가 유일한 옵션), `sl-studio.dev`
     도메인은 이전 Sprout 작업에서 이미 verified 상태였음. 이 프로젝트 전용 Sending-access API 키를
     새로 발급해서 `RESEND_API_KEY`로 Vercel env(production/preview/development)에 추가, 클립보드로만
     옮기고 화면에는 노출 안 함. `/api/contact` 라우트 + 허니팟 필드 있는 폼 컴포넌트 작성, "Response
@@ -65,8 +65,13 @@
     baby's every milestone, memory, and moment.", Wordflow: "Read the Bible in a few minutes a day.").
     "이미 이런 앱 많은데 왜?"에 직접 답하는 "Why not just use another [카테고리] app?" 섹션 신설.
   - 진행 중 이슈: 세션 중간에 macOS가 `~/Desktop` 폴더 접근 권한을 갑자기 회수해서 파일 읽기/쓰기가
-    전부 막힌 적 있음(Downloads 폴더 때와 비슷한 macOS 프라이버시 보호) — 사용자가 시스템 설정에서
+    전부 막힌 적 있음(Downloads 폴더 때와 비슷한 macOS 프라이버시 보호). 사용자가 시스템 설정에서
     권한 재확인 후 복구됨. 앞으로 비슷한 "Operation not permitted" 에러 뜨면 이 문제일 가능성 높음.
+- [x] **카피에서 em dash 전부 제거** — "AI가 쓴 것 같다"는 피드백으로 사이트 전체 문구(및 코드 주석)에서
+  em dash(—)를 마침표/콜론/문장 재구성으로 교체. 동시에 About 문단과 히어로 서브헤드가 "Sprout and
+  Wordflow are the first two entries"처럼 현재 앱 이름/개수를 하드코딩하고 있던 것도 발견해서 제너럴한
+  문구로 변경(앱 추가될 때마다 손으로 고칠 필요 없게). 앞으로 이 레포뿐 아니라 전반적으로 em dash
+  안 쓰기로.
 
 ## 남은 것
 
