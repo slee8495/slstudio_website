@@ -48,6 +48,25 @@
   히어로 이미지 자리), 빌드 로그 인덱스는 2컬럼 그리드로, Sprout 기능 카드는 4컬럼, Wordflow 상태
   체크리스트는 3컬럼으로 펼쳐서 넓어진 폭을 실제 콘텐츠로 채움. Sprout 언어 카피도 "영어/한국어"에서
   실제 지원하는 5개 언어(영어/한국어/일본어/중국어/스페인어)로 정정.
+- [x] **웜페이퍼 테마 + 앱별 브랜드 컬러, About/Contact 섹션, 실전 연락 폼, 카피 명확화** (2026-08-07,
+  한 번에 처리) —
+  - 테마: 순백/블랙 대신 두 앱 실제 배경색(웜 파치먼트, Wordflow `globals.css`에서 정확한 hex 확인)에
+    맞춘 웜톤 베이스로 전환. `/sprout`, `/wordflow` 페이지엔 각 앱 실제 브랜드 컬러(Sprout 세이지그린,
+    Wordflow 클레이/골드)로 아이콘 뱃지 + 차별점 박스 틴트.
+  - 헤더 네비에 "About" 추가, 홈페이지에 "About SL Studio" 섹션 신설.
+  - Contact를 mailto 팝업에서 **실제 폼**으로 전환 — Vercel 마켓플레이스로 Resend 설치
+    (`vercel integration discover --category messaging` → Resend가 유일한 결과), `sl-studio.dev`
+    도메인은 이전 Sprout 작업에서 이미 verified 상태였음. 이 프로젝트 전용 Sending-access API 키를
+    새로 발급해서 `RESEND_API_KEY`로 Vercel env(production/preview/development)에 추가, 클립보드로만
+    옮기고 화면에는 노출 안 함. `/api/contact` 라우트 + 허니팟 필드 있는 폼 컴포넌트 작성, "Response
+    within 48 hours." 문구 포함. 로컬 + 프로덕션 둘 다 실제 제출 테스트해서 Gmail 도착 및 Reply-To가
+    방문자 이메일로 정확히 잡히는 것까지 확인함.
+  - 각 앱 페이지에 이름 바로 아래 "누구나 한눈에 알아볼 명확한 캐치라인" 추가(Sprout: "Record your
+    baby's every milestone, memory, and moment.", Wordflow: "Read the Bible in a few minutes a day.").
+    "이미 이런 앱 많은데 왜?"에 직접 답하는 "Why not just use another [카테고리] app?" 섹션 신설.
+  - 진행 중 이슈: 세션 중간에 macOS가 `~/Desktop` 폴더 접근 권한을 갑자기 회수해서 파일 읽기/쓰기가
+    전부 막힌 적 있음(Downloads 폴더 때와 비슷한 macOS 프라이버시 보호) — 사용자가 시스템 설정에서
+    권한 재확인 후 복구됨. 앞으로 비슷한 "Operation not permitted" 에러 뜨면 이 문제일 가능성 높음.
 
 ## 남은 것
 
