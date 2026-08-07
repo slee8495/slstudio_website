@@ -23,7 +23,7 @@ const monoFont = IBM_Plex_Mono({
 export const metadata: Metadata = {
   title: "SL Studio",
   description:
-    "SL Studio builds small, careful apps — usually starting as something we needed ourselves. Wordflow and Sprout are the first two entries in the log.",
+    "SL Studio builds small, careful apps, usually starting as something we needed ourselves.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

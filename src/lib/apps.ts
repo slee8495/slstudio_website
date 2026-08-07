@@ -47,10 +47,10 @@ export const apps: AppEntry[] = [
     meta: "Family journal · web app · started 2026",
     stamp: { text: "Pre-launch", tone: "positive" },
     description:
-      "A private, shared journal for our son — built for our own family first, and solid enough now that other families could use it too. Private by default: only the people you invite can ever see it.",
+      "A private, shared journal for our son. Built for our own family first, and solid enough now that other families could use it too. Private by default: only the people you invite can ever see it.",
     different: {
       title: "Why not just use another baby journal app?",
-      body: "There's no shortage of them. Most get abandoned by month two for one of three reasons: they're English-only, they put all the work on one parent, or typing at 2am is too much friction to keep up. Sprout fixes all three — voice memos for the nights you're too tired to type, both parents writing to the same journal, and full support in English, Korean, Japanese, Chinese, and Spanish.",
+      body: "There's no shortage of them. Most get abandoned by month two for one of three reasons: they're English-only, they put all the work on one parent, or typing at 2am is too much friction to keep up. Sprout fixes all three: voice memos for the nights you're too tired to type, both parents writing to the same journal, and full support in English, Korean, Japanese, Chinese, and Spanish.",
     },
     cta: null,
     demo: {
@@ -64,7 +64,7 @@ export const apps: AppEntry[] = [
         icon: "📷",
         title: "Photos & voice memos",
         description:
-          "Capture more than words — attach a photo or a quick voice memo to any entry.",
+          "Capture more than words. Attach a photo or a quick voice memo to any entry.",
       },
       {
         icon: "🎉",
@@ -82,7 +82,7 @@ export const apps: AppEntry[] = [
         icon: "🌐",
         title: "5 languages",
         description:
-          "English, Korean, Japanese, Chinese, and Spanish — switch anytime from Settings.",
+          "English, Korean, Japanese, Chinese, and Spanish. Switch anytime from Settings.",
       },
     ],
   },
@@ -96,23 +96,23 @@ export const apps: AppEntry[] = [
     meta: "Daily Bible reading · web app · started 2026",
     stamp: { text: "Awaiting license", tone: "pending" },
     description:
-      "A habit-sized way to read the Bible daily, $3.99/month with a 7-day free trial. Payments and the daily reading flow are built and tested — we're waiting on a commercial license from our translation's publisher before it can go live.",
+      "A habit-sized way to read the Bible daily, $3.99/month with a 7-day free trial. Payments and the daily reading flow are built and tested. We're waiting on a commercial license from our translation's publisher before it can go live.",
     different: {
       title: "Why not just use another Bible app?",
-      body: "There's no shortage of those either. Most ask for more time than most days actually have — a full chapter, a multi-year read-the-whole-Bible plan — which is exactly why people quit by February. Wordflow breaks it into a few minutes a day, enough to actually build the habit instead of another guilt-inducing streak you eventually break.",
+      body: "There's no shortage of those either. Most ask for more time than most days actually have: a full chapter, a multi-year read-the-whole-Bible plan. That's exactly why people quit by February. Wordflow breaks it into a few minutes a day, enough to actually build the habit instead of another guilt-inducing streak you eventually break.",
     },
     cta: null,
     statusItems: [
-      { done: true, label: "Daily reading flow — built and tested" },
+      { done: true, label: "Daily reading flow: built and tested" },
       {
         done: true,
         label:
-          "$3.99/month subscription with a 7-day free trial — built and tested",
+          "$3.99/month subscription with a 7-day free trial: built and tested",
       },
       {
         done: false,
         label:
-          "Commercial license from our Bible translation's publisher — submitted, awaiting approval",
+          "Commercial license from our Bible translation's publisher: submitted, awaiting approval",
       },
     ],
   },

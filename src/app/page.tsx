@@ -18,14 +18,14 @@ export default function Home() {
 
       <section className="pt-6 pb-10 md:pt-16 md:pb-14 text-center">
         <p className="animate-rise-in font-mono text-xs uppercase tracking-[0.2em] text-ink-soft">
-          Build log — est. 2026
+          Build log · est. 2026
         </p>
         <h1 className="animate-rise-in [animation-delay:80ms] font-display text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight leading-[1.05] mt-4 max-w-3xl mx-auto">
           I build the things I need first.
         </h1>
         <p className="animate-rise-in [animation-delay:160ms] mt-6 max-w-xl mx-auto text-base md:text-lg text-ink-soft leading-relaxed">
           SL Studio is where they end up once they&apos;re worth sharing with
-          anyone else. Two entries in the log so far — more are coming.
+          anyone else. New entries land in the log as they&apos;re ready.
         </p>
       </section>
 
@@ -45,7 +45,7 @@ export default function Home() {
             />
           </Link>
           <p className="text-center mt-4 font-mono text-xs uppercase tracking-wide text-ink-soft">
-            {featured.name}, in progress —{" "}
+            {featured.name}, in progress:{" "}
             <Link
               href={`/${featured.slug}`}
               className="text-ink hover:text-ink-soft transition-colors underline underline-offset-2"
@@ -121,13 +121,12 @@ export default function Home() {
             A small studio, not a startup.
           </h3>
           <p className="text-ink-soft leading-relaxed">
-            SL Studio builds focused software for real problems — usually
-            ones we&apos;re living through ourselves first. No outside
-            funding, no roadmap chasing growth metrics: just careful
-            software, shipped when it&apos;s actually ready, for people who
-            need exactly what it does. Sprout and Wordflow are the first two
-            entries in the log. More will follow, each one starting the same
-            way — as something we needed and couldn&apos;t find done well.
+            SL Studio builds focused software for real problems, usually ones
+            we&apos;re living through ourselves first. No outside funding, no
+            roadmap chasing growth metrics. Just careful software, shipped
+            when it&apos;s actually ready, for people who need exactly what
+            it does. Every app starts the same way: as something we needed
+            and couldn&apos;t find done well.
           </p>
         </div>
       </section>
@@ -143,7 +142,7 @@ export default function Home() {
             Get in touch.
           </h3>
           <p className="mt-2 text-ink-soft leading-relaxed">
-            Questions, feedback, or just want to say hi — this goes straight
+            Questions, feedback, or just want to say hi? This goes straight
             to us.
           </p>
         </div>

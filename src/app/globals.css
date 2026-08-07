@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  /* Warm parchment base — matches the real palette both Sprout and Wordflow already ship with,
+  /* Warm parchment base. Matches the real palette both Sprout and Wordflow already ship with,
      instead of an unrelated generic light/dark theme. */
   --bg: #faf3e6;
   --bg-subtle: #fffaf1;
@@ -11,7 +11,7 @@
   --status-positive: #4f7a52;
   --status-pending: #a8792f;
 
-  /* Per-app accent, pulled from each app's own real theme — used only on that app's page. */
+  /* Per-app accent, pulled from each app's own real theme. Used only on that app's page. */
   --accent-sprout: #3f7a4f;
   --accent-sprout-tint: #e8f0e6;
   --accent-wordflow: #b85c34;

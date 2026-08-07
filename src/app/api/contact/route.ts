@@ -9,7 +9,7 @@ export async function POST(request: Request) {
     name?: string;
     email?: string;
     message?: string;
-    company?: string; // honeypot field — real visitors never fill this in
+    company?: string; // honeypot field, real visitors never fill this in
   };
 
   if (company) {

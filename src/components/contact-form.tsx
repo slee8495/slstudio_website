@@ -44,7 +44,7 @@ export function ContactForm() {
       <div className="border border-border bg-bg-subtle rounded-lg p-6 md:p-8 text-center">
         <p className="font-display text-xl font-semibold">Message sent.</p>
         <p className="mt-2 text-ink-soft">
-          Thanks for reaching out — we reply within 48 hours.
+          Thanks for reaching out. We reply within 48 hours.
         </p>
       </div>
     );
@@ -55,7 +55,7 @@ export function ContactForm() {
       onSubmit={handleSubmit}
       className="border border-border bg-bg-subtle rounded-lg p-6 md:p-8 flex flex-col gap-4"
     >
-      {/* Honeypot — hidden from real visitors, catches simple bots */}
+      {/* Honeypot: hidden from real visitors, catches simple bots */}
       <input
         type="text"
         name="company"
