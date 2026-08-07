@@ -63,9 +63,8 @@ export default function WordflowPage() {
         </p>
 
         {app.comingSoon ? (
-          <p className="mt-4 max-w-2xl text-base md:text-lg text-ink-soft leading-relaxed">
-            We&apos;re finishing up the approval process. This will be live
-            soon.
+          <p className="mt-4 max-w-2xl font-display text-2xl md:text-3xl font-semibold tracking-tight">
+            Coming soon!
           </p>
         ) : (
           <>

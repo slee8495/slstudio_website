@@ -149,7 +149,7 @@ export default function Home() {
         <div className="mt-6 max-w-2xl">
           <ContactForm />
           <p className="mt-4 font-mono text-xs text-ink-soft">
-            Prefer email? Reach us directly at{" "}
+            If you&apos;d rather email us directly, reach out at{" "}
             <a
               href="mailto:support@sl-studio.dev"
               className="text-ink hover:text-ink-soft transition-colors underline underline-offset-2"

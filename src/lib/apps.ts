@@ -49,7 +49,7 @@ export const apps: AppEntry[] = [
     name: "Sprout",
     tagline: "The multilingual baby journal built to actually stick.",
     catchline: "Record your baby's every milestone, memory, and moment.",
-    meta: "Family journal · web, iOS & Android · started 2026",
+    meta: "Family journal · iOS & Android · started 2026",
     stamp: { text: "Pre-launch", tone: "positive" },
     description:
       "A private, shared journal for our son. Built for our own family first, and solid enough now that other families could use it too. Private by default: only the people you invite can ever see it.",
@@ -98,7 +98,7 @@ export const apps: AppEntry[] = [
     name: "Wordflow",
     tagline: "Bible reading that survives past January.",
     catchline: "Read the Bible in a few minutes a day.",
-    meta: "Daily Bible reading · web, iOS & Android · started 2026",
+    meta: "Daily Bible reading · iOS & Android · started 2026",
     stamp: { text: "Coming soon", tone: "pending" },
     comingSoon: true,
     description:
