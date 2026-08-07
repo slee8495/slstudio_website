@@ -3,11 +3,11 @@
 :root {
   /* Warm parchment base. Matches the real palette both Sprout and Wordflow already ship with,
      instead of an unrelated generic light/dark theme. */
-  --bg: #faf3e6;
-  --bg-subtle: #fffaf1;
+  --bg: #fdf8ef;
+  --bg-subtle: #ffffff;
   --ink: #3a2e26;
   --ink-soft: #6b5c4d;
-  --border: #e4d5c1;
+  --border: #ecdfc9;
   --status-positive: #4f7a52;
   --status-pending: #a8792f;
 
