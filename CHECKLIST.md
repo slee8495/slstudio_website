@@ -72,17 +72,28 @@
   Wordflow are the first two entries"처럼 현재 앱 이름/개수를 하드코딩하고 있던 것도 발견해서 제너럴한
   문구로 변경(앱 추가될 때마다 손으로 고칠 필요 없게). 앞으로 이 레포뿐 아니라 전반적으로 em dash
   안 쓰기로 하고 메모리에도 남겨둠.
-- [x] **테마 한 단계 더 밝게.** 배경 `#faf3e6` → `#fdf8ef`로 화이트에 더 가깝게, 카드는 순백(`#ffffff`)으로
-  바꿔서 배경과 대비되게, 보더 톤도 같이 밝힘.
+- [x] **테마 한 단계 더 밝게 (총 두 번).** 배경 `#faf3e6` → `#fdf8ef` → `#fffdf8`로 점점 화이트에 가깝게,
+  카드는 순백(`#ffffff`)으로 바꿔서 배경과 대비되게, 보더 톤도 같이 밝힘.
+- [x] **Contact에 직접 이메일 안내 추가, 메타에 iOS/Android 표기, Wordflow 콘텐츠 비공개 처리**
+  (2026-08-07).
+  - Contact 폼 아래에 "Prefer email? support@sl-studio.dev" 문구 추가.
+  - 두 앱 다 iOS/Android 네이티브 빌드 작업 중이라는 본인 확인에 따라 각 앱 메타 라인을 "web app"에서
+    "web, iOS & Android"로 변경.
+  - Wordflow는 아직 라이선스 승인 대기 중이라 퍼블릭에 마케팅 콘텐츠 보여주고 싶지 않다는 요청으로,
+    `AppEntry`에 `comingSoon` 플래그 추가. 홈 카드/상세 페이지 둘 다 캐치라인, 설명, 차별점 섹션,
+    상태 체크리스트를 안 보여주고 "Coming soon." + "We're finishing up the approval process. This
+    will be live soon."만 노출. 메타 태그(og description)도 실제 설명 안 새게 처리 확인함. 실제
+    콘텐츠는 `src/lib/apps.ts`와 `src/app/wordflow/page.tsx`에 그대로 남아있고 렌더링만 조건부로
+    건너뜀 — 나중에 승인 나면 `comingSoon: false`로 한 줄만 바꾸면 전체 페이지 바로 복원됨.
 
 ## 남은 것
 
 - [ ] **모바일 반응형 다듬기 (진행 중)** — 터치 타겟 크기(Contact/CTA 링크에 탭 여백 추가),
   좁은 화면에서 배지 줄바꿈 안전장치, 섹션 여백 축소는 코드 레벨로 반영해서 배포함. 다만 브라우저
   자동화 툴이 실제 좁은 뷰포트를 강제하지 못해서(창 크기 조절이 안 먹힘) 실기기 스크린샷으로는 확인
-  못 함 — 본인이 실제 폰으로 `sl-studio.dev` 열어보고 어색한 부분 알려주면 마무리.
-- [ ] **iOS/Android 다운로드 링크** — 아직 두 앱 다 네이티브 빌드/스토어 등록이 없음. 실제 앱스토어/
-  플레이스토어 URL이 생기면 빌드 로그 카드에 배지/링크 추가.
+  못 함. 본인이 실제 폰으로 `sl-studio.dev` 열어보고 어색한 부분 알려주면 마무리.
+- [ ] **iOS/Android 다운로드 링크 (작업 진행 중)** — 두 앱 다 네이티브 빌드 작업 중이라고 확인함(메타
+  라인엔 이미 반영). 실제 앱스토어/플레이스토어 URL이 생기면 빌드 로그 카드에 배지/링크 추가.
 - [ ] **Wordflow 서브도메인** — `wordflow.sl-studio.dev` 같은 서브도메인을 Wordflow **자체** Vercel
   프로젝트(`sl-studio/wordflow`) 설정에서 추가해야 함. 이 레포 작업 아님, wordflow 레포에서 진행.
 - [ ] **파비콘/브랜드 마크** — 지금은 create-next-app 기본 파비콘 그대로. "SL" 모노그램 심볼로 교체.
