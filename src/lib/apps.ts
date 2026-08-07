@@ -34,6 +34,11 @@ export type AppEntry = {
   demo?: { src: string; width: number; height: number; alt: string };
   features?: Feature[];
   statusItems?: StatusItem[];
+  // When true, the public site shows a minimal "coming soon" placeholder instead of the
+  // catchline/description/different/features/statusItems content below, on both the homepage
+  // card and the detail page. The content itself stays here (not deleted) so flipping this back
+  // to false instantly restores the full page.
+  comingSoon?: boolean;
 };
 
 export const apps: AppEntry[] = [
@@ -44,7 +49,7 @@ export const apps: AppEntry[] = [
     name: "Sprout",
     tagline: "The multilingual baby journal built to actually stick.",
     catchline: "Record your baby's every milestone, memory, and moment.",
-    meta: "Family journal · web app · started 2026",
+    meta: "Family journal · web, iOS & Android · started 2026",
     stamp: { text: "Pre-launch", tone: "positive" },
     description:
       "A private, shared journal for our son. Built for our own family first, and solid enough now that other families could use it too. Private by default: only the people you invite can ever see it.",
@@ -93,8 +98,9 @@ export const apps: AppEntry[] = [
     name: "Wordflow",
     tagline: "Bible reading that survives past January.",
     catchline: "Read the Bible in a few minutes a day.",
-    meta: "Daily Bible reading · web app · started 2026",
-    stamp: { text: "Awaiting license", tone: "pending" },
+    meta: "Daily Bible reading · web, iOS & Android · started 2026",
+    stamp: { text: "Coming soon", tone: "pending" },
+    comingSoon: true,
     description:
       "A habit-sized way to read the Bible daily, $3.99/month with a 7-day free trial. Payments and the daily reading flow are built and tested. We're waiting on a commercial license from our translation's publisher before it can go live.",
     different: {

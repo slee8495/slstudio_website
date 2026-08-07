@@ -99,7 +99,7 @@ export default function Home() {
                   {app.meta}
                 </p>
                 <p className="mt-4 text-ink-soft leading-relaxed">
-                  {app.tagline}
+                  {app.comingSoon ? "Coming soon." : app.tagline}
                 </p>
                 <span className="inline-flex items-center gap-1.5 mt-5 font-medium text-sm text-ink group-hover:text-ink-soft transition-colors">
                   View {app.name} <span aria-hidden>→</span>
@@ -148,6 +148,16 @@ export default function Home() {
         </div>
         <div className="mt-6 max-w-2xl">
           <ContactForm />
+          <p className="mt-4 font-mono text-xs text-ink-soft">
+            Prefer email? Reach us directly at{" "}
+            <a
+              href="mailto:support@sl-studio.dev"
+              className="text-ink hover:text-ink-soft transition-colors underline underline-offset-2"
+            >
+              support@sl-studio.dev
+            </a>
+            .
+          </p>
         </div>
       </section>
 
