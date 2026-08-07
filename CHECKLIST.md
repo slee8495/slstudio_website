@@ -75,16 +75,18 @@
 - [x] **테마 한 단계 더 밝게 (총 두 번).** 배경 `#faf3e6` → `#fdf8ef` → `#fffdf8`로 점점 화이트에 가깝게,
   카드는 순백(`#ffffff`)으로 바꿔서 배경과 대비되게, 보더 톤도 같이 밝힘.
 - [x] **Contact에 직접 이메일 안내 추가, 메타에 iOS/Android 표기, Wordflow 콘텐츠 비공개 처리**
-  (2026-08-07).
-  - Contact 폼 아래에 "Prefer email? support@sl-studio.dev" 문구 추가.
-  - 두 앱 다 iOS/Android 네이티브 빌드 작업 중이라는 본인 확인에 따라 각 앱 메타 라인을 "web app"에서
-    "web, iOS & Android"로 변경.
-  - Wordflow는 아직 라이선스 승인 대기 중이라 퍼블릭에 마케팅 콘텐츠 보여주고 싶지 않다는 요청으로,
+  (2026-08-07, 이후 문구 두 차례 더 다듬음).
+  - Contact 폼 아래에 이메일 직접 연락 문구 추가. 처음엔 "Prefer email? ..."로 했다가 "이건 너무
+    영업용 말투"라는 피드백으로 "If you'd rather email us directly, reach out at ..."로 재수정.
+  - 앱스토어/플레이스토어로만 팔 예정(광고 정책 문제)이라는 본인 확인에 따라 메타 라인에서 "web"을
+    아예 빼고 "iOS & Android"만 남김(처음엔 "web, iOS & Android"로 했다가 수정).
+  - Wordflow는 아직 라이선스 승인 대기 중이라 퍼블릭에 마케팅 콘텐츠 보여주고 싶지 않다는 요청으로
     `AppEntry`에 `comingSoon` 플래그 추가. 홈 카드/상세 페이지 둘 다 캐치라인, 설명, 차별점 섹션,
-    상태 체크리스트를 안 보여주고 "Coming soon." + "We're finishing up the approval process. This
-    will be live soon."만 노출. 메타 태그(og description)도 실제 설명 안 새게 처리 확인함. 실제
+    상태 체크리스트를 안 보여줌. 상세 페이지 문구도 처음엔 "We're finishing up the approval
+    process..."로 했다가 "승인중이네 뭐네 하지 말고 그냥 곧 온다는 느낌만"이라는 피드백으로 단순히
+    "Coming soon!" 한 줄로 축소. 메타 태그(og description)도 실제 설명 안 새게 처리 확인함. 실제
     콘텐츠는 `src/lib/apps.ts`와 `src/app/wordflow/page.tsx`에 그대로 남아있고 렌더링만 조건부로
-    건너뜀 — 나중에 승인 나면 `comingSoon: false`로 한 줄만 바꾸면 전체 페이지 바로 복원됨.
+    건너뜀. 나중에 승인 나면 `comingSoon: false`로 한 줄만 바꾸면 전체 페이지 바로 복원됨.
 
 ## 남은 것
 
