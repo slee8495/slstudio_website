@@ -1,13 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #ffffff;
-  --bg-subtle: #f7f7f5;
-  --ink: #191919;
-  --ink-soft: #787774;
-  --border: #e9e9e7;
-  --status-positive: #2f6b45;
-  --status-pending: #9a7b1f;
+  /* Warm parchment base — matches the real palette both Sprout and Wordflow already ship with,
+     instead of an unrelated generic light/dark theme. */
+  --bg: #faf3e6;
+  --bg-subtle: #fffaf1;
+  --ink: #3a2e26;
+  --ink-soft: #6b5c4d;
+  --border: #e4d5c1;
+  --status-positive: #4f7a52;
+  --status-pending: #a8792f;
+
+  /* Per-app accent, pulled from each app's own real theme — used only on that app's page. */
+  --accent-sprout: #3f7a4f;
+  --accent-sprout-tint: #e8f0e6;
+  --accent-wordflow: #b85c34;
+  --accent-wordflow-tint: #f5e6dc;
 }
 
 @theme inline {
@@ -18,6 +26,10 @@
   --color-border: var(--border);
   --color-status-positive: var(--status-positive);
   --color-status-pending: var(--status-pending);
+  --color-accent-sprout: var(--accent-sprout);
+  --color-accent-sprout-tint: var(--accent-sprout-tint);
+  --color-accent-wordflow: var(--accent-wordflow);
+  --color-accent-wordflow-tint: var(--accent-wordflow-tint);
 
   --font-display: var(--font-display);
   --font-body: var(--font-body);

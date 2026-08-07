@@ -35,7 +35,7 @@ export default function SproutPage() {
         <div className="flex items-center gap-4">
           <span
             aria-hidden
-            className="inline-flex h-14 w-14 items-center justify-center rounded-xl border border-border bg-bg text-2xl shrink-0"
+            className="inline-flex h-14 w-14 items-center justify-center rounded-xl border border-accent-sprout/25 bg-accent-sprout-tint text-2xl shrink-0"
           >
             {app.icon}
           </span>
@@ -56,12 +56,26 @@ export default function SproutPage() {
             </h1>
           </div>
         </div>
-        <p className="font-mono text-[11px] uppercase tracking-wide text-ink-soft mt-6">
+        <p className="mt-6 max-w-2xl font-display text-xl md:text-2xl font-medium tracking-tight leading-snug">
+          {app.catchline}
+        </p>
+        <p className="font-mono text-[11px] uppercase tracking-wide text-ink-soft mt-4">
           {app.meta}
         </p>
         <p className="mt-4 max-w-2xl text-base md:text-lg text-ink-soft leading-relaxed">
           {app.description}
         </p>
+      </section>
+
+      <section className="pb-14 md:pb-20">
+        <div className="max-w-3xl border border-accent-sprout/25 bg-accent-sprout-tint rounded-lg p-6 md:p-8">
+          <h2 className="font-display text-xl md:text-2xl font-semibold tracking-tight">
+            {app.different.title}
+          </h2>
+          <p className="mt-3 text-ink-soft leading-relaxed">
+            {app.different.body}
+          </p>
+        </div>
       </section>
 
       {app.demo && (

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { ContactForm } from "@/components/contact-form";
 import { apps, getApp } from "@/lib/apps";
 
 const stampDotClasses: Record<"positive" | "pending", string> = {
@@ -107,6 +108,48 @@ export default function Home() {
             </li>
           ))}
         </ul>
+      </section>
+
+      <section id="about" className="pb-14 md:pb-20 scroll-mt-24">
+        <div className="border-t border-border pt-4">
+          <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-ink-soft">
+            About
+          </h2>
+        </div>
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+          <h3 className="font-display text-2xl md:text-3xl font-semibold tracking-tight leading-tight">
+            A small studio, not a startup.
+          </h3>
+          <p className="text-ink-soft leading-relaxed">
+            SL Studio builds focused software for real problems — usually
+            ones we&apos;re living through ourselves first. No outside
+            funding, no roadmap chasing growth metrics: just careful
+            software, shipped when it&apos;s actually ready, for people who
+            need exactly what it does. Sprout and Wordflow are the first two
+            entries in the log. More will follow, each one starting the same
+            way — as something we needed and couldn&apos;t find done well.
+          </p>
+        </div>
+      </section>
+
+      <section id="contact" className="pb-14 md:pb-20 scroll-mt-24">
+        <div className="border-t border-border pt-4">
+          <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-ink-soft">
+            Contact
+          </h2>
+        </div>
+        <div className="mt-8 max-w-2xl">
+          <h3 className="font-display text-2xl md:text-3xl font-semibold tracking-tight">
+            Get in touch.
+          </h3>
+          <p className="mt-2 text-ink-soft leading-relaxed">
+            Questions, feedback, or just want to say hi — this goes straight
+            to us.
+          </p>
+        </div>
+        <div className="mt-6 max-w-2xl">
+          <ContactForm />
+        </div>
       </section>
 
       <SiteFooter />

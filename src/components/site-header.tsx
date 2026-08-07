@@ -16,6 +16,12 @@ export function SiteHeader() {
         </span>
       </Link>
       <nav className="flex items-center gap-6">
+        <Link
+          href="/#about"
+          className="inline-block py-2 -my-2 font-mono text-xs uppercase tracking-wide text-ink-soft hover:text-ink transition-colors rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink focus-visible:outline-offset-2"
+        >
+          About
+        </Link>
         {apps.map((app) => (
           <Link
             key={app.slug}
@@ -25,12 +31,12 @@ export function SiteHeader() {
             {app.name}
           </Link>
         ))}
-        <a
-          href="mailto:support@sl-studio.dev"
+        <Link
+          href="/#contact"
           className="inline-block py-2 -my-2 font-mono text-xs uppercase tracking-wide text-ink-soft hover:text-ink transition-colors rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink focus-visible:outline-offset-2"
         >
           Contact
-        </a>
+        </Link>
       </nav>
     </header>
   );

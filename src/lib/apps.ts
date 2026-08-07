@@ -14,15 +14,22 @@ export type StatusItem = {
   label: string;
 };
 
+export type Different = {
+  title: string;
+  body: string;
+};
+
 export type AppEntry = {
   slug: string;
   number: string;
   icon: string;
   name: string;
   tagline: string;
+  catchline: string;
   meta: string;
   stamp: Stamp;
   description: string;
+  different: Different;
   cta: { label: string; href: string } | null;
   demo?: { src: string; width: number; height: number; alt: string };
   features?: Feature[];
@@ -36,10 +43,15 @@ export const apps: AppEntry[] = [
     icon: "🌱",
     name: "Sprout",
     tagline: "The multilingual baby journal built to actually stick.",
+    catchline: "Record your baby's every milestone, memory, and moment.",
     meta: "Family journal · web app · started 2026",
     stamp: { text: "Pre-launch", tone: "positive" },
     description:
-      "Most baby journal apps get abandoned by month two — too much friction, one parent carrying it alone, or built for families who only speak one language. Sprout is built differently: voice memos for the nights you're too tired to type, milestones that resurface on \"this day,\" both parents writing to the same journal, and full support in English, Korean, Japanese, Chinese, and Spanish. Private by default — only the people you invite can ever see it. Built for our own son first, and solid enough now that other families are next.",
+      "A private, shared journal for our son — built for our own family first, and solid enough now that other families could use it too. Private by default: only the people you invite can ever see it.",
+    different: {
+      title: "Why not just use another baby journal app?",
+      body: "There's no shortage of them. Most get abandoned by month two for one of three reasons: they're English-only, they put all the work on one parent, or typing at 2am is too much friction to keep up. Sprout fixes all three — voice memos for the nights you're too tired to type, both parents writing to the same journal, and full support in English, Korean, Japanese, Chinese, and Spanish.",
+    },
     cta: null,
     demo: {
       src: "/demos/sprout-demo.gif",
@@ -80,10 +92,15 @@ export const apps: AppEntry[] = [
     icon: "📖",
     name: "Wordflow",
     tagline: "Bible reading that survives past January.",
+    catchline: "Read the Bible in a few minutes a day.",
     meta: "Daily Bible reading · web app · started 2026",
     stamp: { text: "Awaiting license", tone: "pending" },
     description:
-      "Most reading plans ask for more time than most days actually have, so they get abandoned fast. Wordflow breaks it into a few minutes a day — enough to build a real habit, not another app forgotten by February. $3.99/month with a 7-day free trial. Payments and the daily reading flow are built and tested; we're waiting on a commercial license from our translation's publisher before it goes live.",
+      "A habit-sized way to read the Bible daily, $3.99/month with a 7-day free trial. Payments and the daily reading flow are built and tested — we're waiting on a commercial license from our translation's publisher before it can go live.",
+    different: {
+      title: "Why not just use another Bible app?",
+      body: "There's no shortage of those either. Most ask for more time than most days actually have — a full chapter, a multi-year read-the-whole-Bible plan — which is exactly why people quit by February. Wordflow breaks it into a few minutes a day, enough to actually build the habit instead of another guilt-inducing streak you eventually break.",
+    },
     cta: null,
     statusItems: [
       { done: true, label: "Daily reading flow — built and tested" },
