@@ -2,15 +2,12 @@ import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ContactForm } from "@/components/contact-form";
-import { DemoMedia } from "@/components/demo-media";
-import { apps, getApp } from "@/lib/apps";
+import { apps } from "@/lib/apps";
 
 const stampDotClasses: Record<"positive" | "pending", string> = {
   positive: "bg-status-positive",
   pending: "bg-status-pending",
 };
-
-const featured = getApp("sprout");
 
 export default function Home() {
   return (
@@ -29,33 +26,6 @@ export default function Home() {
           anyone else. New entries land in the log as they&apos;re ready.
         </p>
       </section>
-
-      {featured?.demo && (
-        <section className="pb-16 md:pb-24">
-          <Link
-            href={`/${featured.slug}`}
-            className={`group block mx-auto rounded-xl border border-border overflow-hidden bg-bg-subtle transition-colors hover:border-ink/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink focus-visible:outline-offset-2 ${
-              featured.demo.height > featured.demo.width
-                ? "max-w-[320px] sm:max-w-[360px]"
-                : "max-w-4xl"
-            }`}
-          >
-            <DemoMedia
-              demo={featured.demo}
-              className="w-full h-auto block"
-            />
-          </Link>
-          <p className="text-center mt-4 font-mono text-xs uppercase tracking-wide text-ink-soft">
-            {featured.name}, in progress:{" "}
-            <Link
-              href={`/${featured.slug}`}
-              className="text-ink hover:text-ink-soft transition-colors underline underline-offset-2"
-            >
-              see how it works →
-            </Link>
-          </p>
-        </section>
-      )}
 
       <section className="pb-14 md:pb-20">
         <div className="flex items-end justify-between border-t border-border pt-4">
