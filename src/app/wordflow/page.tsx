@@ -8,7 +8,7 @@ import { getApp } from "@/lib/apps";
 const app = getApp("wordflow");
 
 export const metadata: Metadata = {
-  title: `${app?.name} · SL Studio`,
+  title: app?.name,
   description: app?.comingSoon
     ? `${app?.name} is coming soon.`
     : app?.description,

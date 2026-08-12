@@ -2,6 +2,7 @@ import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ContactForm } from "@/components/contact-form";
+import { DemoMedia } from "@/components/demo-media";
 import { apps, getApp } from "@/lib/apps";
 
 const stampDotClasses: Record<"positive" | "pending", string> = {
@@ -33,15 +34,15 @@ export default function Home() {
         <section className="pb-16 md:pb-24">
           <Link
             href={`/${featured.slug}`}
-            className="group block max-w-4xl mx-auto rounded-xl border border-border overflow-hidden bg-bg-subtle transition-colors hover:border-ink/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink focus-visible:outline-offset-2"
+            className={`group block mx-auto rounded-xl border border-border overflow-hidden bg-bg-subtle transition-colors hover:border-ink/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink focus-visible:outline-offset-2 ${
+              featured.demo.height > featured.demo.width
+                ? "max-w-[320px] sm:max-w-[360px]"
+                : "max-w-4xl"
+            }`}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element -- animated GIF, next/image would strip animation */}
-            <img
-              src={featured.demo.src}
-              width={featured.demo.width}
-              height={featured.demo.height}
-              alt={featured.demo.alt}
-              className="w-full h-auto"
+            <DemoMedia
+              demo={featured.demo}
+              className="w-full h-auto block"
             />
           </Link>
           <p className="text-center mt-4 font-mono text-xs uppercase tracking-wide text-ink-soft">

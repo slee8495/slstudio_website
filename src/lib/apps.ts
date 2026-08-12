@@ -19,6 +19,14 @@ export type Different = {
   body: string;
 };
 
+export type Demo = {
+  type: "image" | "video";
+  src: string;
+  width: number;
+  height: number;
+  alt: string;
+};
+
 export type AppEntry = {
   slug: string;
   number: string;
@@ -31,7 +39,7 @@ export type AppEntry = {
   description: string;
   different: Different;
   cta: { label: string; href: string } | null;
-  demo?: { src: string; width: number; height: number; alt: string };
+  demo?: Demo;
   features?: Feature[];
   statusItems?: StatusItem[];
   // When true, the public site shows a minimal "coming soon" placeholder instead of the
@@ -59,10 +67,11 @@ export const apps: AppEntry[] = [
     },
     cta: null,
     demo: {
-      src: "/demos/sprout-demo.gif",
-      width: 1512,
-      height: 793,
-      alt: "Screen recording of Sprout: writing a journal entry, tagging it as a milestone, and viewing it in the Feed and Milestones tabs",
+      type: "video",
+      src: "/demos/sprout-demo.mp4",
+      width: 840,
+      height: 1446,
+      alt: "Screen recording of Sprout: browsing the journal calendar, reading Feed entries and milestones, and switching languages in Settings",
     },
     features: [
       {

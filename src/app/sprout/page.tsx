@@ -3,12 +3,13 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { DemoMedia } from "@/components/demo-media";
 import { getApp } from "@/lib/apps";
 
 const app = getApp("sprout");
 
 export const metadata: Metadata = {
-  title: `${app?.name} · SL Studio`,
+  title: app?.name,
   description: app?.description,
 };
 
@@ -80,15 +81,14 @@ export default function SproutPage() {
 
       {app.demo && (
         <section className="pb-14 md:pb-20">
-          <div className="max-w-4xl mx-auto rounded-md border border-border overflow-hidden bg-bg">
-            {/* eslint-disable-next-line @next/next/no-img-element -- animated GIF, next/image would strip animation */}
-            <img
-              src={app.demo.src}
-              width={app.demo.width}
-              height={app.demo.height}
-              alt={app.demo.alt}
-              className="w-full h-auto"
-            />
+          <div
+            className={`mx-auto rounded-md border border-border overflow-hidden bg-bg ${
+              app.demo.height > app.demo.width
+                ? "max-w-[320px] sm:max-w-[360px]"
+                : "max-w-4xl"
+            }`}
+          >
+            <DemoMedia demo={app.demo} className="w-full h-auto block" />
           </div>
         </section>
       )}
