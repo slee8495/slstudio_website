@@ -88,6 +88,18 @@
     콘텐츠는 `src/lib/apps.ts`와 `src/app/wordflow/page.tsx`에 그대로 남아있고 렌더링만 조건부로
     건너뜀. 나중에 승인 나면 `comingSoon: false`로 한 줄만 바꾸면 전체 페이지 바로 복원됨.
 
+- [x] **파비콘/브랜드 마크 + OG 이미지/소셜 메타태그** (2026-08-08) — create-next-app 기본 파비콘을
+  Next.js 코드 생성 아이콘(`app/icon.tsx`, `app/apple-icon.tsx`)의 "SL" 모노그램으로 교체(니어블랙
+  배경 `#3a2e26` + 웜 배경색 `#fffdf8` 글자, 32x32/180x180). 기존 `favicon.ico`는 삭제(코드 생성
+  아이콘이 대체). 링크 공유 시 미리보기용 OG/트위터 이미지(`app/opengraph-image.tsx`,
+  `app/twitter-image.tsx`, 1200x630, "SL Studio" 워드마크 + 태그라인)도 `next/og`의
+  `ImageResponse`로 생성해서 추가, 두 라우트가 같은 디자인을 `src/lib/social-image.tsx`에서
+  공유. 루트 레이아웃 메타데이터에 `metadataBase`(`https://sl-studio.dev`), `openGraph`,
+  `twitter` 필드 추가. 부수적으로 타이틀 템플릿(`%s · SL Studio`)도 추가해서 Sprout/Wordflow
+  페이지의 타이틀이 중복 접미사(`· SL Studio · SL Studio`)로 안 붙게 정리. `next build` +
+  로컬 서버에서 `/icon`, `/apple-icon`, `/opengraph-image` 실제 렌더링 결과 스크린샷으로 확인,
+  홈페이지 `<head>` 메타태그 출력도 확인 완료.
+
 ## 남은 것
 
 - [ ] **모바일 반응형 다듬기 (진행 중)** — 터치 타겟 크기(Contact/CTA 링크에 탭 여백 추가),
@@ -98,9 +110,33 @@
   라인엔 이미 반영). 실제 앱스토어/플레이스토어 URL이 생기면 빌드 로그 카드에 배지/링크 추가.
 - [ ] **Wordflow 서브도메인** — `wordflow.sl-studio.dev` 같은 서브도메인을 Wordflow **자체** Vercel
   프로젝트(`sl-studio/wordflow`) 설정에서 추가해야 함. 이 레포 작업 아님, wordflow 레포에서 진행.
-- [ ] **파비콘/브랜드 마크** — 지금은 create-next-app 기본 파비콘 그대로. "SL" 모노그램 심볼로 교체.
-- [ ] **OG 이미지 / 소셜 메타태그** — 카카오톡, 슬랙, 트위터 등에 링크 공유할 때 보이는 미리보기 이미지/
-  설명 없음. 추가 필요.
 - [ ] **www 서브도메인 처리** — `www.sl-studio.dev` 리다이렉트 여부 결정 안 됨 (현재 apex만 연결됨).
 - [ ] **세 번째 앱 추가** — 새 앱이 나오면 `src/lib/apps.ts`에 항목 추가 + `src/app/<slug>/page.tsx`
   전용 페이지 생성. 정직한 상태 표시, 실제 있는 것만(데모/스크린샷/기능/CTA) 넣기.
+
+## 완료됨 (계속)
+
+- [x] **Sprout 데모를 GIF에서 실제 홍보 영상(mp4)로 교체** (2026-08-12) — 사용자가 레포 루트에
+  `sprout-demo-cut.mp4`(세로 840x1446, 33초, 온보딩부터 Journal/Feed/Milestones/Settings까지
+  훑고 캡션 박힌 완성 프로모 영상)를 직접 넣어둠. `public/demos/sprout-demo.mp4`로 옮기고 기존
+  `sprout-demo.gif` 삭제. `src/lib/apps.ts`의 `demo` 타입에 `type: "image" | "video"` 추가,
+  Sprout 항목을 새 영상으로 교체(alt 텍스트도 실제 영상 내용에 맞게 갱신). 홈페이지/`/sprout`
+  페이지에서 GIF `<img>`를 직접 렌더링하던 중복 코드를 `src/components/demo-media.tsx`
+  (`DemoMedia`, type에 따라 `<video>`/`<img>` 분기)로 통합. 세로 영상이라 기존 `max-w-4xl`
+  풀와이드 컨테이너 대신 세로 비율일 때만 좁은 컨테이너(`max-w-[320px] sm:max-w-[360px]`)로
+  분기하도록 두 페이지 다 수정.
+  - **버그 발견 및 수정**: 실제 브라우저에서 영상이 아예 재생되지 않는 문제 발견. 원인은 mp4의
+    `moov` 박스(메타데이터)가 파일 맨 앞이 아니라 맨 끝에 있는("faststart" 아닌) 상태였음:
+    이러면 브라우저가 전체 파일을 다 받아야 재생 가능한 메타데이터를 얻을 수 있어서 특히
+    Safari/iOS에서 재생이 아예 안 되거나 크게 지연됨. `ffmpeg -c copy -movflags +faststart`로
+    무손실 리먹싱(재인코딩 없음, 디코딩된 프레임 데이터 md5 대조로 동일함 확인)해서 moov를
+    파일 앞으로 이동시켜 해결. Range 요청(206 Partial Content) 정상 동작도 curl로 확인.
+  - **확인 관련 제약**: 이 세션에서 쓰는 Chrome 자동화 툴 자체가 영상 재생을 지원하지 않는
+    것으로 보임(우리 파일뿐 아니라 MDN의 공개 테스트 mp4도 로딩 스피너에서 멈춤). 그래서
+    faststart 수정 후에도 자동화 브라우저로 실제 재생 성공 여부는 육안 확인 못 함(레이아웃/
+    컨테이너 크기는 스크린샷으로 확인). `next build` 통과, curl로 Range 요청/컨텐츠 타입 정상
+    확인. 본인이 실제 브라우저로 `sl-studio.dev` 홈/Sprout 페이지 열어서 영상이 잘 뜨고
+    자동재생/루프 되는지 최종 확인 필요.
+  - **영상 내용 관련 참고**: 영상 마지막 8초 가량(설정 화면)에 "Signed in as
+    slstudio8495@gmail.com"과 계정 삭제(Danger zone) 섹션이 그대로 노출됨. 데모 계정이라
+    실제 가족 데이터는 아니지만, 본인 확인 결과 "그냥 이대로 임베드"하기로 결정함(트림 안 함).
