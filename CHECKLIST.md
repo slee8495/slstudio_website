@@ -159,3 +159,16 @@
   `ffmpeg -movflags +faststart`로 무손실 리먹싱해서 교체. 원본 PNG/mp4는 레포 루트에서 정리함.
   `next build` 통과, 자동화 브라우저 스크린샷 확대(zoom)로 이미지 4장 다 정상 렌더링 확인
   (풀사이즈 스크린샷에서는 흐릿하게 보였지만 확대해보니 정상 렌더링, 스크린샷 압축 문제였음).
+- [x] **Sprout 마케팅 카피 재작성: "카메라롤 vs 평생 보관 아카이브" 훅으로 전환** (2026-08-12) —
+  본인이 짚어준 실제 포인트: 나중에 애기한테 "너 이때 이랬어" 하려면 지금은 장롱 속 앨범을 꺼내야
+  하고, 폰으로 다 찍었어도 10년 넘게 찍으면 몇만 장이 돼서 정작 그 순간 무슨 생각을 했는지는
+  카메라롤에 안 남는다는 것. Sprout는 전부가 아니라 기억하고 싶은 순간만 날짜 + 그때 생각/코멘트를
+  붙여서 평생 보관하고, 나중에 아이에게 선물처럼 넘겨주는 앱이라는 게 진짜 훅. `src/lib/apps.ts`의
+  Sprout `tagline`("The moments worth keeping, not another camera roll."), `catchline`("Save
+  the moments you'll want to hand back to them, someday."), `meta`("Lifelong memory journal"로
+  변경), `description`, `different`(제목을 "Why not just keep the photos on your phone?"로
+  교체, 카메라롤 몇만 장 문제 + "A camera roll can hold the photo. It can't hold the memory."
+  훅 문구) 전부 재작성. 기존에 있던 "다른 베이비저널 앱과 비교"(다국어/음성메모/양쪽 부모) 차별점은
+  삭제 안 하고 `features` 그리드에 그대로 남겨둠, 리드 메시지만 카메라롤/평생보관 훅으로 교체.
+  홈페이지 카드(`tagline` 재사용)와 `/sprout` 페이지 둘 다 로컬 스크린샷으로 확인, `next build`
+  통과. 다음 작업: Sprout 페이지에 "How to use the app" 섹션 추가 예정.
