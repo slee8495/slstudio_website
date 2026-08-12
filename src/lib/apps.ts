@@ -67,7 +67,7 @@ export const apps: AppEntry[] = [
     meta: "Lifelong memory journal · iOS & Android · started 2026",
     stamp: { text: "Pre-launch", tone: "positive" },
     description:
-      "A private, shared journal for our son: not every photo, just the moments we'll want to remember, the date, and what we were thinking when it happened. A camera roll can hold the photo. It can't hold the memory. Built for our own family first, and private by default: only the people you invite can ever see it.",
+      "A private, shared journal for our baby: not every photo, just the moments we'll want to remember, the date, and what we were thinking when it happened. A camera roll can hold the photo. It can't hold the memory. Built for our own family first, and private by default: only the people you invite can ever see it.",
     different: {
       title: "Why not just keep the photos on your phone?",
       body: "Ten years of that and you'll have tens of thousands of photos, most of them near duplicates, with no way to find the one that mattered or remember what you were thinking when you took it. Sprout only holds the moments you chose to keep: dated, with your own words attached, so it becomes one story you can hand back someday, not a camera roll you'd never finish scrolling.",
