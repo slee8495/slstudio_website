@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/site-header";
@@ -78,6 +79,35 @@ export default function SproutPage() {
           </p>
         </div>
       </section>
+
+      {app.beforeAfter && (
+        <section className="pb-14 md:pb-20">
+          <div className="border-t border-border pt-4">
+            <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-ink-soft">
+              {app.beforeAfter.label}
+            </h2>
+          </div>
+          <ul className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {app.beforeAfter.images.map((image) => (
+              <li
+                key={image.src}
+                className="rounded-lg overflow-hidden border border-border"
+              >
+                <Image
+                  src={image.src}
+                  width={image.width}
+                  height={image.height}
+                  alt={image.alt}
+                  className="w-full h-auto block"
+                />
+              </li>
+            ))}
+          </ul>
+          <p className="mt-8 text-center font-display text-xl md:text-2xl font-medium tracking-tight">
+            {app.beforeAfter.punchline}
+          </p>
+        </section>
+      )}
 
       {app.demo && (
         <section className="pb-14 md:pb-20">

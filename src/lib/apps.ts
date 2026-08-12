@@ -27,6 +27,12 @@ export type Demo = {
   alt: string;
 };
 
+export type BeforeAfter = {
+  label: string;
+  images: { src: string; width: number; height: number; alt: string }[];
+  punchline: string;
+};
+
 export type AppEntry = {
   slug: string;
   number: string;
@@ -40,6 +46,7 @@ export type AppEntry = {
   different: Different;
   cta: { label: string; href: string } | null;
   demo?: Demo;
+  beforeAfter?: BeforeAfter;
   features?: Feature[];
   statusItems?: StatusItem[];
   // When true, the public site shows a minimal "coming soon" placeholder instead of the
@@ -66,6 +73,36 @@ export const apps: AppEntry[] = [
       body: "There's no shortage of them. Most get abandoned by month two for one of three reasons: they're English-only, they put all the work on one parent, or typing at 2am is too much friction to keep up. Sprout fixes all three: voice memos for the nights you're too tired to type, both parents writing to the same journal, and full support in English, Korean, Japanese, Chinese, and Spanish.",
     },
     cta: null,
+    beforeAfter: {
+      label: "Before Sprout",
+      images: [
+        {
+          src: "/sprout/before-01.jpg",
+          width: 840,
+          height: 815,
+          alt: "Illustration: cutting photos to fit the page",
+        },
+        {
+          src: "/sprout/before-02.jpg",
+          width: 840,
+          height: 815,
+          alt: "Illustration: printing every single one",
+        },
+        {
+          src: "/sprout/before-03.jpg",
+          width: 840,
+          height: 815,
+          alt: "Illustration: writing it all down by hand",
+        },
+        {
+          src: "/sprout/before-04.jpg",
+          width: 840,
+          height: 815,
+          alt: "Illustration: one heavy book, always at home",
+        },
+      ],
+      punchline: "Now it's just... here.",
+    },
     demo: {
       type: "video",
       src: "/demos/sprout-demo.mp4",
