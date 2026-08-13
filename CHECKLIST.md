@@ -172,3 +172,15 @@
   삭제 안 하고 `features` 그리드에 그대로 남겨둠, 리드 메시지만 카메라롤/평생보관 훅으로 교체.
   홈페이지 카드(`tagline` 재사용)와 `/sprout` 페이지 둘 다 로컬 스크린샷으로 확인, `next build`
   통과. 다음 작업: Sprout 페이지에 "How to use the app" 섹션 추가 예정.
+- [x] **description의 "our son" → "our baby"로 수정** (2026-08-12) — 본인이 지적: 캐치라인/
+  태그라인/features는 전부 중립적인 "baby"인데 description만 "our son"으로 되어 있던 게 눈에
+  띔. 사이트 전체 카피 톤과 맞춰서 "our baby"로 통일.
+- [x] **데모 영상을 "5번째 일러스트(bridge)"부터 시작하는 버전으로 교체 + 키워드 서치 카피 추가**
+  (2026-08-12) — 사용자가 `sprout-demo-website.mp4`를 레포에 넣어둠(29.3초, 이전 버전과 달리
+  4장의 "before" 정지 이미지를 반복 안 하고 곧바로 5번째 일러스트인 "Now it's all just... here."
+  브릿지 프레임부터 시작). 페이지에 이미 정적 이미지로 나와 있는 앞의 4장과 자연스럽게 이어지도록
+  의도한 것 확인(ffmpeg로 프레임 추출해서 직접 확인함). 이전과 동일하게
+  `ffmpeg -movflags +faststart`로 무손실 리먹싱해서 `public/demos/sprout-demo.mp4` 교체. 동시에
+  본인 요청으로 차별점 박스 문구에 "searchable by keyword" 추가(영상 속 Feed 화면에 실제
+  "Search entries..." 필드가 보여서 확인된 실기능, "카메라롤에서 그 순간을 못 찾는다"는 문제
+  제기 바로 다음 문장이라 자연스럽게 연결됨). `next build` 통과, 로컬 서버에서 문구 반영 확인.
