@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { AppIcon } from "@/components/app-icon";
 import { getApp } from "@/lib/apps";
 
 const app = getApp("wordflow");
@@ -35,12 +36,12 @@ export default function WordflowPage() {
 
       <section className="pt-8 pb-12 md:pt-12 md:pb-16">
         <div className="flex items-center gap-4">
-          <span
-            aria-hidden
-            className="inline-flex h-14 w-14 items-center justify-center rounded-xl border border-accent-wordflow/25 bg-accent-wordflow-tint text-2xl shrink-0"
-          >
-            {app.icon}
-          </span>
+          <AppIcon
+            icon={app.icon}
+            name={app.name}
+            size="hero"
+            accentClass="border-accent-wordflow/25 bg-accent-wordflow-tint"
+          />
           <div>
             <span className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wide text-ink-soft">
               No. {app.number}

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ContactForm } from "@/components/contact-form";
+import { AppIcon } from "@/components/app-icon";
 import { apps } from "@/lib/apps";
 
 const stampDotClasses: Record<"positive" | "pending", string> = {
@@ -60,9 +61,7 @@ export default function Home() {
                   </span>
                 </div>
                 <div className="flex items-center gap-2.5 mt-3">
-                  <span aria-hidden className="text-xl leading-none">
-                    {app.icon}
-                  </span>
+                  <AppIcon icon={app.icon} name={app.name} />
                   <h3 className="font-display text-2xl md:text-3xl font-semibold">
                     {app.name}
                   </h3>

@@ -5,9 +5,10 @@ import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { DemoMedia } from "@/components/demo-media";
+import { AppIcon } from "@/components/app-icon";
 import { getApp } from "@/lib/apps";
 
-const app = getApp("sprout");
+const app = getApp("roun");
 
 export const metadata: Metadata = {
   title: app?.name,
@@ -19,7 +20,7 @@ const stampDotClasses: Record<"positive" | "pending", string> = {
   pending: "bg-status-pending",
 };
 
-export default function SproutPage() {
+export default function RounPage() {
   if (!app) notFound();
 
   return (
@@ -35,12 +36,12 @@ export default function SproutPage() {
 
       <section className="pt-8 pb-12 md:pt-12 md:pb-16">
         <div className="flex items-center gap-4">
-          <span
-            aria-hidden
-            className="inline-flex h-14 w-14 items-center justify-center rounded-xl border border-accent-sprout/25 bg-accent-sprout-tint text-2xl shrink-0"
-          >
-            {app.icon}
-          </span>
+          <AppIcon
+            icon={app.icon}
+            name={app.name}
+            size="hero"
+            accentClass="border-accent-roun/25 bg-accent-roun-tint"
+          />
           <div>
             <span className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wide text-ink-soft">
               No. {app.number}
@@ -70,7 +71,7 @@ export default function SproutPage() {
       </section>
 
       <section className="pb-14 md:pb-20">
-        <div className="max-w-3xl border border-accent-sprout/25 bg-accent-sprout-tint rounded-lg p-6 md:p-8">
+        <div className="max-w-3xl border border-accent-roun/25 bg-accent-roun-tint rounded-lg p-6 md:p-8">
           <h2 className="font-display text-xl md:text-2xl font-semibold tracking-tight">
             {app.different.title}
           </h2>
@@ -154,6 +155,43 @@ export default function SproutPage() {
               </li>
             ))}
           </ul>
+        </section>
+      )}
+
+      {app.nameStory && (
+        <section className="pb-14 md:pb-20">
+          <div className="border-t border-border pt-4">
+            <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-ink-soft">
+              {app.nameStory.label}
+            </h2>
+          </div>
+          <p className="mt-8 font-display text-4xl md:text-5xl font-semibold tracking-tight">
+            {app.name}
+          </p>
+          <p className="mt-3 text-ink-soft leading-relaxed">
+            {app.nameStory.intro}
+          </p>
+          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl">
+            {app.nameStory.meanings.map((meaning) => (
+              <div
+                key={meaning.language}
+                className="border border-border bg-bg-subtle rounded-lg p-5"
+              >
+                <span className="font-mono text-[11px] uppercase tracking-wide text-ink-soft">
+                  {meaning.language}
+                </span>
+                <p className="mt-2 font-display text-lg font-semibold tracking-tight">
+                  <em className="italic">{meaning.word}</em>, {meaning.meaning}
+                </p>
+                <p className="mt-1.5 text-sm text-ink-soft leading-relaxed">
+                  {meaning.detail}
+                </p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-6 max-w-2xl text-ink-soft leading-relaxed">
+            {app.nameStory.closing}
+          </p>
         </section>
       )}
 

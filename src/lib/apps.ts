@@ -33,10 +33,30 @@ export type BeforeAfter = {
   bridgeImage: { src: string; width: number; height: number; alt: string };
 };
 
+export type IconImage = {
+  src: string;
+  width: number;
+  height: number;
+};
+
+export type NameMeaning = {
+  language: string;
+  word: string;
+  meaning: string;
+  detail: string;
+};
+
+export type NameStory = {
+  label: string;
+  intro: string;
+  meanings: NameMeaning[];
+  closing: string;
+};
+
 export type AppEntry = {
   slug: string;
   number: string;
-  icon: string;
+  icon: string | IconImage;
   name: string;
   tagline: string;
   catchline: string;
@@ -47,6 +67,7 @@ export type AppEntry = {
   cta: { label: string; href: string } | null;
   demo?: Demo;
   beforeAfter?: BeforeAfter;
+  nameStory?: NameStory;
   features?: Feature[];
   statusItems?: StatusItem[];
   // When true, the public site shows a minimal "coming soon" placeholder instead of the
@@ -58,10 +79,14 @@ export type AppEntry = {
 
 export const apps: AppEntry[] = [
   {
-    slug: "sprout",
+    slug: "roun",
     number: "002",
-    icon: "🌱",
-    name: "Sprout",
+    icon: {
+      src: "/roun/icon.png",
+      width: 320,
+      height: 320,
+    },
+    name: "Roun",
     tagline: "The moments worth keeping, not another camera roll.",
     catchline: "Save the moments you'll want to hand back to them, someday.",
     meta: "Lifelong memory journal · iOS & Android · started 2026",
@@ -70,50 +95,71 @@ export const apps: AppEntry[] = [
       "A private, shared journal for our baby: not every photo, just the moments we'll want to remember, the date, and what we were thinking when it happened. A camera roll can hold the photo. It can't hold the memory. Built for our own family first, and private by default: only the people you invite can ever see it.",
     different: {
       title: "Why not just keep the photos on your phone?",
-      body: "Ten years of that and you'll have tens of thousands of photos, most of them near duplicates, with no way to find the one that mattered or remember what you were thinking when you took it. Sprout only holds the moments you chose to keep: dated, with your own words attached and searchable by keyword, so it becomes one story you can hand back someday, not a camera roll you'd never finish scrolling.",
+      body: "Ten years of that and you'll have tens of thousands of photos, most of them near duplicates, with no way to find the one that mattered or remember what you were thinking when you took it. Roun only holds the moments you chose to keep: dated, with your own words attached and searchable by keyword, so it becomes one story you can hand back someday, not a camera roll you'd never finish scrolling.",
     },
     cta: null,
     beforeAfter: {
-      label: "Before Sprout",
+      label: "Before Roun",
       images: [
         {
-          src: "/sprout/before-01.jpg",
+          src: "/roun/before-01.jpg",
           width: 840,
           height: 815,
           alt: "Illustration: cutting photos to fit the page",
         },
         {
-          src: "/sprout/before-02.jpg",
+          src: "/roun/before-02.jpg",
           width: 840,
           height: 815,
           alt: "Illustration: printing every single one",
         },
         {
-          src: "/sprout/before-03.jpg",
+          src: "/roun/before-03.jpg",
           width: 840,
           height: 815,
           alt: "Illustration: writing it all down by hand",
         },
         {
-          src: "/sprout/before-04.jpg",
+          src: "/roun/before-04.jpg",
           width: 840,
           height: 815,
           alt: "Illustration: one heavy book, always at home",
         },
       ],
       bridgeImage: {
-        src: "/sprout/before-05-bridge.jpg",
+        src: "/roun/before-05-bridge.jpg",
         width: 840,
         height: 575,
-        alt: "Illustration: a phone with the Sprout app icon, captioned \"Now it's all just... here.\"",
+        alt: "Illustration: a phone with the Roun app icon, captioned \"Now it's all just... here.\"",
       },
     },
     demo: {
       type: "video",
-      src: "/demos/sprout-demo.mp4",
+      src: "/demos/roun-demo.mp4",
       width: 840,
       height: 1446,
-      alt: "Screen recording of Sprout: browsing the journal calendar, reading Feed entries and milestones, and switching languages in Settings",
+      alt: "Screen recording of Roun: browsing the journal calendar, reading Feed entries and milestones, and switching languages in Settings",
+    },
+    nameStory: {
+      label: "The name",
+      intro: "Two unrelated languages, one idea:",
+      meanings: [
+        {
+          language: "Khmer (Cambodian)",
+          word: "suon",
+          meaning: "garden",
+          detail: "Something you tend patiently, one season at a time.",
+        },
+        {
+          language: "Old Norse",
+          word: "rún",
+          meaning: "hidden wisdom, a secret",
+          detail:
+            'The root of the English word "rune." Knowledge kept quietly until it\'s time to reveal it.',
+        },
+      ],
+      closing:
+        "A garden of things kept quietly, until they're ready to be found. Felt like the right name.",
     },
     features: [
       {
