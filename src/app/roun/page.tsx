@@ -6,6 +6,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { DemoMedia } from "@/components/demo-media";
 import { AppIcon } from "@/components/app-icon";
+import { AppleIcon, AndroidIcon } from "@/components/platform-icons";
 import { getApp } from "@/lib/apps";
 
 const app = getApp("roun");
@@ -158,6 +159,82 @@ export default function RounPage() {
         </section>
       )}
 
+      {app.pricing && (
+        <section className="pb-14 md:pb-20">
+          <div className="border-t border-border pt-4">
+            <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-ink-soft">
+              {app.pricing.label}
+            </h2>
+          </div>
+          <div className="mt-8 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            <span className="font-display text-3xl md:text-4xl font-semibold tracking-tight">
+              {app.pricing.price}
+            </span>
+            <span className="text-ink-soft">{app.pricing.trial}</span>
+          </div>
+          <p className="mt-2 text-sm text-ink-soft">{app.pricing.note}</p>
+
+          <div className="mt-8 max-w-2xl overflow-x-auto">
+            <table className="w-full border-collapse text-sm">
+              <thead>
+                <tr>
+                  <th className="text-left font-mono text-[11px] uppercase tracking-wide text-ink-soft pb-3 pr-4 border-b border-border" />
+                  <th className="text-left font-display text-base font-semibold pb-3 px-4 border-b border-border">
+                    Free
+                  </th>
+                  <th className="text-left font-display text-base font-semibold pb-3 px-4 border-b border-border bg-accent-roun-tint">
+                    Pro
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {app.pricing.rows.map((row) => (
+                  <tr key={row.label}>
+                    <td className="py-3 pr-4 font-mono text-[11px] uppercase tracking-wide text-ink-soft border-b border-border whitespace-nowrap">
+                      {row.label}
+                    </td>
+                    <td className="py-3 px-4 text-ink-soft border-b border-border">
+                      {row.free}
+                    </td>
+                    <td className="py-3 px-4 border-b border-border bg-accent-roun-tint/40">
+                      {row.pro}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      )}
+
+      {app.downloads && (
+        <section className="pb-14 md:pb-20">
+          <div className="border-t border-border pt-4">
+            <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-ink-soft">
+              {app.downloads.label}
+            </h2>
+          </div>
+          <div className="mt-8 flex flex-wrap gap-3">
+            {app.downloads.links.map((link) => {
+              const Icon = link.platform === "ios" ? AppleIcon : AndroidIcon;
+              return (
+                <span
+                  key={link.platform}
+                  aria-disabled={!link.href}
+                  className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm text-ink-soft opacity-60"
+                >
+                  <Icon className="h-4 w-4" />
+                  {link.label}
+                  <span className="font-mono text-[10px] uppercase tracking-wide">
+                    Coming soon
+                  </span>
+                </span>
+              );
+            })}
+          </div>
+        </section>
+      )}
+
       {app.nameStory && (
         <section className="pb-14 md:pb-20">
           <div className="border-t border-border pt-4">
@@ -168,30 +245,13 @@ export default function RounPage() {
           <p className="mt-8 font-display text-4xl md:text-5xl font-semibold tracking-tight">
             {app.name}
           </p>
-          <p className="mt-3 text-ink-soft leading-relaxed">
-            {app.nameStory.intro}
-          </p>
-          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl">
-            {app.nameStory.meanings.map((meaning) => (
-              <div
-                key={meaning.language}
-                className="border border-border bg-bg-subtle rounded-lg p-5"
-              >
-                <span className="font-mono text-[11px] uppercase tracking-wide text-ink-soft">
-                  {meaning.language}
-                </span>
-                <p className="mt-2 font-display text-lg font-semibold tracking-tight">
-                  <em className="italic">{meaning.word}</em>, {meaning.meaning}
-                </p>
-                <p className="mt-1.5 text-sm text-ink-soft leading-relaxed">
-                  {meaning.detail}
-                </p>
-              </div>
+          <div className="mt-4 max-w-2xl space-y-4">
+            {app.nameStory.paragraphs.map((paragraph, i) => (
+              <p key={i} className="text-ink-soft leading-relaxed">
+                {paragraph}
+              </p>
             ))}
           </div>
-          <p className="mt-6 max-w-2xl text-ink-soft leading-relaxed">
-            {app.nameStory.closing}
-          </p>
         </section>
       )}
 

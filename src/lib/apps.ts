@@ -39,18 +39,34 @@ export type IconImage = {
   height: number;
 };
 
-export type NameMeaning = {
-  language: string;
-  word: string;
-  meaning: string;
-  detail: string;
-};
-
 export type NameStory = {
   label: string;
-  intro: string;
-  meanings: NameMeaning[];
-  closing: string;
+  paragraphs: string[];
+};
+
+export type PricingRow = {
+  label: string;
+  free: string;
+  pro: string;
+};
+
+export type Pricing = {
+  label: string;
+  price: string;
+  trial: string;
+  note: string;
+  rows: PricingRow[];
+};
+
+export type DownloadLink = {
+  platform: "ios" | "android";
+  label: string;
+  href: string | null;
+};
+
+export type Downloads = {
+  label: string;
+  links: DownloadLink[];
 };
 
 export type AppEntry = {
@@ -68,6 +84,8 @@ export type AppEntry = {
   demo?: Demo;
   beforeAfter?: BeforeAfter;
   nameStory?: NameStory;
+  pricing?: Pricing;
+  downloads?: Downloads;
   features?: Feature[];
   statusItems?: StatusItem[];
   // When true, the public site shows a minimal "coming soon" placeholder instead of the
@@ -142,26 +160,10 @@ export const apps: AppEntry[] = [
     },
     nameStory: {
       label: "The name",
-      intro:
-        "We didn't want a name that just sounded nice. So instead of brainstorming, we went looking through languages that had never spoken to each other, and asked what they'd call something like this.",
-      meanings: [
-        {
-          language: "Khmer (Cambodian)",
-          word: "suon",
-          meaning: "garden",
-          detail:
-            "Not a lawn you plant once and mow. A garden is something you keep coming back to, one season at a time, that only really shows what it's worth after years of it. That's the same shape as a journal you actually keep: not one perfect entry, just years of small ones adding up.",
-        },
-        {
-          language: "Old Norse",
-          word: "rún",
-          meaning: "hidden wisdom, a secret",
-          detail:
-            'It\'s where English got the word "rune" from: not just any secret, but one kept quietly on purpose, meant to be passed on when the time is right. That\'s the plan here too. Everything stays private until you decide your kid is ready to have it.',
-        },
+      paragraphs: [
+        'The name Roun traces back to Old Norse, where it meant hidden wisdom, or a secret: the same root as the English word rune. It\'s also a Khmer word, used in Cambodia to mean garden.',
+        "So when we built this app, that's the name we gave it. We wanted it to grow into a garden, tended carefully over the years: a family's private book of secrets, recording our kids and pets as they grow up.",
       ],
-      closing:
-        "Neither language knew about the other. Both were describing this app before we'd even built it.",
     },
     features: [
       {
@@ -189,6 +191,36 @@ export const apps: AppEntry[] = [
           "English, Korean, Japanese, Chinese, and Spanish. Switch anytime from Settings.",
       },
     ],
+    pricing: {
+      label: "Pricing",
+      price: "$3.99/month",
+      trial: "30-day free trial",
+      note: "Billed once per family. Invite everyone else in with a family code, free.",
+      rows: [
+        {
+          label: "Storage",
+          free: "1GB",
+          pro: "5GB (+5GB add-on available on either plan)",
+        },
+        {
+          label: "Kids & pets",
+          free: "Up to 1",
+          pro: "Unlimited",
+        },
+        {
+          label: "Ads",
+          free: "Interstitial ad every 50 taps",
+          pro: "None",
+        },
+      ],
+    },
+    downloads: {
+      label: "Download",
+      links: [
+        { platform: "ios", label: "iOS", href: null },
+        { platform: "android", label: "Android", href: null },
+      ],
+    },
   },
   {
     slug: "wordflow",
