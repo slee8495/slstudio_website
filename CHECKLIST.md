@@ -184,3 +184,8 @@
   본인 요청으로 차별점 박스 문구에 "searchable by keyword" 추가(영상 속 Feed 화면에 실제
   "Search entries..." 필드가 보여서 확인된 실기능, "카메라롤에서 그 순간을 못 찾는다"는 문제
   제기 바로 다음 문장이라 자연스럽게 연결됨). `next build` 통과, 로컬 서버에서 문구 반영 확인.
+- [x] **홈페이지 서브헤드 대명사 모호함 수정** (2026-08-12) — "SL Studio is where **they** end up
+  once they're worth sharing..."에서 "they"가 바로 위 H1("I build the things I need first.")의
+  "the things"를 가리키는 구조였는데, 본인이 "무슨 말인지 이해가 안 간다"고 지적. H1 없이 서브헤드
+  문장만 보면 대명사가 뭘 가리키는지 불명확했던 게 원인. "they" → "those apps"로 바꿔서 문장이
+  H1에 기대지 않고 그 자체로 명확하게 읽히도록 수정.
