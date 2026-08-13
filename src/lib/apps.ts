@@ -48,6 +48,7 @@ export type TextSegment = {
 
 export type NameStory = {
   label: string;
+  teaser: string;
   paragraphs: TextSegment[][];
 };
 
@@ -170,6 +171,7 @@ export const apps: AppEntry[] = [
     },
     nameStory: {
       label: "The name",
+      teaser: "means garden (Khmer) · secret, hidden wisdom (Old Norse)",
       paragraphs: [
         [
           { text: "The name " },

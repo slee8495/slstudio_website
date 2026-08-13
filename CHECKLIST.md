@@ -321,3 +321,14 @@
     만 다음 줄로 밀려서 나오던 문제. `max-w-3xl` 제거하고 `sm:whitespace-nowrap` 추가(모바일
     좁은 화면에서는 여전히 줄바꿈 허용, 데스크톱에서만 한 줄 강제).
   - `next build` 통과, 로컬 스크린샷으로 홈페이지/Roun 페이지 둘 다 확인.
+- [x] **히어로에 이름 설명 티저 링크 추가** (2026-08-13) — 와이프 피드백: Roun이 실제 아들 이름과
+  겹쳐서, 초기 방문자(대부분 지인 네트워크)가 "자기 아들 이름을 앱 이름으로 썼네?"라고 오해할 여지가
+  있다. "The name" 섹션 전체를 위로 옮기진 않되(본인이 이미 "옮기지 말자"로 결정, 하이라이트 포맷
+  포함 전체 내용 그대로 유지), 히어로의 H1 "Roun" 바로 아래에 작은 mono 티저 링크 하나만 추가:
+  "means garden (Khmer) · secret, hidden wisdom (Old Norse)". 클릭하면 `#the-name` 앵커로
+  스크롤. `NameStory` 타입에 `teaser` 필드 추가, "The name" 섹션에 `id="the-name"` +
+  `scroll-mt-24` 추가. **참고**: 이 작업 중 시스템 메모리 고갈(옆에서 돌던 실제 Roun 앱
+  Capacitor 빌드 + 5일째 방치된 좀비 `claude continue` 프로세스가 원인)로 `next build`가 평소
+  1~2초 대신 5분 이상 걸림. 재부팅 예정이라 로컬 브라우저 스크린샷 확인은 생략하고 빌드 성공만
+  확인(TypeScript 통과, exit code 0) 후 바로 배포. 재부팅 후 `sl-studio.dev/roun`에서 육안 확인
+  필요.

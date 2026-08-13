@@ -59,6 +59,14 @@ export default function RounPage() {
               <h1 className="font-display text-5xl md:text-6xl font-semibold tracking-tight mt-1">
                 {app.name}
               </h1>
+              {app.nameStory && (
+                <a
+                  href="#the-name"
+                  className="inline-block mt-1.5 font-mono text-[11px] text-ink-soft hover:text-ink transition-colors underline underline-offset-2 decoration-border hover:decoration-ink"
+                >
+                  {app.nameStory.teaser}
+                </a>
+              )}
             </div>
           </div>
           <div className="max-w-2xl">
@@ -288,7 +296,7 @@ export default function RounPage() {
       )}
 
       {app.nameStory && (
-        <section className="pb-14 md:pb-20">
+        <section id="the-name" className="pb-14 md:pb-20 scroll-mt-24">
           <div className="border-t border-border pt-4">
             <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-ink-soft">
               {app.nameStory.label}
