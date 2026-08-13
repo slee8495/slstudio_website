@@ -286,3 +286,19 @@
     `paragraphs: string[]`에서 `paragraphs: TextSegment[][]`(`{ text, emphasis? }`)로 변경,
     데이터를 세그먼트 배열로 재작성.
   - `next build` 통과, 로컬 스크린샷(확대 포함)으로 3개 섹션 전부 렌더링 확인.
+- [x] **Pricing/Download 카드 축소 + 히어로 섹션을 "The name"과 같은 볼드한 톤으로 업그레이드**
+  (2026-08-13) — 배포 후 바로 피드백: Pricing/Download 카드가 너무 크다, 줄여달라. 처음엔 "The
+  name" 폰트도 줄여서 맨 위(히어로)랑 맞추자고 했다가, 대화 중 본인이 방향을 바꿔서 "맨 위(히어로)를
+  오히려 The name처럼 화면을 fully 활용하고 폰트도 키우자"로 결론. 그래서 The name 폰트는 그대로
+  두고 히어로를 업그레이드하는 쪽으로 처리.
+  - Pricing 카드: `p-8/p-10` → `p-5/p-6`, 가격 폰트 `text-5xl` → `text-3xl`, 그리드 폭도
+    `max-w-2xl`로 캡.
+  - Download 카드: `p-6/p-8` → `p-4`, 아이콘 배지 64px → 44px, 제목 `text-2xl` → `text-lg`,
+    그리드 `max-w-lg`로 캡.
+  - 히어로 섹션(아이콘+No./상태+제목+캐치라인+메타+설명)을 "The name"과 동일한
+    `lg:grid-cols-[auto_1fr]` 2컬럼 구조로 재구성(왼쪽 아이콘+제목, 오른쪽 캐치라인/메타/설명),
+    제목 폰트 `text-5xl` → `text-6xl`로, 캐치라인도 `text-2xl` → `text-3xl`로 확대. 아이콘도
+    56px → 80px로 키우기 위해 `AppIcon` 컴포넌트에 `size="xl"` variant 추가.
+  - "The name" 두 번째 문단 끝의 "That's why we named it Roun." 문장은 본인 요청으로 삭제(이미
+    앞에서 다 설명됐어서 중복으로 판단).
+  - `next build` 통과, 로컬 스크린샷으로 히어로/Pricing/Download/The name 4개 섹션 전부 재확인.

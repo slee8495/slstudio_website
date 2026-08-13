@@ -36,39 +36,43 @@ export default function RounPage() {
       </Link>
 
       <section className="pt-8 pb-12 md:pt-12 md:pb-16">
-        <div className="flex items-center gap-4">
-          <AppIcon
-            icon={app.icon}
-            name={app.name}
-            size="hero"
-            accentClass="border-accent-roun/25 bg-accent-roun-tint"
-          />
-          <div>
-            <span className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wide text-ink-soft">
-              No. {app.number}
-              <span aria-hidden>·</span>
-              <span
-                aria-hidden
-                className={`h-1.5 w-1.5 rounded-full ${
-                  stampDotClasses[app.stamp.tone]
-                }`}
-              />
-              {app.stamp.text}
-            </span>
-            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight mt-1">
-              {app.name}
-            </h1>
+        <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-6 lg:gap-16 items-start">
+          <div className="flex items-center gap-5">
+            <AppIcon
+              icon={app.icon}
+              name={app.name}
+              size="xl"
+              accentClass="border-accent-roun/25 bg-accent-roun-tint"
+            />
+            <div>
+              <span className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wide text-ink-soft">
+                No. {app.number}
+                <span aria-hidden>·</span>
+                <span
+                  aria-hidden
+                  className={`h-1.5 w-1.5 rounded-full ${
+                    stampDotClasses[app.stamp.tone]
+                  }`}
+                />
+                {app.stamp.text}
+              </span>
+              <h1 className="font-display text-5xl md:text-6xl font-semibold tracking-tight mt-1">
+                {app.name}
+              </h1>
+            </div>
+          </div>
+          <div className="max-w-2xl">
+            <p className="font-display text-2xl md:text-3xl font-medium tracking-tight leading-snug">
+              {app.catchline}
+            </p>
+            <p className="font-mono text-[11px] uppercase tracking-wide text-ink-soft mt-4">
+              {app.meta}
+            </p>
+            <p className="mt-4 text-base md:text-lg text-ink-soft leading-relaxed">
+              {app.description}
+            </p>
           </div>
         </div>
-        <p className="mt-6 max-w-2xl font-display text-xl md:text-2xl font-medium tracking-tight leading-snug">
-          {app.catchline}
-        </p>
-        <p className="font-mono text-[11px] uppercase tracking-wide text-ink-soft mt-4">
-          {app.meta}
-        </p>
-        <p className="mt-4 max-w-2xl text-base md:text-lg text-ink-soft leading-relaxed">
-          {app.description}
-        </p>
       </section>
 
       <section className="pb-14 md:pb-20">
@@ -169,21 +173,21 @@ export default function RounPage() {
           <p className="mt-8 max-w-xl text-ink-soft leading-relaxed">
             {app.pricing.note}
           </p>
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="rounded-2xl border border-border bg-bg-subtle p-8 md:p-10">
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-ink-soft">
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-5 max-w-2xl">
+            <div className="rounded-xl border border-border bg-bg-subtle p-5 md:p-6">
+              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-ink-soft">
                 Free
               </p>
-              <p className="mt-3 font-display text-5xl font-semibold tracking-tight">
+              <p className="mt-2 font-display text-3xl font-semibold tracking-tight">
                 $0
               </p>
-              <ul className="mt-8 divide-y divide-border">
+              <ul className="mt-5 divide-y divide-border">
                 {app.pricing.rows.map((row) => (
                   <li
                     key={row.label}
-                    className="flex items-center justify-between gap-4 py-3 first:pt-0 last:pb-0"
+                    className="flex items-center justify-between gap-4 py-2.5 text-sm first:pt-0 last:pb-0"
                   >
-                    <span className="font-mono text-[11px] uppercase tracking-wide text-ink-soft">
+                    <span className="font-mono text-[10px] uppercase tracking-wide text-ink-soft">
                       {row.label}
                     </span>
                     <span className="font-medium text-right">
@@ -194,23 +198,23 @@ export default function RounPage() {
               </ul>
             </div>
 
-            <div className="relative rounded-2xl border-2 border-accent-roun bg-accent-roun-tint p-8 md:p-10">
-              <span className="absolute -top-3.5 left-8 rounded-full bg-accent-roun px-3 py-1 font-mono text-[10px] uppercase tracking-wide text-bg">
+            <div className="relative rounded-xl border-2 border-accent-roun bg-accent-roun-tint p-5 md:p-6">
+              <span className="absolute -top-3 left-5 rounded-full bg-accent-roun px-2.5 py-0.5 font-mono text-[9px] uppercase tracking-wide text-bg">
                 {app.pricing.trial}
               </span>
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-ink-soft">
+              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-ink-soft">
                 Pro
               </p>
-              <p className="mt-3 font-display text-5xl font-semibold tracking-tight">
+              <p className="mt-2 font-display text-3xl font-semibold tracking-tight">
                 {app.pricing.price}
               </p>
-              <ul className="mt-8 divide-y divide-accent-roun/20">
+              <ul className="mt-5 divide-y divide-accent-roun/20">
                 {app.pricing.rows.map((row) => (
                   <li
                     key={row.label}
-                    className="flex items-center justify-between gap-4 py-3 first:pt-0 last:pb-0"
+                    className="flex items-center justify-between gap-4 py-2.5 text-sm first:pt-0 last:pb-0"
                   >
-                    <span className="font-mono text-[11px] uppercase tracking-wide text-ink-soft">
+                    <span className="font-mono text-[10px] uppercase tracking-wide text-ink-soft">
                       {row.label}
                     </span>
                     <span className="font-semibold text-right">
@@ -231,7 +235,7 @@ export default function RounPage() {
               {app.downloads.label}
             </h2>
           </div>
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg">
             {app.downloads.links.map((link) => {
               const isIos = link.platform === "ios";
               const Icon = isIos ? AppleIcon : AndroidIcon;
@@ -239,20 +243,20 @@ export default function RounPage() {
                 <div
                   key={link.platform}
                   aria-disabled={!link.href}
-                  className="flex items-center gap-5 rounded-2xl border border-border bg-bg-subtle p-6 md:p-8"
+                  className="flex items-center gap-3 rounded-xl border border-border bg-bg-subtle p-4"
                 >
                   <span
-                    className={`inline-flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl ${
+                    className={`inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${
                       isIos ? "bg-ink" : "bg-[#3DDC84]"
                     }`}
                   >
-                    <Icon className="h-8 w-8 text-white" />
+                    <Icon className="h-5 w-5 text-white" />
                   </span>
                   <div>
-                    <p className="font-display text-2xl font-semibold tracking-tight">
+                    <p className="font-display text-lg font-semibold tracking-tight">
                       {link.label}
                     </p>
-                    <p className="mt-0.5 font-mono text-[11px] uppercase tracking-wide text-ink-soft">
+                    <p className="mt-0.5 font-mono text-[10px] uppercase tracking-wide text-ink-soft">
                       Coming soon
                     </p>
                   </div>
