@@ -62,7 +62,7 @@ export default function RounPage() {
               {app.nameStory && (
                 <a
                   href="#the-name"
-                  className="inline-block mt-1.5 font-mono text-[11px] text-ink-soft hover:text-ink transition-colors underline underline-offset-2 decoration-border hover:decoration-ink"
+                  className="block mt-1.5 max-w-[220px] font-mono text-[11px] text-ink-soft hover:text-ink transition-colors underline underline-offset-2 decoration-border hover:decoration-ink"
                 >
                   {app.nameStory.teaser}
                 </a>
