@@ -22,8 +22,9 @@ export default function Home() {
           I build the things I need first.
         </h1>
         <p className="animate-rise-in [animation-delay:160ms] mt-6 max-w-xl mx-auto text-base md:text-lg text-ink-soft leading-relaxed">
-          SL Studio is where they end up once they&apos;re worth sharing with
-          anyone else. New entries land in the log as they&apos;re ready.
+          SL Studio is where those apps end up once they&apos;re worth
+          sharing with anyone else. New entries land in the log as
+          they&apos;re ready.
         </p>
       </section>
 
