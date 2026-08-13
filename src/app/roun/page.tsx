@@ -166,43 +166,60 @@ export default function RounPage() {
               {app.pricing.label}
             </h2>
           </div>
-          <div className="mt-8 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-            <span className="font-display text-3xl md:text-4xl font-semibold tracking-tight">
-              {app.pricing.price}
-            </span>
-            <span className="text-ink-soft">{app.pricing.trial}</span>
-          </div>
-          <p className="mt-2 text-sm text-ink-soft">{app.pricing.note}</p>
-
-          <div className="mt-8 max-w-2xl overflow-x-auto">
-            <table className="w-full border-collapse text-sm">
-              <thead>
-                <tr>
-                  <th className="text-left font-mono text-[11px] uppercase tracking-wide text-ink-soft pb-3 pr-4 border-b border-border" />
-                  <th className="text-left font-display text-base font-semibold pb-3 px-4 border-b border-border">
-                    Free
-                  </th>
-                  <th className="text-left font-display text-base font-semibold pb-3 px-4 border-b border-border bg-accent-roun-tint">
-                    Pro
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
+          <p className="mt-8 max-w-xl text-ink-soft leading-relaxed">
+            {app.pricing.note}
+          </p>
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="rounded-2xl border border-border bg-bg-subtle p-8 md:p-10">
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-ink-soft">
+                Free
+              </p>
+              <p className="mt-3 font-display text-5xl font-semibold tracking-tight">
+                $0
+              </p>
+              <ul className="mt-8 divide-y divide-border">
                 {app.pricing.rows.map((row) => (
-                  <tr key={row.label}>
-                    <td className="py-3 pr-4 font-mono text-[11px] uppercase tracking-wide text-ink-soft border-b border-border whitespace-nowrap">
+                  <li
+                    key={row.label}
+                    className="flex items-center justify-between gap-4 py-3 first:pt-0 last:pb-0"
+                  >
+                    <span className="font-mono text-[11px] uppercase tracking-wide text-ink-soft">
                       {row.label}
-                    </td>
-                    <td className="py-3 px-4 text-ink-soft border-b border-border">
+                    </span>
+                    <span className="font-medium text-right">
                       {row.free}
-                    </td>
-                    <td className="py-3 px-4 border-b border-border bg-accent-roun-tint/40">
-                      {row.pro}
-                    </td>
-                  </tr>
+                    </span>
+                  </li>
                 ))}
-              </tbody>
-            </table>
+              </ul>
+            </div>
+
+            <div className="relative rounded-2xl border-2 border-accent-roun bg-accent-roun-tint p-8 md:p-10">
+              <span className="absolute -top-3.5 left-8 rounded-full bg-accent-roun px-3 py-1 font-mono text-[10px] uppercase tracking-wide text-bg">
+                {app.pricing.trial}
+              </span>
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-ink-soft">
+                Pro
+              </p>
+              <p className="mt-3 font-display text-5xl font-semibold tracking-tight">
+                {app.pricing.price}
+              </p>
+              <ul className="mt-8 divide-y divide-accent-roun/20">
+                {app.pricing.rows.map((row) => (
+                  <li
+                    key={row.label}
+                    className="flex items-center justify-between gap-4 py-3 first:pt-0 last:pb-0"
+                  >
+                    <span className="font-mono text-[11px] uppercase tracking-wide text-ink-soft">
+                      {row.label}
+                    </span>
+                    <span className="font-semibold text-right">
+                      {row.pro}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </section>
       )}
@@ -214,21 +231,32 @@ export default function RounPage() {
               {app.downloads.label}
             </h2>
           </div>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
             {app.downloads.links.map((link) => {
-              const Icon = link.platform === "ios" ? AppleIcon : AndroidIcon;
+              const isIos = link.platform === "ios";
+              const Icon = isIos ? AppleIcon : AndroidIcon;
               return (
-                <span
+                <div
                   key={link.platform}
                   aria-disabled={!link.href}
-                  className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm text-ink-soft opacity-60"
+                  className="flex items-center gap-5 rounded-2xl border border-border bg-bg-subtle p-6 md:p-8"
                 >
-                  <Icon className="h-4 w-4" />
-                  {link.label}
-                  <span className="font-mono text-[10px] uppercase tracking-wide">
-                    Coming soon
+                  <span
+                    className={`inline-flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl ${
+                      isIos ? "bg-ink" : "bg-[#3DDC84]"
+                    }`}
+                  >
+                    <Icon className="h-8 w-8 text-white" />
                   </span>
-                </span>
+                  <div>
+                    <p className="font-display text-2xl font-semibold tracking-tight">
+                      {link.label}
+                    </p>
+                    <p className="mt-0.5 font-mono text-[11px] uppercase tracking-wide text-ink-soft">
+                      Coming soon
+                    </p>
+                  </div>
+                </div>
               );
             })}
           </div>
@@ -242,15 +270,31 @@ export default function RounPage() {
               {app.nameStory.label}
             </h2>
           </div>
-          <p className="mt-8 font-display text-4xl md:text-5xl font-semibold tracking-tight">
-            {app.name}
-          </p>
-          <div className="mt-4 max-w-2xl space-y-4">
-            {app.nameStory.paragraphs.map((paragraph, i) => (
-              <p key={i} className="text-ink-soft leading-relaxed">
-                {paragraph}
-              </p>
-            ))}
+          <div className="mt-8 grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-6 lg:gap-16 items-start">
+            <p className="font-display text-5xl md:text-6xl font-semibold tracking-tight">
+              {app.name}
+            </p>
+            <div className="max-w-2xl space-y-5">
+              {app.nameStory.paragraphs.map((segments, i) => (
+                <p
+                  key={i}
+                  className="text-base md:text-lg text-ink-soft leading-relaxed"
+                >
+                  {segments.map((segment, j) =>
+                    segment.emphasis ? (
+                      <mark
+                        key={j}
+                        className="bg-accent-roun-tint text-ink font-semibold rounded-sm px-1 py-0.5"
+                      >
+                        {segment.text}
+                      </mark>
+                    ) : (
+                      <span key={j}>{segment.text}</span>
+                    )
+                  )}
+                </p>
+              ))}
+            </div>
           </div>
         </section>
       )}

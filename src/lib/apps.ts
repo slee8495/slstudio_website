@@ -39,9 +39,14 @@ export type IconImage = {
   height: number;
 };
 
+export type TextSegment = {
+  text: string;
+  emphasis?: boolean;
+};
+
 export type NameStory = {
   label: string;
-  paragraphs: string[];
+  paragraphs: TextSegment[][];
 };
 
 export type PricingRow = {
@@ -161,8 +166,30 @@ export const apps: AppEntry[] = [
     nameStory: {
       label: "The name",
       paragraphs: [
-        'The name Roun traces back to Old Norse, where it meant hidden wisdom, or a secret: the same root as the English word rune. It\'s also a Khmer word, used in Cambodia to mean garden.',
-        "So when we built this app, that's the name we gave it. We wanted it to grow into a garden, tended carefully over the years: a family's private book of secrets, recording our kids and pets as they grow up.",
+        [
+          { text: "The name " },
+          { text: "Roun", emphasis: true },
+          { text: " has its roots in Old Norse, where it means " },
+          { text: "mysterious wisdom", emphasis: true },
+          { text: ", or a " },
+          { text: "secret", emphasis: true },
+          { text: ", the same origin as the English word " },
+          { text: "rune", emphasis: true },
+          { text: ". It's also a word in Khmer, the language of Cambodia, meaning " },
+          { text: "garden", emphasis: true },
+          { text: "." },
+        ],
+        [
+          { text: "So when we built this app, that's what we wanted it to become: a " },
+          { text: "beautifully tended garden", emphasis: true },
+          { text: ", a " },
+          { text: "precious family secret-book", emphasis: true },
+          { text: " recording our " },
+          { text: "kids and pets", emphasis: true },
+          { text: " as they grow. That's why we named it " },
+          { text: "Roun", emphasis: true },
+          { text: "." },
+        ],
       ],
     },
     features: [
@@ -209,7 +236,7 @@ export const apps: AppEntry[] = [
         },
         {
           label: "Ads",
-          free: "Interstitial ad every 50 taps",
+          free: "Interstitial",
           pro: "None",
         },
       ],

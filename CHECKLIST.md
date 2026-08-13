@@ -264,3 +264,25 @@
   배지 + 심플한 애플/안드로이드 SVG 아이콘(`src/components/platform-icons.tsx`, 신규) + 옅게
   처리한 "Coming soon" 라벨로 정직하게 표시(진짜 링크가 아닌데 눌리는 것처럼 보이지 않게).
   `next build` 통과, 로컬 스크린샷 확대로 아이콘/표 렌더링 확인.
+- [x] **번역 재수정 + Pricing/Download/이름 섹션 UI 전면 재작업** (2026-08-13) — 세 가지 피드백
+  한번에 처리.
+  - **번역 오류 수정**: 본인이 원문 한글을 다시 붙여주면서 "번역이 뭔가 어색하다"고 지적. 대조해보니
+    "소중한"(precious)을 "private"로, "신비로운"(mysterious)을 "hidden"으로 잘못 옮겼던 걸 발견.
+    "mysterious wisdom", "precious family secret-book"으로 정정, "kids and pets"도 원문처럼
+    명시.
+  - **Ads 문구 축약**: "Interstitial ad every 50 taps" → "Interstitial"만 남기고 뒤 설명 제거(본인
+    요청).
+  - **Pricing UI 전면 개편**: 좁은 `<table>` 대신 Free/Pro 2컬럼 카드로 재구성(`md:grid-cols-2`,
+    6xl 컨테이너 폭 활용). Pro 카드는 `accent-roun` 컬러로 테두리/배경 틴트해서 시각적으로 띄우고,
+    "30-DAY FREE TRIAL" 배지를 카드 위에 겹쳐서 배치.
+  - **Download UI 전면 개편**: 작은 pill 배지 대신 큰 카드(아이콘 배지 64px + "iOS"/"Android" 타이틀
+    + "Coming soon")로, 2컬럼 그리드로 폭 넓게. 아이콘 배경에 실제 브랜드 컬러 적용: iOS는 애플
+    고유의 무채색 블랙(`bg-ink`), Android는 공식 안드로이드 그린(`#3DDC84`).
+  - **"The name" 섹션 레이아웃 + 타이포 강조**: "UI가 밋밋하다"는 피드백으로 `lg:grid-cols-[auto_1fr]`
+    2컬럼 레이아웃으로 변경(왼쪽에 큼직한 "Roun" 워드마크, 오른쪽에 본문), 데스크톱 폭을 실제로
+    활용하게 함. 문장 안의 핵심 단어(Roun, mysterious wisdom, secret, rune, garden, beautifully
+    tended garden, precious family secret-book, kids and pets)를 `<mark>` + `accent-roun-tint`
+    배경으로 하이라이트 처리해서 스캔하기 쉽게 함. 이를 위해 `NameStory` 타입을
+    `paragraphs: string[]`에서 `paragraphs: TextSegment[][]`(`{ text, emphasis? }`)로 변경,
+    데이터를 세그먼트 배열로 재작성.
+  - `next build` 통과, 로컬 스크린샷(확대 포함)으로 3개 섹션 전부 렌더링 확인.
