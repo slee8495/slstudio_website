@@ -346,3 +346,19 @@
     수 분씩 걸리거나 응답 없음. 재부팅 예정이라 `SESSION_HANDOFF.md`(임시 파일, git 미포함)에
     전체 진행 상황 기록해둠. 이후 빌드 속도가 다시 1초대로 정상화되어서(재부팅했는지 다른 이유인지
     불확실) 로컬 스크린샷으로 최종 확인 완료.
+- [x] **홈페이지 히어로 카피 완전 교체: "build log" 프레임 → "삶에 필요했던 것들"** (2026-08-13)
+  — 기존 "I build the things I need first. / SL Studio is where those apps end up once
+  they're worth sharing..."가 너무 설명체/거리감 있게 느껴진다는 피드백으로, 좀 더 따뜻한 톤으로
+  가고 싶다고 함. 처음엔 기존 H1은 유지하고 서브헤드만 다듬는 방향으로 후보 3개 제시했는데, 본인이
+  "H1 자체를 완전히 다른 방향으로 틀자"고 방향 전환. "가족"에 초점 맞춘 후보들 제시했다가, 본인이
+  "가족뿐 아니라 내 삶 자체에 필요한 것들을 짓는 느낌으로 가고 싶다"고 프레임을 더 넓힘(가족 →
+  삶 전반). 방향 3("The apps I wish existed when I needed them.")의 헤드라인 확정. 서브헤드는
+  처음에 "couldn't find done well"이라는 표현을 썼는데, 본인이 "내가 너무 cocky하게 보이지 않았음
+  좋겠다"고 지적("남들이 잘 못 만들었다"는 뉘앙스라 거만해 보일 수 있음). "hadn't found yet"으로
+  순화한 버전(겸손 후보 C)으로 최종 확정:
+  - H1: "The apps I wish existed when I needed them."
+  - 서브헤드: "Each app here started as something I needed and hadn't found yet. Once it's
+    ready, it joins this list, in case yours needs it too."
+  - 새 H1이 이전 H1보다 길어져서 이전에 넣었던 `sm:whitespace-nowrap`(한 줄 강제)는 제거, 자연
+    스럽게 2줄로 줄바꿈되도록 둠(스크린샷으로 확인, 어색하지 않음).
+  - `next build` 통과, 로컬 스크린샷으로 확인.
