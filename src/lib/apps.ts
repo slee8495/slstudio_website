@@ -77,6 +77,12 @@ export type Downloads = {
   links: DownloadLink[];
 };
 
+export type Referral = {
+  title: string;
+  body: string;
+  email: string;
+};
+
 export type AppEntry = {
   slug: string;
   number: string;
@@ -94,6 +100,7 @@ export type AppEntry = {
   nameStory?: NameStory;
   pricing?: Pricing;
   downloads?: Downloads;
+  referral?: Referral;
   features?: Feature[];
   statusItems?: StatusItem[];
   // When true, the public site shows a minimal "coming soon" placeholder instead of the
@@ -246,6 +253,11 @@ export const apps: AppEntry[] = [
           pro: "None",
         },
       ],
+    },
+    referral: {
+      title: "Say hi, get extra time",
+      body: "Emailing me isn't just for bugs or questions. If we already know each other, say hi and I'll give you 3 months free. If we don't (yet), reach out anyway, I'll add an extra month to your trial.",
+      email: "support@sl-studio.dev",
     },
     downloads: {
       label: "Download",

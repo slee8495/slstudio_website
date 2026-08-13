@@ -256,6 +256,33 @@ export default function RounPage() {
         </section>
       )}
 
+      {app.referral && (
+        <section className="pb-14 md:pb-20">
+          <div className="border border-accent-roun/25 bg-accent-roun-tint rounded-2xl p-6 md:p-8">
+            <h2 className="font-display text-xl md:text-2xl font-semibold tracking-tight">
+              {app.referral.title}
+            </h2>
+            <p className="mt-3 max-w-2xl text-ink-soft leading-relaxed">
+              {app.referral.body}
+            </p>
+            <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2">
+              <a
+                href={`mailto:${app.referral.email}`}
+                className="text-sm font-medium text-ink hover:text-ink-soft transition-colors underline underline-offset-2"
+              >
+                Email {app.referral.email}
+              </a>
+              <Link
+                href="/#contact"
+                className="text-sm font-medium text-ink hover:text-ink-soft transition-colors underline underline-offset-2"
+              >
+                Or use the contact form →
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
       {app.downloads && (
         <section className="pb-14 md:pb-20">
           <div className="border-t border-border pt-4">
