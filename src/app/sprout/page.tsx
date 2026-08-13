@@ -103,9 +103,15 @@ export default function SproutPage() {
               </li>
             ))}
           </ul>
-          <p className="mt-8 text-center font-display text-xl md:text-2xl font-medium tracking-tight">
-            {app.beforeAfter.punchline}
-          </p>
+          <div className="mt-8 mx-auto max-w-[380px] sm:max-w-[420px] rounded-lg overflow-hidden border border-border">
+            <Image
+              src={app.beforeAfter.bridgeImage.src}
+              width={app.beforeAfter.bridgeImage.width}
+              height={app.beforeAfter.bridgeImage.height}
+              alt={app.beforeAfter.bridgeImage.alt}
+              className="w-full h-auto block"
+            />
+          </div>
         </section>
       )}
 

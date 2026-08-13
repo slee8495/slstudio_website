@@ -30,7 +30,7 @@ export type Demo = {
 export type BeforeAfter = {
   label: string;
   images: { src: string; width: number; height: number; alt: string }[];
-  punchline: string;
+  bridgeImage: { src: string; width: number; height: number; alt: string };
 };
 
 export type AppEntry = {
@@ -101,7 +101,12 @@ export const apps: AppEntry[] = [
           alt: "Illustration: one heavy book, always at home",
         },
       ],
-      punchline: "Now it's just... here.",
+      bridgeImage: {
+        src: "/sprout/before-05-bridge.jpg",
+        width: 840,
+        height: 575,
+        alt: "Illustration: a phone with the Sprout app icon, captioned \"Now it's all just... here.\"",
+      },
     },
     demo: {
       type: "video",
