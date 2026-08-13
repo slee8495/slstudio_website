@@ -256,7 +256,7 @@ export const apps: AppEntry[] = [
     },
     referral: {
       title: "Say hi, get extra time",
-      body: "Emailing me isn't just for bugs or questions. If we already know each other, say hi and I'll give you 3 months free. If we don't (yet), reach out anyway, I'll add an extra month to your trial.",
+      body: "Email me, just to say hi. You don't need to know me already, I'd genuinely love to get to know you. Reach out and I'll add some extra free time to your trial.",
       email: "support@sl-studio.dev",
     },
     downloads: {

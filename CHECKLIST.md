@@ -372,3 +372,14 @@
   그리고 홈페이지 `/#contact`(실제 폼 있는 곳)로 연결하는 "Or use the contact form" 링크(본인이
   "이메일 하거나 메인 페이지에서 작성해서 submit하거나 둘 다 가능하게" 요청). `next build` 통과,
   로컬 스크린샷으로 확인.
+- [x] **referral 카드 문구 재조정: "아는 사람/모르는 사람" 차등 표현 제거** (2026-08-13) — 배포
+  직후 본인이 "아는 사람이랑 모르는 사람 차별하는 느낌 들지 않아?"라고 지적. 처음엔 "know each
+  other"/"don't know each other (yet)"를 "already know each other"/"just meeting"으로
+  순화하는 안 제시했다가, 본인이 아예 "3개월" 같은 구체적 숫자와 친분 구분 자체를 빼고 "몰라도
+  괜찮아, 알아가고 싶다"는 톤으로 가자고 방향 전환. 최종 카피:
+  "Email me, just to say hi. You don't need to know me already, I'd genuinely love to get to
+  know you. Reach out and I'll add some extra free time to your trial."
+  중간에 본인이 "love to meet you"가 실제 대면 만남으로 오해될 수 있는지 물어봐서, 문맥상(바로
+  앞 "Email me") 오해 가능성은 낮지만 "meet you" 대신 "get to know you"로 바꾸면 확실히 명확
+  해진다고 안내, 그걸로 확정. 구체적 개월 수는 사이트에 안 적고(본인이 이메일 주고받을 때
+  직접 정하는 걸로) 완전히 뺌. `next build` 통과.
