@@ -76,13 +76,15 @@ export default function RounPage() {
       </section>
 
       <section className="pb-14 md:pb-20">
-        <div className="max-w-3xl border border-accent-roun/25 bg-accent-roun-tint rounded-lg p-6 md:p-8">
-          <h2 className="font-display text-xl md:text-2xl font-semibold tracking-tight">
-            {app.different.title}
-          </h2>
-          <p className="mt-3 text-ink-soft leading-relaxed">
-            {app.different.body}
-          </p>
+        <div className="border border-accent-roun/25 bg-accent-roun-tint rounded-2xl p-8 md:p-10">
+          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,360px)_1fr] gap-6 lg:gap-16 items-start">
+            <h2 className="font-display text-2xl md:text-3xl font-semibold tracking-tight leading-tight">
+              {app.different.title}
+            </h2>
+            <p className="text-base md:text-lg text-ink-soft leading-relaxed">
+              {app.different.body}
+            </p>
+          </div>
         </div>
       </section>
 

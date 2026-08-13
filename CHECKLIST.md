@@ -302,3 +302,8 @@
   - "The name" 두 번째 문단 끝의 "That's why we named it Roun." 문장은 본인 요청으로 삭제(이미
     앞에서 다 설명됐어서 중복으로 판단).
   - `next build` 통과, 로컬 스크린샷으로 히어로/Pricing/Download/The name 4개 섹션 전부 재확인.
+- [x] **"Why not just keep the photos on your phone?" 박스도 화면 폭 활용하게 재구성** (2026-08-13)
+  — 배포 직후 본인이 바로 지적: 이 박스가 `max-w-3xl`로 왼쪽에 쏠려 있고 오른쪽이 텅 비어 있다.
+  히어로/The name과 같은 `lg:grid-cols-[minmax(0,360px)_1fr]` 2컬럼 구조로 바꿔서 제목은 왼쪽,
+  본문은 오른쪽에 배치하고 박스 자체를 풀 컨테이너 폭으로 확장(`max-w-3xl` 제거). 제목 폰트도
+  `text-xl/2xl` → `text-2xl/3xl`로 살짝 키움. `next build` 통과, 로컬 스크린샷으로 확인.
