@@ -142,24 +142,26 @@ export const apps: AppEntry[] = [
     },
     nameStory: {
       label: "The name",
-      intro: "Two unrelated languages, one idea:",
+      intro:
+        "We didn't want a name that just sounded nice. So instead of brainstorming, we went looking through languages that had never spoken to each other, and asked what they'd call something like this.",
       meanings: [
         {
           language: "Khmer (Cambodian)",
           word: "suon",
           meaning: "garden",
-          detail: "Something you tend patiently, one season at a time.",
+          detail:
+            "Not a lawn you plant once and mow. A garden is something you keep coming back to, one season at a time, that only really shows what it's worth after years of it. That's the same shape as a journal you actually keep: not one perfect entry, just years of small ones adding up.",
         },
         {
           language: "Old Norse",
           word: "rún",
           meaning: "hidden wisdom, a secret",
           detail:
-            'The root of the English word "rune." Knowledge kept quietly until it\'s time to reveal it.',
+            'It\'s where English got the word "rune" from: not just any secret, but one kept quietly on purpose, meant to be passed on when the time is right. That\'s the plan here too. Everything stays private until you decide your kid is ready to have it.',
         },
       ],
       closing:
-        "A garden of things kept quietly, until they're ready to be found. Felt like the right name.",
+        "Neither language knew about the other. Both were describing this app before we'd even built it.",
     },
     features: [
       {
