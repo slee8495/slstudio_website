@@ -19,7 +19,7 @@ export default function Home() {
         <p className="animate-rise-in font-mono text-xs uppercase tracking-[0.2em] text-ink-soft">
           Build log · est. 2026
         </p>
-        <h1 className="animate-rise-in [animation-delay:80ms] font-display text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight leading-[1.05] mt-4 max-w-3xl mx-auto">
+        <h1 className="animate-rise-in [animation-delay:80ms] font-display text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight leading-[1.05] mt-4 sm:whitespace-nowrap">
           I build the things I need first.
         </h1>
         <p className="animate-rise-in [animation-delay:160ms] mt-6 max-w-xl mx-auto text-base md:text-lg text-ink-soft leading-relaxed">

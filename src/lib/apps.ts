@@ -25,6 +25,8 @@ export type Demo = {
   width: number;
   height: number;
   alt: string;
+  label: string;
+  caption: string;
 };
 
 export type BeforeAfter = {
@@ -103,7 +105,7 @@ export type AppEntry = {
 export const apps: AppEntry[] = [
   {
     slug: "roun",
-    number: "002",
+    number: "001",
     icon: {
       src: "/roun/icon.png",
       width: 320,
@@ -162,6 +164,9 @@ export const apps: AppEntry[] = [
       width: 840,
       height: 1446,
       alt: "Screen recording of Roun: browsing the journal calendar, reading Feed entries and milestones, and switching languages in Settings",
+      label: "The app",
+      caption:
+        "A quick look inside: the calendar view, Feed entries with photos and comments, and switching between five languages in Settings.",
     },
     nameStory: {
       label: "The name",
@@ -249,7 +254,7 @@ export const apps: AppEntry[] = [
   },
   {
     slug: "wordflow",
-    number: "001",
+    number: "002",
     icon: "📖",
     name: "Wordflow",
     tagline: "Bible reading that survives past January.",
