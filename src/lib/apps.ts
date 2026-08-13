@@ -171,7 +171,8 @@ export const apps: AppEntry[] = [
     },
     nameStory: {
       label: "The name",
-      teaser: "means garden (Khmer) · secret, hidden wisdom (Old Norse)",
+      teaser:
+        "means garden (Khmer) · secret, hidden wisdom (Old Norse) · full story below ↓",
       paragraphs: [
         [
           { text: "The name " },
