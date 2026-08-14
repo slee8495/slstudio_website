@@ -14,9 +14,17 @@ export function HowToCarousel({ howTo }: { howTo: HowTo }) {
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,440px)_1fr] gap-8 lg:gap-16 items-center">
-      <div className="relative mx-auto w-full max-w-[360px] sm:max-w-[400px]">
-        <div className="rounded-md border border-border overflow-hidden bg-bg">
+    <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,520px)_1fr] gap-8 lg:gap-16 items-center">
+      <div className="flex items-center justify-center gap-3 sm:gap-5">
+        <button
+          type="button"
+          onClick={() => go(-1)}
+          aria-label="Previous screen"
+          className="shrink-0 inline-flex h-10 w-10 items-center justify-center rounded-full border border-border text-ink-soft hover:text-ink hover:border-ink/30 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink focus-visible:outline-offset-2"
+        >
+          <span aria-hidden>←</span>
+        </button>
+        <div className="w-full max-w-[340px] sm:max-w-[380px] rounded-md border border-border overflow-hidden bg-bg">
           <Image
             src={step.src}
             width={step.width}
@@ -27,17 +35,9 @@ export function HowToCarousel({ howTo }: { howTo: HowTo }) {
         </div>
         <button
           type="button"
-          onClick={() => go(-1)}
-          aria-label="Previous screen"
-          className="absolute left-2 top-1/2 -translate-y-1/2 inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-bg/90 text-ink-soft shadow-sm backdrop-blur hover:text-ink hover:border-ink/30 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink focus-visible:outline-offset-2"
-        >
-          <span aria-hidden>←</span>
-        </button>
-        <button
-          type="button"
           onClick={() => go(1)}
           aria-label="Next screen"
-          className="absolute right-2 top-1/2 -translate-y-1/2 inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-bg/90 text-ink-soft shadow-sm backdrop-blur hover:text-ink hover:border-ink/30 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink focus-visible:outline-offset-2"
+          className="shrink-0 inline-flex h-10 w-10 items-center justify-center rounded-full border border-border text-ink-soft hover:text-ink hover:border-ink/30 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink focus-visible:outline-offset-2"
         >
           <span aria-hidden>→</span>
         </button>
