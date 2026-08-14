@@ -19,14 +19,16 @@ export type Different = {
   body: string;
 };
 
-export type Demo = {
-  type: "image" | "video";
+export type HowToStep = {
   src: string;
   width: number;
   height: number;
-  alt: string;
-  label: string;
   caption: string;
+};
+
+export type HowTo = {
+  label: string;
+  steps: HowToStep[];
 };
 
 export type BeforeAfter = {
@@ -95,7 +97,7 @@ export type AppEntry = {
   description: string;
   different: Different;
   cta: { label: string; href: string } | null;
-  demo?: Demo;
+  howTo?: HowTo;
   beforeAfter?: BeforeAfter;
   nameStory?: NameStory;
   pricing?: Pricing;
@@ -166,15 +168,94 @@ export const apps: AppEntry[] = [
         alt: "Illustration: a phone with the Roun app icon, captioned \"Now it's all just... here.\"",
       },
     },
-    demo: {
-      type: "video",
-      src: "/demos/roun-demo.mp4",
-      width: 840,
-      height: 1446,
-      alt: "Screen recording of Roun: browsing the journal calendar, reading Feed entries and milestones, and switching languages in Settings",
+    howTo: {
       label: "The app",
-      caption:
-        "A quick look inside: the calendar view, Feed entries with photos and comments, and switching between five languages in Settings.",
+      steps: [
+        {
+          src: "/roun/howto/howto-01.jpg",
+          width: 500,
+          height: 828,
+          caption:
+            "Every kid and pet gets their own calendar. Tap any day to see what happened, or start writing a new entry right below it.",
+        },
+        {
+          src: "/roun/howto/howto-02.jpg",
+          width: 500,
+          height: 828,
+          caption:
+            "Got more than one to track? Switch between every kid and pet with a single tap, no separate apps or logins needed.",
+        },
+        {
+          src: "/roun/howto/howto-03.jpg",
+          width: 500,
+          height: 828,
+          caption:
+            "Writing about something that happened last week? Pick the actual date on the calendar, and the entry lands exactly where it belongs in the timeline.",
+        },
+        {
+          src: "/roun/howto/howto-04.jpg",
+          width: 500,
+          height: 828,
+          caption:
+            "Write it, say it, or show it. Attach a photo, a quick voice memo, or a short video, then tag it as a milestone so it's easy to find later.",
+        },
+        {
+          src: "/roun/howto/howto-05.jpg",
+          width: 500,
+          height: 828,
+          caption:
+            "The Feed pulls every entry into one scrollable timeline, laid out like a social feed, except it's just your family, and nobody else can see it.",
+        },
+        {
+          src: "/roun/howto/howto-06.jpg",
+          width: 500,
+          height: 828,
+          caption:
+            "Only want to see one kid's or pet's entries? Filter the Feed down to just them with a tap.",
+        },
+        {
+          src: "/roun/howto/howto-07.jpg",
+          width: 500,
+          height: 828,
+          caption:
+            "Remember writing about something but not when? Search any entry by keyword and find it in seconds, instead of scrolling back through months.",
+        },
+        {
+          src: "/roun/howto/howto-08.jpg",
+          width: 500,
+          height: 828,
+          caption:
+            "Every milestone gets sorted into a category automatically, food, physical, language, and more, so you can see at a glance what's been tracked and what hasn't.",
+        },
+        {
+          src: "/roun/howto/howto-09.jpg",
+          width: 500,
+          height: 828,
+          caption:
+            "Tap into any category to see every entry tagged under it, so a milestone isn't just a checkbox, it's the actual moment behind it.",
+        },
+        {
+          src: "/roun/howto/howto-10.jpg",
+          width: 500,
+          height: 828,
+          caption:
+            "Share one code with your partner and they're in: signed in, synced, and writing to the same journal within a minute.",
+        },
+        {
+          src: "/roun/howto/howto-11.jpg",
+          width: 500,
+          height: 828,
+          caption:
+            "Adding a new kid or pet takes seconds: a name, a birth date, and you're set. No limit on how many you can add.",
+        },
+        {
+          src: "/roun/howto/howto-12.jpg",
+          width: 500,
+          height: 828,
+          caption:
+            "Not everyone needs full access. Set each family member as an editor or view-only, so grandparents can watch along without being able to change anything.",
+        },
+      ],
     },
     nameStory: {
       label: "The name",

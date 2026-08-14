@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { DemoMedia } from "@/components/demo-media";
+import { HowToCarousel } from "@/components/how-to-carousel";
 import { AppIcon } from "@/components/app-icon";
 import { AppleIcon, AndroidIcon } from "@/components/platform-icons";
 import { getApp } from "@/lib/apps";
@@ -131,34 +131,15 @@ export default function RounPage() {
         </section>
       )}
 
-      {app.demo && (
+      {app.howTo && (
         <section className="pb-14 md:pb-20">
           <div className="border-t border-border pt-4">
             <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-ink-soft">
-              {app.demo.label}
+              {app.howTo.label}
             </h2>
           </div>
-          <div
-            className={
-              app.demo.height > app.demo.width
-                ? "mt-8 grid grid-cols-1 lg:grid-cols-[minmax(0,360px)_1fr] gap-8 lg:gap-16 items-center"
-                : "mt-8"
-            }
-          >
-            <div
-              className={`mx-auto lg:mx-0 rounded-md border border-border overflow-hidden bg-bg ${
-                app.demo.height > app.demo.width
-                  ? "w-full max-w-[320px] sm:max-w-[360px]"
-                  : "max-w-4xl"
-              }`}
-            >
-              <DemoMedia demo={app.demo} className="w-full h-auto block" />
-            </div>
-            {app.demo.height > app.demo.width && (
-              <p className="max-w-xl text-base md:text-lg text-ink-soft leading-relaxed">
-                {app.demo.caption}
-              </p>
-            )}
+          <div className="mt-8">
+            <HowToCarousel howTo={app.howTo} />
           </div>
         </section>
       )}
