@@ -232,6 +232,12 @@ export default function RounPage() {
                   </li>
                 ))}
               </ul>
+              <a
+                href={app.pricing.cta.href}
+                className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-accent-roun px-5 py-2.5 text-sm font-semibold text-bg transition-opacity hover:opacity-90"
+              >
+                {app.pricing.cta.label}
+              </a>
             </div>
           </div>
         </section>

@@ -66,6 +66,7 @@ export type Pricing = {
   trial: string;
   note: string;
   rows: PricingRow[];
+  cta: { label: string; href: string };
 };
 
 export type DownloadLink = {
@@ -317,6 +318,7 @@ export const apps: AppEntry[] = [
       price: "$3.99/month",
       trial: "30-day free trial",
       note: "Billed once per family. Invite everyone else in with a family code, free.",
+      cta: { label: "Get Pro", href: "https://roun.sl-studio.dev/settings" },
       rows: [
         {
           label: "Storage",
