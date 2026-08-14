@@ -16,6 +16,10 @@
   --accent-roun-tint: #e8f0e6;
   --accent-wordflow: #b85c34;
   --accent-wordflow-tint: #f5e6dc;
+
+  /* Warm gold, used sparingly for promo callouts (e.g. the trial badge) that need to
+     stand out against a per-app accent color rather than blend into it. */
+  --accent-highlight: #d97706;
 }
 
 @theme inline {
@@ -30,6 +34,7 @@
   --color-accent-roun-tint: var(--accent-roun-tint);
   --color-accent-wordflow: var(--accent-wordflow);
   --color-accent-wordflow-tint: var(--accent-wordflow-tint);
+  --color-accent-highlight: var(--accent-highlight);
 
   --font-display: var(--font-display);
   --font-body: var(--font-body);

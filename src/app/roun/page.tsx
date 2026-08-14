@@ -208,7 +208,7 @@ export default function RounPage() {
             </div>
 
             <div className="relative rounded-xl border-2 border-accent-roun bg-accent-roun-tint p-5 md:p-6">
-              <span className="absolute -top-3 left-5 rounded-full bg-accent-roun px-2.5 py-0.5 font-mono text-[9px] uppercase tracking-wide text-bg">
+              <span className="absolute -top-3.5 left-5 rounded-full bg-accent-highlight px-3 py-1 font-mono text-xs font-semibold uppercase tracking-wide text-white shadow-sm">
                 {app.pricing.trial}
               </span>
               <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-ink-soft">
