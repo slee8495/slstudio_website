@@ -131,7 +131,7 @@ export const apps: AppEntry[] = [
       "A private, shared journal for our baby: not every photo, just the moments we'll want to remember, the date, and what we were thinking when it happened. A camera roll can hold the photo. It can't hold the memory. Built for our own family first, and private by default: only the people you invite can ever see it.",
     different: {
       title: "Why not just keep the photos on your phone?",
-      body: "Ten years of that and you'll have tens of thousands of photos, most of them near duplicates, with no way to find the one that mattered or remember what you were thinking when you took it. Roun only holds the moments you chose to keep: dated, with your own words attached and searchable by keyword, so it becomes one story you can hand back someday, not a camera roll you'd never finish scrolling.",
+      body: "Ten years of that and you'll have tens of thousands of photos, most of them near duplicates, with no way to find the one that mattered or remember what you were thinking when you took it. Roun only holds the moments you chose to keep: dated, with your own words attached and searchable by keyword, so it becomes one story you can hand back someday, not a camera roll you'd never finish scrolling. And when you're ready to hold it, Roun turns those entries into an actual photo album.",
     },
     cta: null,
     beforeAfter: {
@@ -236,6 +236,34 @@ export const apps: AppEntry[] = [
             "Tap into any category to see every entry tagged under it, so a milestone isn't just a checkbox, it's the actual moment behind it.",
         },
         {
+          src: "/roun/howto/howto-album-01.jpg",
+          width: 842,
+          height: 1633,
+          caption:
+            "Every kid and pet gets their own Album: every photo entry you've written, automatically laid out into a real photobook.",
+        },
+        {
+          src: "/roun/howto/howto-album-02.jpg",
+          width: 842,
+          height: 1633,
+          caption:
+            "Real page layouts, not a plain grid. Roun groups your photos by date and arranges them into collages, so every page looks intentional.",
+        },
+        {
+          src: "/roun/howto/howto-album-03.jpg",
+          width: 842,
+          height: 1633,
+          caption:
+            "Scroll straight down, or flip through page by page like an actual book. Jump to any date range with a built-in calendar.",
+        },
+        {
+          src: "/roun/howto/howto-album-04.jpg",
+          width: 842,
+          height: 1633,
+          caption:
+            "One tap and the whole album downloads as a PDF, ready to print or send to grandma.",
+        },
+        {
           src: "/roun/howto/howto-10.jpg",
           width: 500,
           height: 970,
@@ -299,6 +327,12 @@ export const apps: AppEntry[] = [
         title: "Milestones",
         description:
           'Track firsts, big and small, and revisit them on "On this day."',
+      },
+      {
+        icon: "📖",
+        title: "Automatic photo albums",
+        description:
+          "Every photo entry, already laid out as a real photobook for each kid and pet, with page turns, milestone title pages, and one tap to download as a PDF.",
       },
       {
         icon: "🔒",
