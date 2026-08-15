@@ -369,6 +369,11 @@ export const apps: AppEntry[] = [
           free: "Interstitial",
           pro: "None",
         },
+        {
+          label: "Monthly album",
+          free: "Export anytime",
+          pro: "Emailed automatically",
+        },
       ],
     },
     referral: {
