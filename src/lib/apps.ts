@@ -278,11 +278,18 @@ export const apps: AppEntry[] = [
             "Adding a new kid or pet takes seconds: a name, a birth date, and you're set. No limit on how many you can add.",
         },
         {
-          src: "/roun/howto/howto-12.jpg",
-          width: 500,
-          height: 970,
+          src: "/roun/howto/howto-just-us.jpg",
+          width: 852,
+          height: 1653,
           caption:
-            "Not everyone needs full access. Set each family member as an editor or view-only, so grandparents can watch along without being able to change anything.",
+            "Some moments are just for you. Mark an entry 'Just us' and it stays hidden from extended family members like grandparents.",
+        },
+        {
+          src: "/roun/howto/howto-family-tiers.jpg",
+          width: 852,
+          height: 1653,
+          caption:
+            "Give each family member their own access level: editor or view-only, and full family or extended (limited), so everyone sees exactly what you want them to.",
         },
       ],
     },
