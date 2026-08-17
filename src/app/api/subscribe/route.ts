@@ -1,5 +1,7 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
+import { newsletterWelcomeEmail } from "@/lib/emailTemplates";
+import { unsubscribeUrl } from "@/lib/unsubscribe";
 
 // Two separate keys, on purpose: audience management (contacts.create below) needs Full access,
 // but sending the welcome email only needs the same send-only key the contact form already uses.
@@ -49,11 +51,17 @@ export async function POST(request: Request) {
   }
 
   try {
+    const { subject, html, text } = newsletterWelcomeEmail(email);
     await sender.emails.send({
       from: "SL Studio <noreply@sl-studio.dev>",
       to: email,
-      subject: "Welcome to the SL Studio newsletter",
-      text: "Hi, thanks for subscribing.\n\nI'll email you when something new ships, an app, a feature, something worth telling you about. Nothing more often than that, and no noise in between.\n\nIf it's ever not useful, there's an unsubscribe link at the bottom of every email.",
+      subject,
+      html,
+      text,
+      headers: {
+        "List-Unsubscribe": `<${unsubscribeUrl(email)}>`,
+        "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
+      },
     });
   } catch (error) {
     // The contact is already saved, so don't fail the request over a welcome-email hiccup.
