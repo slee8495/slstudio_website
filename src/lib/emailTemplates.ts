@@ -3,11 +3,10 @@ import { unsubscribeUrl } from "./unsubscribe";
 const WRAPPER_STYLE =
   "font-family: -apple-system, BlinkMacSystemFont, sans-serif; max-width: 480px; margin: 0 auto; padding: 32px 24px; color: #3a2e26; background: #fffdf8;";
 
+// No flexbox: email clients render it inconsistently (the earlier circle+wordmark layout came
+// out misaligned in Gmail). Plain block text is reliable everywhere.
 const LOGO_HEADER = `
-  <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 28px;">
-    <span style="display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 9999px; border: 1px solid rgba(58, 46, 38, 0.25); font-family: monospace; font-size: 11px; font-weight: 600;">SL</span>
-    <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;">SL Studio</span>
-  </div>
+  <p style="margin: 0 0 28px; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;">SL Studio</p>
 `;
 
 export function newsletterWelcomeEmail(email: string): {
