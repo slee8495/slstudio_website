@@ -326,6 +326,14 @@ export default function RounPage() {
               );
             })}
           </div>
+          {app.pricing && (
+            <a
+              href={app.pricing.cta.href}
+              className="mt-4 inline-block text-xs text-ink-soft underline underline-offset-2 hover:text-ink"
+            >
+              Continue in your browser
+            </a>
+          )}
         </section>
       )}
 
