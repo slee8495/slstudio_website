@@ -275,9 +275,8 @@ export const apps: AppEntry[] = [
         {
           src: "/roun/howto/howto-10.jpg",
           width: 500,
-          height: 970,
-          caption:
-            "Share one code with your partner and they're in: signed in, synced, and writing to the same journal within a minute.",
+          height: 953,
+          caption: "Invite your family with a family code",
         },
         {
           src: "/roun/howto/howto-11.jpg",
@@ -288,10 +287,9 @@ export const apps: AppEntry[] = [
         },
         {
           src: "/roun/howto/howto-just-us.jpg",
-          width: 852,
-          height: 1653,
-          caption:
-            "Some moments are just for you. Mark an entry 'Just us' and it stays hidden from extended family members like grandparents.",
+          width: 500,
+          height: 983,
+          caption: "Keep some moments just between you",
         },
         {
           src: "/roun/howto/howto-family-tiers.jpg",
