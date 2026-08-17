@@ -77,6 +77,7 @@ export type DownloadLink = {
 
 export type Downloads = {
   label: string;
+  note: string;
   links: DownloadLink[];
 };
 
@@ -126,7 +127,7 @@ export const apps: AppEntry[] = [
     tagline: "The moments worth keeping, not another camera roll.",
     catchline: "Save the moments you'll want to hand back to them, someday.",
     meta: "Lifelong memory journal · iOS & Android · started 2026",
-    stamp: { text: "Pre-launch", tone: "positive" },
+    stamp: { text: "Launched", tone: "positive" },
     description:
       "A private, shared journal for our baby: not every photo, just the moments we'll want to remember, the date, and what we were thinking when it happened. A camera roll can hold the photo. It can't hold the memory. Built for our own family first, and private by default: only the people you invite can ever see it.",
     different: {
@@ -390,6 +391,7 @@ export const apps: AppEntry[] = [
     },
     downloads: {
       label: "Download",
+      note: "iOS and Android are in app store review right now, so there's a short wait. The mobile web app gives you the exact same experience today, no need to wait. Please email",
       links: [
         {
           platform: "web",
