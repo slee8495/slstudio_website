@@ -142,7 +142,7 @@ export const apps: AppEntry[] = [
     name: "Roun",
     tagline: "The moments worth keeping, not another camera roll.",
     catchline: "Save the moments you'll want to hand back to them, someday.",
-    meta: "Lifelong memory journal · iOS & Android · started 2026",
+    meta: "Lifelong memory journal · iOS & Android",
     stamp: { text: "Launched", tone: "positive" },
     description:
       "A private, shared journal for our baby: not every photo, just the moments we'll want to remember, the date, and what we were thinking when it happened. A camera roll can hold the photo. It can't hold the memory. Built for our own family first, and private by default: only the people you invite can ever see it.",
@@ -434,7 +434,7 @@ export const apps: AppEntry[] = [
     name: "Wordflow",
     tagline: "Bible reading that survives past January.",
     catchline: "Read the Bible in a few minutes a day.",
-    meta: "Daily Bible reading · iOS & Android · started 2026",
+    meta: "Daily Bible reading · iOS & Android",
     stamp: { text: "Coming soon", tone: "pending" },
     comingSoon: true,
     hidden: true,
@@ -467,7 +467,7 @@ export const apps: AppEntry[] = [
     tagline:
       "Math for adults, in an age where it's tempting to let AI do the thinking for you.",
     catchline: "Stay sharp, ten minutes a day.",
-    meta: "Math practice for adults · iOS & Android · started 2026",
+    meta: "Math practice for adults · iOS & Android",
     stamp: { text: "Coming soon", tone: "pending" },
     comingSoon: true,
     comingSoonNote: "Coming soon. Currently working on the content.",
