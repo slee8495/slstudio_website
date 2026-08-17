@@ -2,7 +2,10 @@ import { NewsletterForm } from "./newsletter-form";
 
 export function SiteFooter() {
   return (
-    <footer className="mt-auto border-t border-border py-6 md:py-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+    <footer
+      id="newsletter"
+      className="mt-auto scroll-mt-24 border-t border-border py-6 md:py-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+    >
       <p className="font-mono text-xs text-ink-soft">
         SL Studio. Built one small thing at a time.
       </p>

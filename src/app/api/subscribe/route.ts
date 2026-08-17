@@ -1,7 +1,10 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
 
-const resend = new Resend(process.env.RESEND_AUDIENCE_KEY);
+// Two separate keys, on purpose: audience management (contacts.create below) needs Full access,
+// but sending the welcome email only needs the same send-only key the contact form already uses.
+const audience = new Resend(process.env.RESEND_AUDIENCE_KEY);
+const sender = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
   const body = await request.json();
@@ -32,12 +35,11 @@ export async function POST(request: Request) {
   }
 
   try {
-    const { error } = await resend.contacts.create({
+    const { error } = await audience.contacts.create({
       email,
       segments: [{ id: audienceId }],
     });
     if (error) throw error;
-    return NextResponse.json({ ok: true });
   } catch (error) {
     console.error("Failed to subscribe", error);
     return NextResponse.json(
@@ -45,4 +47,18 @@ export async function POST(request: Request) {
       { status: 500 }
     );
   }
+
+  try {
+    await sender.emails.send({
+      from: "SL Studio <noreply@sl-studio.dev>",
+      to: email,
+      subject: "Welcome to the SL Studio newsletter",
+      text: "Hi, thanks for subscribing.\n\nI'll email you when something new ships, an app, a feature, something worth telling you about. Nothing more often than that, and no noise in between.\n\nIf it's ever not useful, there's an unsubscribe link at the bottom of every email.",
+    });
+  } catch (error) {
+    // The contact is already saved, so don't fail the request over a welcome-email hiccup.
+    console.error("Failed to send newsletter welcome email", error);
+  }
+
+  return NextResponse.json({ ok: true });
 }
