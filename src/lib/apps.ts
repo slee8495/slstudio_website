@@ -483,8 +483,8 @@ export const apps: AppEntry[] = [
       paragraphs: [
         "I studied data science, and I still work somewhere that math actually matters day to day. But this isn't about memorizing formulas, it's about how much math itself can actually be interesting once you get past the fear of it.",
         "Growing up, I couldn't keep up with how fast and intense math class moved, the kind of pace a lot of Asian school systems run at, so I ended up scared of it and just checked out. I think a lot of adults have some version of that story. Underneath all of it, math actually explains a huge amount of how the world works, and if you come at it slowly, ten minutes at a time, I think you'll find something you lost along the way, or maybe never got to find in the first place. That's what happened to me, eventually.",
-        "It also felt like the right time to build this because it's gotten so easy to just hand your thinking over to AI. I wanted something that kept my own head working instead of outsourcing it.",
-        "And honestly, I have a son now, and I want to be the kind of dad who can sit down and make math feel easy and fun for him as he grows up, someone he can still talk through a hard problem with even once he's way past where I am. This app started as that.",
+        "It also felt like the right time to build this because it's gotten so easy to just hand your thinking over to AI. I wanted something that kept my own head working critically instead of outsourcing it blindly.",
+        "Also, as a parent of a son, I want to be able to sit down and make math feel easy and fun for him as he grows up, and stay someone he can actually talk through a hard problem with, even once he's way past where I am. This app started as that.",
       ],
       closing: "Now I want it to help whoever else at SL Studio needs the same thing. If you have any questions, or just want to tell me something, email me at",
       email: "support@sl-studio.dev",
