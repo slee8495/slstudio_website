@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { HowToCarousel } from "@/components/how-to-carousel";
+import { PricingToggle } from "@/components/pricing-toggle";
 import { AppIcon } from "@/components/app-icon";
 import { AppleIcon, AndroidIcon, WebAppIcon } from "@/components/platform-icons";
 import { getApp } from "@/lib/apps";
@@ -214,9 +215,10 @@ export default function RounPage() {
               <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-ink-soft">
                 Pro
               </p>
-              <p className="mt-2 font-display text-3xl font-semibold tracking-tight">
-                {app.pricing.price}
-              </p>
+              <PricingToggle
+                price={app.pricing.price}
+                annualPrice={app.pricing.annualPrice}
+              />
               <ul className="mt-5 divide-y divide-accent-roun/20">
                 {app.pricing.rows.map((row) => (
                   <li

@@ -63,6 +63,7 @@ export type PricingRow = {
 export type Pricing = {
   label: string;
   price: string;
+  annualPrice: string;
   trial: string;
   note: string;
   rows: PricingRow[];
@@ -382,6 +383,7 @@ export const apps: AppEntry[] = [
     pricing: {
       label: "Pricing",
       price: "$3.99/month",
+      annualPrice: "$34.99/year",
       trial: "30-day free trial",
       note: "Billed once per family. Invite everyone else in with a family code, free.",
       cta: { label: "Start free trial", href: "https://roun.sl-studio.dev/settings" },
