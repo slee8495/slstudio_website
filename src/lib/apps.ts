@@ -120,6 +120,9 @@ export type AppEntry = {
   // card and the detail page. The content itself stays here (not deleted) so flipping this back
   // to false instantly restores the full page.
   comingSoon?: boolean;
+  // Overrides the generic "Coming soon." line shown on the homepage card and detail page hero
+  // when comingSoon is true. Falls back to "Coming soon." if not set.
+  comingSoonNote?: string;
   // When true, the homepage build log list skips this entry entirely (no card, doesn't count
   // toward the entries total). The detail page at /{slug} still works if linked directly. Use
   // this when an app can't ship for reasons outside our control (a blocked license, a pulled
@@ -455,6 +458,37 @@ export const apps: AppEntry[] = [
           "Commercial license from our Bible translation's publisher: submitted, awaiting approval",
       },
     ],
+  },
+  {
+    slug: "daily-math",
+    number: "003",
+    icon: "🧮",
+    name: "Daily Math",
+    tagline:
+      "Math for adults, in an age where it's tempting to let AI do the thinking for you.",
+    catchline: "Stay sharp, ten minutes a day.",
+    meta: "Math practice for adults · iOS & Android · started 2026",
+    stamp: { text: "Coming soon", tone: "pending" },
+    comingSoon: true,
+    comingSoonNote: "Coming soon. Currently working on the content.",
+    description:
+      "A math practice app for adults, ten minutes a day to keep your own head sharp instead of outsourcing every hard thought to AI. Not test prep, not homework help, just the habit of thinking mathematically again.",
+    different: {
+      title: "Why math, why now?",
+      body: "It's never been easier to let AI do your thinking for you. Daily Math is the opposite bet: ten minutes a day of real problem solving, slow and simple enough that the habit actually sticks, so your own reasoning stays sharp instead of fading into a search bar.",
+    },
+    cta: null,
+    story: {
+      label: "Our story",
+      paragraphs: [
+        "I studied data science, and I still work somewhere that math actually matters day to day. But this isn't about memorizing formulas, it's about how much math itself can actually be interesting once you get past the fear of it.",
+        "Growing up, I couldn't keep up with how fast and intense math class moved, the kind of pace a lot of Asian school systems run at, so I ended up scared of it and just checked out. I think a lot of adults have some version of that story. Underneath all of it, math actually explains a huge amount of how the world works, and if you come at it slowly, ten minutes at a time, I think you'll find something you lost along the way, or maybe never got to find in the first place. That's what happened to me, eventually.",
+        "It also felt like the right time to build this because it's gotten so easy to just hand your thinking over to AI. I wanted something that kept my own head working instead of outsourcing it.",
+        "And honestly, I have a son now, and I want to be the kind of dad who can sit down and make math feel easy and fun for him as he grows up, someone he can still talk through a hard problem with even once he's way past where I am. This app started as that.",
+      ],
+      closing: "Now I want it to help whoever else at SL Studio needs the same thing. If you have any questions, or just want to tell me something, email me at",
+      email: "support@sl-studio.dev",
+    },
   },
 ];
 

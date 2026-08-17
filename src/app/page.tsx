@@ -72,7 +72,9 @@ export default function Home() {
                   {app.meta}
                 </p>
                 <p className="mt-4 text-ink-soft leading-relaxed">
-                  {app.comingSoon ? "Coming soon." : app.tagline}
+                  {app.comingSoon
+                    ? (app.comingSoonNote ?? "Coming soon.")
+                    : app.tagline}
                 </p>
                 <span className="inline-flex items-center gap-1.5 mt-5 font-medium text-sm text-ink group-hover:text-ink-soft transition-colors">
                   View {app.name} <span aria-hidden>→</span>
