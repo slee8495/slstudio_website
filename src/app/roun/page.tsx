@@ -5,8 +5,9 @@ import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { HowToCarousel } from "@/components/how-to-carousel";
+import { PricingCta } from "@/components/pricing-cta";
 import { AppIcon } from "@/components/app-icon";
-import { AppleIcon, AndroidIcon } from "@/components/platform-icons";
+import { AppleIcon, AndroidIcon, WebAppIcon } from "@/components/platform-icons";
 import { getApp } from "@/lib/apps";
 
 const app = getApp("roun");
@@ -232,12 +233,7 @@ export default function RounPage() {
                   </li>
                 ))}
               </ul>
-              <a
-                href={app.pricing.cta.href}
-                className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-accent-roun px-5 py-2.5 text-sm font-semibold text-bg transition-opacity hover:opacity-90"
-              >
-                {app.pricing.cta.label}
-              </a>
+              <PricingCta href={app.pricing.cta.href} label={app.pricing.cta.label} />
             </div>
           </div>
         </section>
@@ -279,18 +275,22 @@ export default function RounPage() {
           </div>
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg">
             {app.downloads.links.map((link) => {
-              const isIos = link.platform === "ios";
-              const Icon = isIos ? AppleIcon : AndroidIcon;
-              return (
-                <div
-                  key={link.platform}
-                  aria-disabled={!link.href}
-                  className="flex items-center gap-3 rounded-xl border border-border bg-bg-subtle p-4"
-                >
+              const Icon =
+                link.platform === "ios"
+                  ? AppleIcon
+                  : link.platform === "android"
+                    ? AndroidIcon
+                    : WebAppIcon;
+              const iconBg =
+                link.platform === "ios"
+                  ? "bg-ink"
+                  : link.platform === "android"
+                    ? "bg-[#3DDC84]"
+                    : "bg-accent-roun";
+              const content = (
+                <>
                   <span
-                    className={`inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${
-                      isIos ? "bg-ink" : "bg-[#3DDC84]"
-                    }`}
+                    className={`inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${iconBg}`}
                   >
                     <Icon className="h-5 w-5 text-white" />
                   </span>
@@ -299,9 +299,29 @@ export default function RounPage() {
                       {link.label}
                     </p>
                     <p className="mt-0.5 font-mono text-[10px] uppercase tracking-wide text-ink-soft">
-                      Coming soon
+                      {link.href ? "Available now" : "Coming soon"}
                     </p>
                   </div>
+                </>
+              );
+              if (link.href) {
+                return (
+                  <a
+                    key={link.platform}
+                    href={link.href}
+                    className="flex items-center gap-3 rounded-xl border border-accent-roun bg-accent-roun-tint p-4 transition-opacity hover:opacity-90"
+                  >
+                    {content}
+                  </a>
+                );
+              }
+              return (
+                <div
+                  key={link.platform}
+                  aria-disabled
+                  className="flex items-center gap-3 rounded-xl border border-border bg-bg-subtle p-4"
+                >
+                  {content}
                 </div>
               );
             })}

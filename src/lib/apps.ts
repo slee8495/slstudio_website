@@ -70,7 +70,7 @@ export type Pricing = {
 };
 
 export type DownloadLink = {
-  platform: "ios" | "android";
+  platform: "ios" | "android" | "web";
   label: string;
   href: string | null;
 };
@@ -391,6 +391,11 @@ export const apps: AppEntry[] = [
     downloads: {
       label: "Download",
       links: [
+        {
+          platform: "web",
+          label: "Mobile Web App",
+          href: "https://roun.sl-studio.dev/get-app",
+        },
         { platform: "ios", label: "iOS", href: null },
         { platform: "android", label: "Android", href: null },
       ],
