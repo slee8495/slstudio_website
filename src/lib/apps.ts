@@ -336,7 +336,7 @@ export const apps: AppEntry[] = [
         "It wouldn't be easy to pick the right photos out of thousands to make an album, the kind you'd keep as a hardcover book on a shelf somewhere in your room. I wanted that album to come together on its own, curated well enough that it still felt like someone had actually sat down and made it.",
         "I tried many apps looking for exactly this, and never found it anywhere. So I built it myself, for my baby and for a dog who went to heaven, one I still think about all the time. Now I want to share it with you too, so the people and pets you love stay just as vivid.",
       ],
-      closing: "If something's off, or you just want to talk, reach out anytime, I'm here for you!",
+      closing: "If something's ever broken, or you just want to tell me something, email me at",
       email: "support@sl-studio.dev",
     },
     features: [
