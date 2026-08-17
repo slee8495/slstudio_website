@@ -22,7 +22,7 @@ export function SiteHeader() {
         >
           About
         </Link>
-        {apps.map((app) => (
+        {apps.filter((app) => !app.hidden).map((app) => (
           <Link
             key={app.slug}
             href={`/${app.slug}`}

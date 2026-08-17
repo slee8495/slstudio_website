@@ -11,6 +11,8 @@ const stampDotClasses: Record<"positive" | "pending", string> = {
 };
 
 export default function Home() {
+  const visibleApps = apps.filter((app) => !app.hidden);
+
   return (
     <main className="flex-1 w-full mx-auto max-w-6xl px-6 md:px-8 flex flex-col">
       <SiteHeader />
@@ -35,12 +37,12 @@ export default function Home() {
             Build log
           </h2>
           <span className="font-mono text-xs text-ink-soft">
-            {apps.length} entries
+            {visibleApps.length} {visibleApps.length === 1 ? "entry" : "entries"}
           </span>
         </div>
 
         <ul className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-          {apps.map((app) => (
+          {visibleApps.map((app) => (
             <li key={app.slug}>
               <Link
                 href={`/${app.slug}`}

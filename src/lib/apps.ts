@@ -120,6 +120,11 @@ export type AppEntry = {
   // card and the detail page. The content itself stays here (not deleted) so flipping this back
   // to false instantly restores the full page.
   comingSoon?: boolean;
+  // When true, the homepage build log list skips this entry entirely (no card, doesn't count
+  // toward the entries total). The detail page at /{slug} still works if linked directly. Use
+  // this when an app can't ship for reasons outside our control (a blocked license, a pulled
+  // API) rather than "not built yet" (that's comingSoon).
+  hidden?: boolean;
 };
 
 export const apps: AppEntry[] = [
@@ -429,6 +434,7 @@ export const apps: AppEntry[] = [
     meta: "Daily Bible reading · iOS & Android · started 2026",
     stamp: { text: "Coming soon", tone: "pending" },
     comingSoon: true,
+    hidden: true,
     description:
       "A habit-sized way to read the Bible daily, $3.99/month with a 7-day free trial. Payments and the daily reading flow are built and tested. We're waiting on a commercial license from our translation's publisher before it can go live.",
     different: {
