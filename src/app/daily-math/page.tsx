@@ -35,40 +35,43 @@ export default function DailyMathPage() {
       </Link>
 
       <section className="pt-8 pb-12 md:pt-12 md:pb-16">
-        <div className="flex items-center gap-4">
-          <AppIcon icon={app.icon} name={app.name} size="hero" />
-          <div>
-            <span className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wide text-ink-soft">
-              No. {app.number}
-              <span aria-hidden>·</span>
-              <span
-                aria-hidden
-                className={`h-1.5 w-1.5 rounded-full ${
-                  stampDotClasses[app.stamp.tone]
-                }`}
-              />
-              {app.stamp.text}
-            </span>
-            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight mt-1">
-              {app.name}
-            </h1>
+        <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-6 lg:gap-16 items-start">
+          <div className="flex items-center gap-5">
+            <AppIcon icon={app.icon} name={app.name} size="xl" />
+            <div>
+              <span className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wide text-ink-soft">
+                No. {app.number}
+                <span aria-hidden>·</span>
+                <span
+                  aria-hidden
+                  className={`h-1.5 w-1.5 rounded-full ${
+                    stampDotClasses[app.stamp.tone]
+                  }`}
+                />
+                {app.stamp.text}
+              </span>
+              <h1 className="font-display text-5xl md:text-6xl font-semibold tracking-tight mt-1">
+                {app.name}
+              </h1>
+            </div>
+          </div>
+          <div className="max-w-2xl">
+            <p className="font-display text-2xl md:text-3xl font-medium tracking-tight leading-snug">
+              {app.catchline}
+            </p>
+            <p className="font-mono text-[11px] uppercase tracking-wide text-ink-soft mt-4">
+              {app.meta}
+            </p>
+            <p className="mt-4 text-base md:text-lg text-ink-soft leading-relaxed">
+              {app.description}
+            </p>
+            {app.comingSoon && (
+              <p className="mt-4 font-mono text-xs uppercase tracking-wide text-status-pending">
+                {app.comingSoonNote ?? "Coming soon."}
+              </p>
+            )}
           </div>
         </div>
-        <p className="font-mono text-[11px] uppercase tracking-wide text-ink-soft mt-6">
-          {app.meta}
-        </p>
-
-        <p className="mt-6 max-w-2xl font-display text-xl md:text-2xl font-medium tracking-tight leading-snug">
-          {app.catchline}
-        </p>
-        <p className="mt-4 max-w-2xl text-base md:text-lg text-ink-soft leading-relaxed">
-          {app.description}
-        </p>
-        {app.comingSoon && (
-          <p className="mt-4 max-w-2xl font-mono text-xs uppercase tracking-wide text-status-pending">
-            {app.comingSoonNote ?? "Coming soon."}
-          </p>
-        )}
       </section>
 
       {app.story && (

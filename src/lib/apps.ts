@@ -472,7 +472,7 @@ export const apps: AppEntry[] = [
     comingSoon: true,
     comingSoonNote: "Coming soon. Currently working on the content.",
     description:
-      "A math practice app for adults, ten minutes a day to keep your own head sharp instead of outsourcing every hard thought to AI. Not test prep, not homework help, just the habit of thinking mathematically again.",
+      "A math practice app for adults, ten minutes a day to keep your own head sharp. Not test prep, not homework help, just the habit of thinking mathematically again to keep your brain fresh.",
     different: {
       title: "Why math, why now?",
       body: "It's never been easier to let AI do your thinking for you. Daily Math is the opposite bet: ten minutes a day of real problem solving, slow and simple enough that the habit actually sticks, so your own reasoning stays sharp instead of fading into a search bar.",
