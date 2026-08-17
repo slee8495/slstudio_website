@@ -87,6 +87,13 @@ export type Referral = {
   email: string;
 };
 
+export type Story = {
+  label: string;
+  paragraphs: string[];
+  closing: string;
+  email: string;
+};
+
 export type AppEntry = {
   slug: string;
   number: string;
@@ -102,6 +109,7 @@ export type AppEntry = {
   howTo?: HowTo;
   beforeAfter?: BeforeAfter;
   nameStory?: NameStory;
+  story?: Story;
   pricing?: Pricing;
   downloads?: Downloads;
   referral?: Referral;
@@ -322,6 +330,16 @@ export const apps: AppEntry[] = [
           { text: " as they grow." },
         ],
       ],
+    },
+    story: {
+      label: "Our story",
+      paragraphs: [
+        "I always end up back in my camera roll, but a photo by itself doesn't always capture the moment the way I actually remember it. Scrolling through thousands of them, what I really wanted wasn't the picture, it was the story behind it.",
+        "It wouldn't be easy to pick the right photos out of thousands to make an album, the kind you'd keep as a hardcover book on a shelf somewhere in your room. I wanted that album to come together on its own, curated well enough that it still felt like someone had actually sat down and made it.",
+        "I tried many apps looking for exactly this, and never found it anywhere. So I built it myself, for my baby and for a dog who went to heaven, one I still think about all the time. Now I want to share it with you too, so the people and pets you love stay just as vivid.",
+      ],
+      closing: "If something's off, or you just want to talk, reach out anytime, I'm here for you!",
+      email: "support@sl-studio.dev",
     },
     features: [
       {

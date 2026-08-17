@@ -378,6 +378,32 @@ export default function RounPage() {
         </section>
       )}
 
+      {app.story && (
+        <section className="pb-14 md:pb-20">
+          <div className="border-t border-border pt-4">
+            <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-ink-soft">
+              {app.story.label}
+            </h2>
+          </div>
+          <div className="mt-8 max-w-2xl space-y-5">
+            {app.story.paragraphs.map((paragraph, i) => (
+              <p key={i} className="text-base md:text-lg text-ink-soft leading-relaxed">
+                {paragraph}
+              </p>
+            ))}
+            <p className="text-base md:text-lg text-ink-soft leading-relaxed">
+              {app.story.closing}{" "}
+              <a
+                href={`mailto:${app.story.email}`}
+                className="font-medium text-ink hover:text-ink-soft transition-colors underline underline-offset-2"
+              >
+                {app.story.email}
+              </a>
+            </p>
+          </div>
+        </section>
+      )}
+
       <SiteFooter />
     </main>
   );
