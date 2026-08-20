@@ -71,7 +71,7 @@ export default function Home() {
                 <p className="font-mono text-[11px] uppercase tracking-wide text-ink-soft mt-1">
                   {app.meta}
                 </p>
-                <p className="mt-4 text-ink-soft leading-relaxed">
+                <p className="mt-4 text-ink-soft/70 leading-relaxed">
                   {app.comingSoon
                     ? (app.comingSoonNote ?? "Coming soon.")
                     : app.tagline}

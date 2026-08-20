@@ -5,9 +5,15 @@ import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { HowToCarousel } from "@/components/how-to-carousel";
+import { PromoVideo } from "@/components/promo-video";
 import { PricingToggle } from "@/components/pricing-toggle";
+import { PricingCta } from "@/components/pricing-cta";
 import { AppIcon } from "@/components/app-icon";
-import { AppleIcon, AndroidIcon, WebAppIcon } from "@/components/platform-icons";
+import {
+  AppleIcon,
+  AndroidIcon,
+  WebAppIcon,
+} from "@/components/platform-icons";
 import { getApp } from "@/lib/apps";
 
 const app = getApp("roun");
@@ -36,55 +42,67 @@ export default function RounPage() {
         <span aria-hidden>←</span> Build log
       </Link>
 
-      <section className="pt-8 pb-12 md:pt-12 md:pb-16">
-        <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-6 lg:gap-16 items-start">
-          <div className="flex items-center gap-5">
-            <AppIcon
-              icon={app.icon}
-              name={app.name}
-              size="xl"
-              accentClass="border-accent-roun/25 bg-accent-roun-tint"
+      <section className="relative left-1/2 right-1/2 -mx-[50vw] w-screen bg-[#FDF3E7] lg:h-[70vh] lg:min-h-[480px] lg:max-h-[680px] lg:overflow-hidden">
+        <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-8 lg:px-8 lg:h-full">
+          <div className="relative w-full aspect-[1320/1828] overflow-hidden -mx-6 md:-mx-8 lg:mx-0 lg:absolute lg:inset-y-0 lg:left-[55%] lg:right-8 lg:w-auto lg:aspect-auto">
+            <PromoVideo
+              src="/roun/promo-video.mp4"
+              poster="/roun/promo-video-poster.jpg"
+              variant="cover"
+              className="absolute inset-0"
             />
-            <div>
-              <span className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wide text-ink-soft">
-                No. {app.number}
-                <span aria-hidden>·</span>
-                <span
-                  aria-hidden
-                  className={`h-1.5 w-1.5 rounded-full ${
-                    stampDotClasses[app.stamp.tone]
-                  }`}
-                />
-                {app.stamp.text}
-              </span>
-              <h1 className="font-display text-5xl md:text-6xl font-semibold tracking-tight mt-1">
-                {app.name}
-              </h1>
-              {app.nameStory && (
-                <a
-                  href="#the-name"
-                  className="block mt-1.5 max-w-[220px] font-mono text-[11px] text-ink-soft hover:text-ink transition-colors underline underline-offset-2 decoration-border hover:decoration-ink"
-                >
-                  {app.nameStory.teaser}
-                </a>
-              )}
-            </div>
           </div>
-          <div className="max-w-2xl">
-            <p className="font-display text-2xl md:text-3xl font-medium tracking-tight leading-snug">
-              {app.catchline}
-            </p>
-            <p className="font-mono text-[11px] uppercase tracking-wide text-ink-soft mt-4">
-              {app.meta}
-            </p>
-            <p className="mt-4 text-base md:text-lg text-ink-soft leading-relaxed">
-              {app.description}
-            </p>
+          <div className="relative py-8 lg:py-0 lg:h-full lg:flex lg:items-center lg:pb-12">
+            <div className="max-w-lg">
+              <div className="flex items-center gap-5">
+                <AppIcon
+                  icon={app.icon}
+                  name={app.name}
+                  size="xl"
+                  accentClass="border-accent-roun/25 bg-accent-roun-tint"
+                />
+                <div>
+                  <span className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wide text-ink-soft">
+                    No. {app.number}
+                    <span aria-hidden>·</span>
+                    <span
+                      aria-hidden
+                      className={`h-1.5 w-1.5 rounded-full ${
+                        stampDotClasses[app.stamp.tone]
+                      }`}
+                    />
+                    {app.stamp.text}
+                  </span>
+                  <h1 className="font-display text-5xl md:text-6xl font-semibold tracking-tight mt-1 text-ink">
+                    {app.name}
+                  </h1>
+                  {app.nameStory && (
+                    <a
+                      href="#the-name"
+                      className="block mt-1.5 max-w-[220px] font-mono text-[11px] text-ink-soft hover:text-ink transition-colors underline underline-offset-2 decoration-border hover:decoration-ink"
+                    >
+                      {app.nameStory.teaser}
+                    </a>
+                  )}
+                </div>
+              </div>
+              <div className="mt-6">
+                <p className="font-display text-2xl md:text-3xl font-medium tracking-tight leading-snug text-ink">
+                  {app.catchline}
+                </p>
+                <p className="font-mono text-[11px] uppercase tracking-wide text-ink-soft mt-4">
+                  {app.meta}
+                </p>
+                <p className="mt-4 text-base md:text-lg text-ink-soft leading-relaxed">
+                  {app.description}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="pb-14 md:pb-20">
+      <section className="pt-14 pb-14 md:pt-20 md:pb-20">
         <div className="border border-accent-roun/25 bg-accent-roun-tint rounded-2xl p-8 md:p-10">
           <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,360px)_1fr] gap-6 lg:gap-16 items-start">
             <h2 className="font-display text-2xl md:text-3xl font-semibold tracking-tight leading-tight">
@@ -200,9 +218,7 @@ export default function RounPage() {
                     <span className="font-mono text-[10px] uppercase tracking-wide text-ink-soft">
                       {row.label}
                     </span>
-                    <span className="font-medium text-right">
-                      {row.free}
-                    </span>
+                    <span className="font-medium text-right">{row.free}</span>
                   </li>
                 ))}
               </ul>
@@ -228,18 +244,16 @@ export default function RounPage() {
                     <span className="font-mono text-[10px] uppercase tracking-wide text-ink-soft">
                       {row.label}
                     </span>
-                    <span className="font-semibold text-right">
-                      {row.pro}
-                    </span>
+                    <span className="font-semibold text-right">{row.pro}</span>
                   </li>
                 ))}
               </ul>
-              <a
-                href={app.pricing.cta.href}
+              <PricingCta
+                label={app.pricing.cta.label}
+                desktopHref={app.pricing.cta.href}
+                mobileHref="https://roun.sl-studio.dev/get-app"
                 className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-accent-roun px-5 py-2.5 text-sm font-semibold text-bg transition-opacity hover:opacity-90"
-              >
-                {app.pricing.cta.label}
-              </a>
+              />
             </div>
           </div>
         </section>
@@ -289,8 +303,8 @@ export default function RounPage() {
                 {app.referral.email}
               </a>
             )}{" "}
-            if you started with the mobile web app before the native apps launched, and
-            I&apos;ll add a free month as a thank you.
+            if you started with the mobile web app before the native apps
+            launched, and I&apos;ll add a free month as a thank you.
           </p>
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg">
             {app.downloads.links.map((link) => {
@@ -375,7 +389,7 @@ export default function RounPage() {
                       </mark>
                     ) : (
                       <span key={j}>{segment.text}</span>
-                    )
+                    ),
                   )}
                 </p>
               ))}
@@ -393,7 +407,10 @@ export default function RounPage() {
           </div>
           <div className="mt-8 max-w-2xl space-y-5">
             {app.story.paragraphs.map((paragraph, i) => (
-              <p key={i} className="text-base md:text-lg text-ink-soft leading-relaxed">
+              <p
+                key={i}
+                className="text-base md:text-lg text-ink-soft leading-relaxed"
+              >
                 {paragraph}
               </p>
             ))}
