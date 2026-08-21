@@ -43,8 +43,8 @@ export default function RounPage() {
       </Link>
 
       <section className="relative left-1/2 right-1/2 -mx-[50vw] w-screen bg-[#FDF3E7] lg:h-[70vh] lg:min-h-[480px] lg:max-h-[680px] lg:overflow-hidden">
-        <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-8 lg:px-8 lg:h-full">
-          <div className="relative w-full aspect-[1320/1828] overflow-hidden -mx-6 md:-mx-8 lg:mx-0 lg:absolute lg:inset-y-0 lg:left-[55%] lg:right-8 lg:w-auto lg:aspect-auto">
+        <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-8 lg:px-8 lg:h-full flex flex-col lg:block">
+          <div className="order-2 lg:order-none relative w-full aspect-[1320/1828] overflow-hidden -mx-6 md:-mx-8 lg:mx-0 lg:absolute lg:inset-y-0 lg:left-[55%] lg:right-8 lg:w-auto lg:aspect-auto">
             <PromoVideo
               src="/roun/promo-video.mp4"
               poster="/roun/promo-video-poster.jpg"
@@ -52,7 +52,7 @@ export default function RounPage() {
               className="absolute inset-0"
             />
           </div>
-          <div className="relative py-8 lg:py-0 lg:h-full lg:flex lg:items-center lg:pb-12">
+          <div className="order-1 lg:order-none relative py-8 lg:py-0 lg:h-full lg:flex lg:items-center lg:pb-12">
             <div className="max-w-lg">
               <div className="flex items-center gap-5">
                 <AppIcon
