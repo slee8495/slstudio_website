@@ -81,7 +81,6 @@ export type DownloadLink = {
 
 export type Downloads = {
   label: string;
-  note: string;
   links: DownloadLink[];
 };
 
@@ -423,7 +422,6 @@ export const apps: AppEntry[] = [
       // The Play Store listing is blocked on the closed-test requirement, so instead of a dead
       // "Android - coming soon" tile, the Android slot links straight to /get-app, which installs
       // Roun to the home screen. Add a real Play Store link here once the listing is live.
-      note: "The App Store version is in review right now, so there's a short wait there. On Android you don't have to wait: one tap installs Roun, its own icon on your home screen, opening full screen. Please email",
       links: [
         {
           platform: "android",

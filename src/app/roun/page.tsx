@@ -293,19 +293,6 @@ export default function RounPage() {
               {app.downloads.label}
             </h2>
           </div>
-          <p className="mt-8 max-w-xl text-ink-soft leading-relaxed">
-            {app.downloads.note}{" "}
-            {app.referral && (
-              <a
-                href={`mailto:${app.referral.email}`}
-                className="font-medium text-ink hover:text-ink-soft transition-colors underline underline-offset-2"
-              >
-                {app.referral.email}
-              </a>
-            )}{" "}
-            if you installed Roun before it reached the app stores, and
-            I&apos;ll add a free month as a thank you.
-          </p>
           <div
             className={`mt-8 grid grid-cols-1 gap-4 ${
               app.downloads.links.length > 1
