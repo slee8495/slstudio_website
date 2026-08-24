@@ -424,10 +424,10 @@ export const apps: AppEntry[] = [
       links: [
         {
           platform: "android",
-          label: "Roun for Android",
+          label: "For Android",
           href: "https://roun.sl-studio.dev/get-app",
         },
-        { platform: "ios", label: "iOS", href: null },
+        { platform: "ios", label: "For iOS", href: null },
       ],
     },
   },
