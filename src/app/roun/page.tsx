@@ -303,10 +303,16 @@ export default function RounPage() {
                 {app.referral.email}
               </a>
             )}{" "}
-            if you started with the mobile web app before the native apps
-            launched, and I&apos;ll add a free month as a thank you.
+            if you installed Roun before it reached the app stores, and
+            I&apos;ll add a free month as a thank you.
           </p>
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg">
+          <div
+            className={`mt-8 grid grid-cols-1 gap-4 ${
+              app.downloads.links.length > 1
+                ? "sm:grid-cols-2 max-w-lg"
+                : "max-w-sm"
+            }`}
+          >
             {app.downloads.links.map((link) => {
               const Icon =
                 link.platform === "ios"

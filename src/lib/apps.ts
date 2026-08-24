@@ -417,15 +417,17 @@ export const apps: AppEntry[] = [
     },
     downloads: {
       label: "Download",
-      note: "iOS and Android are in app store review right now, so there's a short wait. The mobile web app gives you the exact same experience today, no need to wait. Please email",
+      // The Play Store listing is blocked on the closed-test requirement, so instead of a dead
+      // "Android - coming soon" tile, the Android slot links straight to /get-app, which installs
+      // Roun to the home screen. Add a real Play Store link here once the listing is live.
+      note: "The App Store version is in review right now, so there's a short wait there. On Android you don't have to wait: one tap installs Roun, its own icon on your home screen, opening full screen. Please email",
       links: [
         {
-          platform: "web",
-          label: "Mobile Web App",
+          platform: "android",
+          label: "Roun for Android",
           href: "https://roun.sl-studio.dev/get-app",
         },
         { platform: "ios", label: "iOS", href: null },
-        { platform: "android", label: "Android", href: null },
       ],
     },
   },
