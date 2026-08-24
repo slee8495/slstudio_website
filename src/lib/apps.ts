@@ -74,6 +74,9 @@ export type DownloadLink = {
   platform: "ios" | "android" | "web";
   label: string;
   href: string | null;
+  // Overrides the line under the label, which otherwise falls back to
+  // "Available now" when href is set and "Coming soon" when it isn't.
+  status?: string;
 };
 
 export type Downloads = {
@@ -424,10 +427,15 @@ export const apps: AppEntry[] = [
       links: [
         {
           platform: "android",
-          label: "For Android",
+          label: "Android",
           href: "https://roun.sl-studio.dev/get-app",
         },
-        { platform: "ios", label: "For iOS", href: null },
+        {
+          platform: "ios",
+          label: "iOS",
+          href: null,
+          status: "In App Store review",
+        },
       ],
     },
   },

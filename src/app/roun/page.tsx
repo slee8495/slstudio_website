@@ -338,7 +338,8 @@ export default function RounPage() {
                       {link.label}
                     </p>
                     <p className="mt-0.5 font-mono text-[10px] uppercase tracking-wide text-ink-soft">
-                      {link.href ? "Available now" : "Coming soon"}
+                      {link.status ??
+                        (link.href ? "Available now" : "Coming soon")}
                     </p>
                   </div>
                 </>
