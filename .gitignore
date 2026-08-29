@@ -39,3 +39,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# raw video/audio working files (source footage, exports, music beds)
+# These stay local: the 216MB screen recording is over GitHub's 100MB file
+# limit, and only the finished cuts under public/ are actually served.
+# Mirrors .vercelignore so they never get uploaded on deploy either.
+/*.mp4
+/*.MP4
+/*.mp3
+/public/roun/promo-preview.mp4
