@@ -1,7 +1,10 @@
-ScreenRecording_08-19-2026 09-08-50_1.MP4
-album-demo-addon.mp4
-final_v23_compressed.mp4
-bunny-hop-andrey-rossi-main-version-30994-02-09.mp3
-public/roun/promo-preview.mp4
-final_v23_compressed_instagram.mp4
-promo-video.mp4
+# Raw video/audio working files at the repo root. Paths are anchored with a
+# leading slash: a bare "promo-video.mp4" also matches public/roun/promo-video.mp4
+# and silently drops the Roun hero video from the deploy.
+/ScreenRecording_08-19-2026 09-08-50_1.MP4
+/album-demo-addon.mp4
+/final_v23_compressed.mp4
+/bunny-hop-andrey-rossi-main-version-30994-02-09.mp3
+/final_v23_compressed_instagram.mp4
+/promo-video.mp4
+/public/roun/promo-preview.mp4
