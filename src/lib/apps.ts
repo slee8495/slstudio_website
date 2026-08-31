@@ -216,9 +216,9 @@ export const apps: AppEntry[] = [
         {
           src: "/roun/howto/howto-04.jpg",
           width: 500,
-          height: 970,
+          height: 924,
           caption:
-            "Write it, say it, or show it. Attach a photo, a quick voice memo, or a short video, then tag it as a milestone so it's easy to find later.",
+            "Write it or show it. Attach a photo or a short video, then tag it as a milestone so it's easy to find later.",
         },
         {
           src: "/roun/howto/howto-05.jpg",
@@ -353,9 +353,9 @@ export const apps: AppEntry[] = [
     features: [
       {
         icon: "📷",
-        title: "Photos & voice memos",
+        title: "Photos & videos",
         description:
-          "Capture more than words. Attach a photo or a quick voice memo to any entry.",
+          "Capture more than words. Attach a photo or a short video to any entry.",
       },
       {
         icon: "🎉",
