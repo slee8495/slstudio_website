@@ -251,7 +251,14 @@ export default function RounPage() {
               <PricingCta
                 label={app.pricing.cta.label}
                 desktopHref={app.pricing.cta.href}
-                mobileHref="https://roun.sl-studio.dev/get-app"
+                iosHref={
+                  app.downloads?.links.find((l) => l.platform === "ios")
+                    ?.href ?? null
+                }
+                androidHref={
+                  app.downloads?.links.find((l) => l.platform === "android")
+                    ?.href ?? null
+                }
                 className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-accent-roun px-5 py-2.5 text-sm font-semibold text-bg transition-opacity hover:opacity-90"
               />
             </div>

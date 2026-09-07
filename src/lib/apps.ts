@@ -419,12 +419,18 @@ export const apps: AppEntry[] = [
     },
     downloads: {
       label: "Download",
-      // Neither store listing is live yet - the Play Store one is blocked on the closed-test
-      // requirement, the App Store one is still in review - so instead of dead "coming soon"
-      // tiles both slots link to /get-app, which detects the visitor's platform and walks them
-      // through installing Roun to the home screen (Safari's Share > Add to Home Screen on
-      // iPhone, the native install prompt on Android). Swap each href for the real store link
-      // once that listing goes live.
+      // The App Store listing went live 2026-09-07, so iOS points at it directly. The Play
+      // Store one is still blocked on the closed-test requirement, so Android keeps pointing
+      // at /get-app, which detects the visitor's platform and walks them through installing
+      // Roun to the home screen. Swap the Android href for the real store link once that
+      // listing goes live.
+      //
+      // These hrefs are the single source of truth for the store links: the pricing CTA on
+      // the Roun page reads them too, so a phone tapping "Try Roun" lands in the same place
+      // as the matching download tile.
+      //
+      // The App Store URL deliberately omits the /us/ storefront segment so Apple redirects
+      // each visitor to their own country's store. Roun ships in 5 languages, so don't pin it.
       links: [
         {
           platform: "android",
@@ -434,8 +440,7 @@ export const apps: AppEntry[] = [
         {
           platform: "ios",
           label: "iOS",
-          href: "https://roun.sl-studio.dev/get-app",
-          status: "Web app · in review",
+          href: "https://apps.apple.com/app/roun-journal-photo-album/id6802521881",
         },
       ],
     },
