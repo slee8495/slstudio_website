@@ -131,6 +131,14 @@ export type AppEntry = {
   // this when an app can't ship for reasons outside our control (a blocked license, a pulled
   // API) rather than "not built yet" (that's comingSoon).
   hidden?: boolean;
+  // How this app shows up in the homepage product directory. category is a short, human
+  // filter label; languages are the UI languages the app ships in (ISO 639-1, lowercase);
+  // launched is the public launch date (YYYY-MM-DD), or null while it's still coming soon.
+  directory: {
+    category: string;
+    languages: string[];
+    launched: string | null;
+  };
 };
 
 export const apps: AppEntry[] = [
@@ -146,6 +154,11 @@ export const apps: AppEntry[] = [
     tagline: "The moments worth keeping, not another camera roll.",
     catchline: "Save the moments you'll want to hand back to them, someday.",
     meta: "Lifelong memory journal · iOS & Android",
+    directory: {
+      category: "Family",
+      languages: ["en", "ko", "ja", "zh", "es"],
+      launched: "2026-09-07",
+    },
     stamp: { text: "Launched", tone: "positive" },
     description:
       "A private, shared journal for our baby: not every photo, just the moments we'll want to remember, the date, and what we were thinking when it happened. A camera roll can hold the photo. It can't hold the memory. Built for our own family first, and private by default: only the people you invite can ever see it.",
@@ -453,6 +466,7 @@ export const apps: AppEntry[] = [
     tagline: "Bible reading that survives past January.",
     catchline: "Read the Bible in a few minutes a day.",
     meta: "Daily Bible reading · iOS & Android",
+    directory: { category: "Faith", languages: ["en"], launched: null },
     stamp: { text: "Coming soon", tone: "pending" },
     comingSoon: true,
     hidden: true,
@@ -486,6 +500,7 @@ export const apps: AppEntry[] = [
       "Math for adults, in an age where it's tempting to let AI do the thinking for you.",
     catchline: "Stay sharp, ten minutes a day.",
     meta: "Math practice for adults · iOS & Android",
+    directory: { category: "Learning", languages: ["en"], launched: null },
     stamp: { text: "Coming soon", tone: "pending" },
     comingSoon: true,
     comingSoonNote: "Coming soon. Currently working on the content.",
