@@ -84,7 +84,7 @@ export function ProductCard({ item }: { item: DirectoryItem }) {
           <a
             href={item.outboundUrl}
             title={hostOf(item.outboundUrl)}
-            className={`relative z-10 -my-1 -mr-1.5 inline-flex h-6 shrink-0 items-center gap-1 rounded-md px-1.5 font-sans text-ink-soft transition-colors hover:bg-bg hover:text-ink ${focusRing}`}
+            className={`relative z-10 -my-1 -mr-1.5 inline-flex h-6 shrink-0 items-center gap-1 rounded-md px-1.5 font-sans text-ink-soft transition-colors hover:bg-border/60 hover:text-ink ${focusRing}`}
           >
             Visit
             <span className="sr-only"> {hostOf(item.outboundUrl)}</span>

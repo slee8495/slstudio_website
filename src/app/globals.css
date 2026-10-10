@@ -22,26 +22,26 @@
   --accent-highlight: #d97706;
 }
 
-/* Studio pages (home, /p, /c): dark, monochrome company theme. Scoped to a wrapper class so
+/* Studio pages (home, /p, /c): light, monochrome company theme. Scoped to a wrapper class so
    the product pages (/roun, /wordflow) keep their own warm palette. Redefining the shared
-   tokens here means existing components (forms) pick up the dark theme without forks. */
+   tokens here means existing components (forms) pick up this theme without forks. */
 .theme-studio {
-  --bg: #0a0a0b;
-  --bg-subtle: #111113;
-  --surface-hover: #16161a;
-  --ink: #ededef;
-  --ink-soft: #a0a0a8;
-  --ink-faint: #6e6e76;
-  --border: #222226;
-  --border-strong: #34343a;
-  --status-positive: #4cc38a;
-  --status-pending: #d6a23c;
+  --bg: #ffffff;
+  --bg-subtle: #ffffff;
+  --surface-hover: #fafafa;
+  --ink: #0a0a0b;
+  --ink-soft: #52525b;
+  --ink-faint: #71717a;
+  --border: #e4e4e7;
+  --border-strong: #d0d0d6;
+  --status-positive: #16a34a;
+  --status-pending: #c2780a;
   --font-sans: var(--font-geist-sans);
   --font-display: var(--font-geist-sans);
   --font-body: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
-  color-scheme: dark;
+  color-scheme: light;
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
@@ -50,7 +50,7 @@
 
 html:has(.theme-studio),
 html:has(.theme-studio) body {
-  background: #0a0a0b;
+  background: #ffffff;
 }
 
 @theme inline {

@@ -55,7 +55,6 @@ function StudioFooter() {
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-6 py-10 md:grid-cols-[1fr_auto] md:px-8">
         <div className="flex flex-col gap-1.5 font-mono text-xs text-ink-faint">
           <span>© {new Date().getFullYear()} SL Studio</span>
-          <span>Orange County, California</span>
           <a
             href="mailto:support@sl-studio.dev"
             className="self-start text-ink-soft transition-colors hover:text-ink"

@@ -38,7 +38,6 @@ function SectionHeading({
 
 export default async function Home() {
   const items = await getDirectoryItems();
-  const liveCount = items.filter((item) => item.launched).length;
 
   return (
     <StudioShell>
@@ -49,20 +48,6 @@ export default async function Home() {
         <p className="mt-4 max-w-xl text-base leading-relaxed text-ink-soft md:text-lg">
           SL Studio builds and operates software products.
         </p>
-        <dl className="mt-12 grid max-w-2xl grid-cols-2 gap-x-8 gap-y-6 border-t border-border pt-6 sm:grid-cols-3">
-          <div>
-            <dt className="text-xs text-ink-faint">Live products</dt>
-            <dd className="mt-1 font-mono text-sm tabular-nums text-ink">{liveCount}</dd>
-          </div>
-          <div>
-            <dt className="text-xs text-ink-faint">Founded</dt>
-            <dd className="mt-1 font-mono text-sm tabular-nums text-ink">2026</dd>
-          </div>
-          <div>
-            <dt className="text-xs text-ink-faint">Location</dt>
-            <dd className="mt-1 text-sm text-ink">Orange County, California</dd>
-          </div>
-        </dl>
       </section>
 
       <section
@@ -87,9 +72,8 @@ export default async function Home() {
           About
         </h2>
         <p className="max-w-[60ch] text-[15px] leading-relaxed text-ink-soft">
-          SL Studio is an independent software studio based in Orange County,
-          California. Its products are built and maintained by a small team
-          using automated tooling.
+          SL Studio is an independent software studio. Its products are built
+          and maintained by a small team using automated tooling.
         </p>
       </section>
 
