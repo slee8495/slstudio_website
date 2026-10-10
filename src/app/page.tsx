@@ -72,8 +72,7 @@ export default async function Home() {
           About
         </h2>
         <p className="max-w-[60ch] text-[15px] leading-relaxed text-ink-soft">
-          SL Studio is an independent software studio. Its products are built
-          and maintained by a small team using automated tooling.
+          SL Studio is an independent software studio.
         </p>
       </section>
 
