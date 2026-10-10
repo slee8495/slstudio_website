@@ -23,7 +23,7 @@ const monoFont = IBM_Plex_Mono({
 
 const title = "SL Studio";
 const description =
-  "SL Studio builds small, careful apps, usually starting as something we needed ourselves.";
+  "SL Studio builds and operates software products.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sl-studio.dev"),

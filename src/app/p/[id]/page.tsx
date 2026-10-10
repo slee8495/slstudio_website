@@ -1,18 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
-import { ProductCard, ProductTile } from "@/components/product-directory";
+import { StudioShell } from "@/components/studio/studio-shell";
+import { ProductGrid, StatusDot } from "@/components/studio/product-directory";
 import {
   SITE_URL,
   categoryHref,
   decodeParam,
-  formatLaunched,
   getDirectoryItem,
   getDirectoryItems,
-  LANGUAGE_NAMES,
 } from "@/lib/directory";
+import { LANGUAGE_NAMES, formatLaunched, hostOf } from "@/lib/directory-format";
 
 export const revalidate = 3600;
 
@@ -48,23 +46,30 @@ function jsonLd(data: unknown) {
   return { __html: JSON.stringify(data).replace(/</g, "\\u003c") };
 }
 
+function Fact({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <div className="flex items-baseline justify-between gap-6 border-b border-border py-3 last:border-b-0">
+      <dt className="text-xs text-ink-faint">{label}</dt>
+      <dd className="min-w-0 text-right text-sm text-ink">{children}</dd>
+    </div>
+  );
+}
+
 export default async function ProductPage({ params }: PageProps<"/p/[id]">) {
   const { id } = await params;
   const items = await getDirectoryItems();
   const item = items.find((entry) => entry.id === decodeParam(id));
   if (!item) notFound();
 
-  // Studio apps already have full pages at /<slug>; /p/<slug> is just their stable alias.
+  // Studio apps already have full pages at /<slug>; /p/<slug> is their stable alias.
   if (item.source === "studio") permanentRedirect(item.href);
 
-  const lang = item.languages[0] === "ko" ? "ko" : undefined;
-  const host = item.outboundUrl ? new URL(item.outboundUrl).hostname : null;
   const related = items
     .filter((entry) => entry.category === item.category && entry.id !== item.id)
     .slice(0, 3);
 
   return (
-    <main className="flex-1 w-full mx-auto max-w-6xl px-6 md:px-8 flex flex-col">
+    <StudioShell>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={jsonLd({
@@ -80,102 +85,89 @@ export default async function ProductPage({ params }: PageProps<"/p/[id]">) {
           publisher: { "@type": "Organization", name: "SL Studio", url: SITE_URL },
         })}
       />
-      <SiteHeader />
 
-      <nav aria-label="Breadcrumb" className="text-sm text-ink-soft">
+      <nav aria-label="Breadcrumb" className="pt-8 font-mono text-xs text-ink-faint">
         <ol className="flex flex-wrap items-center gap-2">
           <li>
-            <Link href="/#products" className="hover:text-ink underline-offset-4 hover:underline">
+            <Link href="/#products" className="hover:text-ink">
               Products
             </Link>
           </li>
           <li aria-hidden>/</li>
           <li>
-            <Link href={categoryHref(item.category)} className="hover:text-ink underline-offset-4 hover:underline">
+            <Link href={categoryHref(item.category)} className="hover:text-ink">
               {item.category}
             </Link>
           </li>
         </ol>
       </nav>
 
-      <article className="pt-8 pb-14 md:pt-12 md:pb-20 grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-10 lg:gap-16">
+      <article className="grid grid-cols-1 gap-12 pt-10 pb-16 md:pt-14 lg:grid-cols-[1.6fr_1fr] lg:gap-20">
         <div>
-          <ProductTile item={item} />
-          <h1
-            lang={lang}
-            className="mt-6 font-display text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1]"
-          >
+          <StatusDot launched={item.launched} />
+          <h1 className="mt-3 text-3xl font-semibold tracking-[-0.025em] text-ink md:text-4xl">
             {item.name}
           </h1>
           {item.tagline && (
-            <p lang={lang} className="mt-4 max-w-xl text-lg md:text-xl text-ink-soft leading-relaxed">
+            <p className="mt-3 max-w-xl text-base leading-relaxed text-ink-soft md:text-lg">
               {item.tagline}
             </p>
           )}
           {item.outboundUrl && (
             <a
               href={item.outboundUrl}
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-base font-medium text-bg transition-colors hover:bg-ink/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+              className="mt-8 inline-flex h-9 items-center gap-2 rounded-md bg-ink px-4 text-sm font-medium text-bg transition-colors hover:bg-ink/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
             >
-              Open {item.name}
-              <svg aria-hidden viewBox="0 0 12 12" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path d="M4 2h6v6M10 2 3 9" />
+              Visit {hostOf(item.outboundUrl)}
+              <svg aria-hidden viewBox="0 0 12 12" className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M4.5 2.5h5v5M9.5 2.5 3 9" />
               </svg>
             </a>
           )}
           {item.description && item.description !== item.tagline && (
-            <p lang={lang} className="mt-10 max-w-[62ch] text-ink/85 leading-[1.8]">
-              {item.description}
-            </p>
+            <div className="mt-12 border-t border-border pt-8">
+              <h2 className="text-[15px] font-medium text-ink">Overview</h2>
+              <p className="mt-3 max-w-[64ch] text-[15px] leading-[1.75] text-ink-soft">
+                {item.description}
+              </p>
+            </div>
           )}
         </div>
 
-        <dl className="self-start rounded-2xl border border-border bg-bg-subtle p-6 grid grid-cols-[auto_1fr] gap-x-6 gap-y-4 text-sm">
-          <dt className="text-ink-soft">Category</dt>
-          <dd>
-            <Link href={categoryHref(item.category)} className="text-ink underline underline-offset-4 hover:text-ink-soft">
+        <dl className="self-start rounded-xl border border-border bg-bg-subtle px-5 py-2">
+          <Fact label="Status">{item.launched ? "Live" : "In development"}</Fact>
+          <Fact label="Category">
+            <Link href={categoryHref(item.category)} className="hover:underline underline-offset-4">
               {item.category}
             </Link>
-          </dd>
-          <dt className="text-ink-soft">Language</dt>
-          <dd className="text-ink">
+          </Fact>
+          <Fact label="Language">
             {item.languages.length
               ? item.languages.map((code) => LANGUAGE_NAMES[code] ?? code.toUpperCase()).join(", ")
               : "Not specified"}
-          </dd>
-          <dt className="text-ink-soft">Launched</dt>
-          <dd className="text-ink">{formatLaunched(item.launched, true)}</dd>
-          {host && (
-            <>
-              <dt className="text-ink-soft">Website</dt>
-              <dd>
-                <a href={item.outboundUrl!} className="break-all text-ink underline underline-offset-4 hover:text-ink-soft">
-                  {host}
-                </a>
-              </dd>
-            </>
+          </Fact>
+          <Fact label="Launched">
+            <span className="font-mono tabular-nums">{formatLaunched(item.launched, true)}</span>
+          </Fact>
+          {item.outboundUrl && (
+            <Fact label="Website">
+              <a href={item.outboundUrl} className="break-all font-mono text-[13px] hover:underline underline-offset-4">
+                {hostOf(item.outboundUrl)}
+              </a>
+            </Fact>
           )}
-          <dt className="text-ink-soft">Made by</dt>
-          <dd className="text-ink">SL Studio</dd>
+          <Fact label="Publisher">SL Studio</Fact>
         </dl>
       </article>
 
       {related.length > 0 && (
-        <section aria-labelledby="related-heading" className="border-t border-border py-14 md:py-16">
-          <h2 id="related-heading" className="font-display text-2xl font-semibold tracking-tight">
+        <section aria-labelledby="related-heading" className="border-t border-border py-14">
+          <h2 id="related-heading" className="mb-6 text-[15px] font-medium text-ink">
             More in {item.category}
           </h2>
-          <ul className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {related.map((entry) => (
-              <li key={entry.id}>
-                <ProductCard item={entry} />
-              </li>
-            ))}
-          </ul>
+          <ProductGrid items={related} />
         </section>
       )}
-
-      <SiteFooter />
-    </main>
+    </StudioShell>
   );
 }

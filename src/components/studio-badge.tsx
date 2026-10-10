@@ -18,16 +18,16 @@ export function StudioBadge({
   return (
     <a
       href={`${STUDIO_URL}/p/${encodeURIComponent(productId)}`}
-      title="SL Studio: small tools, one job each"
+      title="SL Studio"
       style={{
         display: "inline-flex",
         alignItems: "center",
         gap: 8,
-        padding: "6px 12px 6px 6px",
-        borderRadius: 999,
-        border: `1px solid ${dark ? "rgba(255,253,248,0.25)" : "#e8dcc6"}`,
-        background: dark ? "transparent" : "#fffdf8",
-        color: dark ? "#fffdf8" : "#3a2e26",
+        padding: "5px 10px 5px 5px",
+        borderRadius: 7,
+        border: `1px solid ${dark ? "rgba(255,255,255,0.16)" : "#e4e4e7"}`,
+        background: dark ? "transparent" : "#ffffff",
+        color: dark ? "#ededef" : "#18181b",
         font: "500 12px/1 ui-sans-serif, system-ui, -apple-system, sans-serif",
         textDecoration: "none",
       }}
@@ -38,11 +38,11 @@ export function StudioBadge({
           display: "inline-flex",
           alignItems: "center",
           justifyContent: "center",
-          width: 20,
-          height: 20,
-          borderRadius: 999,
-          background: dark ? "#fffdf8" : "#3a2e26",
-          color: dark ? "#3a2e26" : "#fffdf8",
+          width: 18,
+          height: 18,
+          borderRadius: 5,
+          background: dark ? "#ededef" : "#0a0a0b",
+          color: dark ? "#0a0a0b" : "#ffffff",
           fontSize: 8,
           fontWeight: 700,
           letterSpacing: 0.3,

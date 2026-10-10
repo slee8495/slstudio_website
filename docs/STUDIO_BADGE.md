@@ -44,10 +44,10 @@ For products that aren't React, paste this and replace `YOUR-ID`.
 
 ```html
 <a href="https://sl-studio.dev/p/YOUR-ID"
-   title="SL Studio: small tools, one job each"
-   style="display:inline-flex;align-items:center;gap:8px;padding:6px 12px 6px 6px;border-radius:999px;border:1px solid #e8dcc6;background:#fffdf8;color:#3a2e26;font:500 12px/1 ui-sans-serif,system-ui,-apple-system,sans-serif;text-decoration:none">
+   title="SL Studio"
+   style="display:inline-flex;align-items:center;gap:8px;padding:5px 10px 5px 5px;border-radius:7px;border:1px solid #e4e4e7;background:#ffffff;color:#18181b;font:500 12px/1 ui-sans-serif,system-ui,-apple-system,sans-serif;text-decoration:none">
   <span aria-hidden="true"
-        style="display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:999px;background:#3a2e26;color:#fffdf8;font-size:8px;font-weight:700;letter-spacing:.3px">SL</span>
+        style="display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:5px;background:#0a0a0b;color:#ffffff;font-size:8px;font-weight:700;letter-spacing:.3px">SL</span>
   Made by SL Studio
 </a>
 ```

@@ -27,7 +27,6 @@ export type DirectoryItem = {
   // The product itself, when it lives off this site (Smith products on subdomains).
   outboundUrl: string | null;
   source: "studio" | "smith";
-  icon: { kind: "image"; src: string } | { kind: "glyph"; text: string } | null;
 };
 
 // Overridable so the directory can be exercised locally against a fixture.
@@ -56,22 +55,14 @@ function staticItems(): DirectoryItem[] {
     .map((app) => ({
       id: app.slug,
       name: app.name,
-      tagline: app.comingSoon
-        ? (app.comingSoonNote ?? "Coming soon.")
-        : app.tagline,
-      description: app.comingSoon
-        ? (app.comingSoonNote ?? "Coming soon.")
-        : app.description,
+      tagline: app.directory.summary ?? app.tagline,
+      description: app.description,
       category: app.directory.category,
       languages: app.directory.languages,
       launched: app.comingSoon ? null : app.directory.launched,
       href: `/${app.slug}`,
-      outboundUrl: null,
+      outboundUrl: app.directory.website ?? null,
       source: "studio" as const,
-      icon:
-        typeof app.icon === "string"
-          ? { kind: "glyph" as const, text: app.icon }
-          : { kind: "image" as const, src: app.icon.src },
     }));
 }
 
@@ -137,7 +128,6 @@ function parseSmithProducts(payload: unknown, taken: Set<string>): DirectoryItem
       href: `/p/${id}`,
       outboundUrl,
       source: "smith",
-      icon: null,
     });
   }
   return items;

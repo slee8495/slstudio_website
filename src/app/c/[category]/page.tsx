@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
-import { ProductCard } from "@/components/product-directory";
+import { StudioShell } from "@/components/studio/studio-shell";
+import { ProductGrid } from "@/components/studio/product-directory";
 import {
   categoryHref,
   categorySlug,
@@ -39,7 +38,7 @@ export async function generateMetadata({
   if (!data) return {};
   return {
     title: data.name,
-    description: `${data.items.length} ${data.items.length === 1 ? "tool" : "tools"} from SL Studio in ${data.name}.`,
+    description: `SL Studio products in ${data.name}.`,
     alternates: { canonical: categoryHref(data.name) },
   };
 }
@@ -51,53 +50,45 @@ export default async function CategoryPage({
   if (!data) notFound();
 
   return (
-    <main className="flex-1 w-full mx-auto max-w-6xl px-6 md:px-8 flex flex-col">
-      <SiteHeader />
-
-      <nav aria-label="Breadcrumb" className="text-sm text-ink-soft">
-        <Link href="/#products" className="hover:text-ink underline-offset-4 hover:underline">
+    <StudioShell>
+      <nav aria-label="Breadcrumb" className="pt-8 font-mono text-xs text-ink-faint">
+        <Link href="/#products" className="hover:text-ink">
           Products
         </Link>
       </nav>
 
-      <section className="pt-8 pb-14 md:pt-12 md:pb-20">
-        <h1 className="font-display text-4xl md:text-5xl font-semibold tracking-tight">
-          {data.name}
-        </h1>
-        <p className="mt-3 text-ink-soft">
-          {data.items.length} {data.items.length === 1 ? "product" : "products"}, newest first
-        </p>
-        <ul className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {data.items.map((item) => (
-            <li key={item.id}>
-              <ProductCard item={item} />
-            </li>
-          ))}
-        </ul>
+      <section className="pt-10 pb-16 md:pt-14">
+        <div className="mb-8 flex items-baseline justify-between gap-4">
+          <h1 className="text-3xl font-semibold tracking-[-0.025em] text-ink md:text-4xl">
+            {data.name}
+          </h1>
+          <span className="font-mono text-xs text-ink-faint">
+            {data.items.length} {data.items.length === 1 ? "product" : "products"}
+          </span>
+        </div>
+        <ProductGrid items={data.items} />
       </section>
 
       {data.others.length > 0 && (
         <section aria-labelledby="other-categories" className="border-t border-border py-12">
-          <h2 id="other-categories" className="font-display text-xl font-semibold tracking-tight">
+          <h2 id="other-categories" className="text-[15px] font-medium text-ink">
             Other categories
           </h2>
-          <ul className="mt-5 flex flex-wrap gap-2">
+          <ul className="mt-4 flex flex-wrap gap-1">
             {data.others.map((c) => (
               <li key={c.slug}>
                 <Link
                   href={categoryHref(c.name)}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-border bg-bg-subtle px-3.5 py-1.5 text-sm text-ink-soft hover:border-ink/30 hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+                  className="inline-flex h-8 items-center gap-2 rounded-md border border-border px-3 text-[13px] text-ink-soft transition-colors hover:border-border-strong hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
                 >
                   {c.name}
-                  <span className="text-ink-soft/70">{c.count}</span>
+                  <span className="font-mono text-[11px] text-ink-faint">{c.count}</span>
                 </Link>
               </li>
             ))}
           </ul>
         </section>
       )}
-
-      <SiteFooter />
-    </main>
+    </StudioShell>
   );
 }

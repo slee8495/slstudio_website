@@ -8,6 +8,12 @@ const nextConfig: NextConfig = {
         destination: "/roun",
         permanent: true,
       },
+      {
+        // Daily Math was withdrawn from the studio site. Temporary, in case it comes back.
+        source: "/daily-math",
+        destination: "/",
+        permanent: false,
+      },
     ];
   },
 };

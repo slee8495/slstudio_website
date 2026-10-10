@@ -31,8 +31,20 @@ const MONTHS = [
 
 // Fixed formatting (no Intl/locale) so server and client render identical text.
 export function formatLaunched(date: string | null, long = false): string {
-  if (!date) return "Coming soon";
+  if (!date) return "Not launched";
   const [year, month, day] = date.split("-");
   const m = MONTHS[Number(month) - 1] ?? "";
   return long ? `${m} ${Number(day)}, ${year}` : `${m} ${year}`;
+}
+
+export function statusLabel(launched: string | null): "Live" | "In development" {
+  return launched ? "Live" : "In development";
+}
+
+export function hostOf(url: string): string {
+  try {
+    return new URL(url).hostname;
+  } catch {
+    return url;
+  }
 }

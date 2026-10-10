@@ -1,101 +1,124 @@
 import type { Metadata } from "next";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
 import { ContactForm } from "@/components/contact-form";
-import { ProductDirectory } from "@/components/product-directory";
+import { StudioShell } from "@/components/studio/studio-shell";
+import { ProductDirectory } from "@/components/studio/product-directory";
 import { getDirectoryItems } from "@/lib/directory";
 
 // Smith publishes new products into its index; pick them up within the hour.
 export const revalidate = 3600;
 
-const description =
-  "Small, focused apps and web tools from SL Studio, in English and Korean. Each one does one job well.";
+const description = "SL Studio builds and operates software products.";
 
 export const metadata: Metadata = {
-  title: { absolute: "SL Studio · Small tools, one job each" },
+  title: { absolute: "SL Studio" },
   description,
   alternates: { canonical: "/" },
-  openGraph: { description },
-  twitter: { description },
+  openGraph: { title: "SL Studio", description },
+  twitter: { title: "SL Studio", description },
 };
+
+function SectionHeading({
+  id,
+  title,
+  meta,
+}: {
+  id: string;
+  title: string;
+  meta?: string;
+}) {
+  return (
+    <div className="mb-6 flex items-baseline justify-between gap-4">
+      <h2 id={id} className="text-[15px] font-medium text-ink">
+        {title}
+      </h2>
+      {meta && <span className="font-mono text-xs text-ink-faint">{meta}</span>}
+    </div>
+  );
+}
 
 export default async function Home() {
   const items = await getDirectoryItems();
+  const liveCount = items.filter((item) => item.launched).length;
 
   return (
-    <main className="flex-1 w-full mx-auto max-w-6xl px-6 md:px-8 flex flex-col">
-      <SiteHeader />
-
-      <section className="pt-8 pb-12 md:pt-16 md:pb-16">
-        <h1 className="animate-rise-in font-display text-[2.6rem] leading-[1.02] sm:text-6xl md:text-7xl font-semibold tracking-tight">
-          Small tools,
-          <br />
-          one job each.
+    <StudioShell>
+      <section className="pt-16 pb-14 md:pt-24 md:pb-20">
+        <h1 className="text-4xl font-semibold tracking-[-0.03em] text-ink md:text-5xl">
+          SL Studio
         </h1>
-        <p className="animate-rise-in [animation-delay:120ms] mt-8 max-w-xl text-base md:text-lg text-ink-soft leading-relaxed">
-          SL Studio makes apps and web tools that each solve one specific
-          problem. Some are in English, some in Korean, and new ones show up
-          here as they launch.
+        <p className="mt-4 max-w-xl text-base leading-relaxed text-ink-soft md:text-lg">
+          SL Studio builds and operates software products.
         </p>
+        <dl className="mt-12 grid max-w-2xl grid-cols-2 gap-x-8 gap-y-6 border-t border-border pt-6 sm:grid-cols-3">
+          <div>
+            <dt className="text-xs text-ink-faint">Live products</dt>
+            <dd className="mt-1 font-mono text-sm tabular-nums text-ink">{liveCount}</dd>
+          </div>
+          <div>
+            <dt className="text-xs text-ink-faint">Founded</dt>
+            <dd className="mt-1 font-mono text-sm tabular-nums text-ink">2026</dd>
+          </div>
+          <div>
+            <dt className="text-xs text-ink-faint">Location</dt>
+            <dd className="mt-1 text-sm text-ink">Orange County, California</dd>
+          </div>
+        </dl>
       </section>
 
       <section
         id="products"
         aria-labelledby="products-heading"
-        className="pb-16 md:pb-24 scroll-mt-24"
+        className="scroll-mt-20 border-t border-border py-14 md:py-16"
       >
-        <h2
+        <SectionHeading
           id="products-heading"
-          className="mb-6 font-display text-2xl font-semibold tracking-tight"
-        >
-          Products
-        </h2>
+          title="Products"
+          meta={`${items.length} total`}
+        />
         <ProductDirectory items={items} />
       </section>
 
       <section
         id="about"
         aria-labelledby="about-heading"
-        className="border-t border-border py-14 md:py-20 scroll-mt-24 grid grid-cols-1 md:grid-cols-[1fr_1.4fr] gap-6 md:gap-12"
+        className="scroll-mt-20 grid grid-cols-1 gap-4 border-t border-border py-14 md:grid-cols-[1fr_2fr] md:gap-12 md:py-16"
       >
-        <h2
-          id="about-heading"
-          className="font-display text-2xl md:text-3xl font-semibold tracking-tight leading-tight"
-        >
-          A small studio, not a startup.
+        <h2 id="about-heading" className="text-[15px] font-medium text-ink">
+          About
         </h2>
-        <p className="max-w-[62ch] text-ink-soft leading-relaxed">
-          No outside funding and no growth roadmap. Every product here starts
-          as one narrow problem, often one we ran into ourselves, and ships
-          once it handles that problem well. Some are full apps built by hand
-          over months; others are small web tools we research and launch
-          quickly, and keep only if people find them useful.
+        <p className="max-w-[60ch] text-[15px] leading-relaxed text-ink-soft">
+          SL Studio is an independent software studio based in Orange County,
+          California. Its products are built and maintained by a small team
+          using automated tooling.
         </p>
       </section>
 
       <section
         id="contact"
         aria-labelledby="contact-heading"
-        className="border-t border-border py-14 md:py-20 scroll-mt-24 grid grid-cols-1 md:grid-cols-[1fr_1.4fr] gap-6 md:gap-12"
+        className="scroll-mt-20 grid grid-cols-1 gap-6 border-t border-border py-14 md:grid-cols-[1fr_2fr] md:gap-12 md:py-16"
       >
         <div>
-          <h2
-            id="contact-heading"
-            className="font-display text-2xl md:text-3xl font-semibold tracking-tight"
-          >
-            Get in touch
+          <h2 id="contact-heading" className="text-[15px] font-medium text-ink">
+            Contact
           </h2>
-          <p className="mt-2 max-w-sm text-ink-soft leading-relaxed">
-            Questions, feedback, or an idea for a tool you wish existed. This
-            goes straight to us.
-          </p>
         </div>
         <div className="max-w-2xl">
-          <ContactForm />
+          <p className="text-[15px] leading-relaxed text-ink-soft">
+            Email{" "}
+            <a
+              href="mailto:support@sl-studio.dev"
+              className="text-ink underline decoration-border-strong underline-offset-4 hover:decoration-ink"
+            >
+              support@sl-studio.dev
+            </a>{" "}
+            or use the form below.
+          </p>
+          <div className="mt-6">
+            <ContactForm />
+          </div>
         </div>
       </section>
-
-      <SiteFooter />
-    </main>
+    </StudioShell>
   );
 }
