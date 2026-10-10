@@ -22,7 +22,41 @@
   --accent-highlight: #d97706;
 }
 
+/* Studio pages (home, /p, /c): light, monochrome company theme. Scoped to a wrapper class so
+   the product pages (/roun, /wordflow) keep their own warm palette. Redefining the shared
+   tokens here means existing components (forms) pick up this theme without forks. */
+.theme-studio {
+  --bg: #ffffff;
+  --bg-subtle: #ffffff;
+  --surface-hover: #fafafa;
+  --ink: #0a0a0b;
+  --ink-soft: #52525b;
+  --ink-faint: #71717a;
+  --border: #e4e4e7;
+  --border-strong: #d0d0d6;
+  --status-positive: #16a34a;
+  --status-pending: #c2780a;
+  --font-sans: var(--font-geist-sans);
+  --font-display: var(--font-geist-sans);
+  --font-body: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  color-scheme: light;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  font-feature-settings: "ss01", "cv11";
+}
+
+html:has(.theme-studio),
+html:has(.theme-studio) body {
+  background: #ffffff;
+}
+
 @theme inline {
+  --color-surface-hover: var(--surface-hover);
+  --color-ink-faint: var(--ink-faint);
+  --color-border-strong: var(--border-strong);
   --color-bg: var(--bg);
   --color-bg-subtle: var(--bg-subtle);
   --color-ink: var(--ink);

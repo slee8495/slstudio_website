@@ -42,9 +42,9 @@ export function ContactForm() {
   if (status === "sent") {
     return (
       <div className="border border-border bg-bg-subtle rounded-lg p-6 md:p-8 text-center">
-        <p className="font-display text-xl font-semibold">Message sent.</p>
-        <p className="mt-2 text-ink-soft">
-          Thanks for reaching out. We reply within 48 hours.
+        <p className="text-base font-medium">Message sent.</p>
+        <p className="mt-2 text-sm text-ink-soft">
+          We reply within 48 hours.
         </p>
       </div>
     );
@@ -69,7 +69,7 @@ export function ContactForm() {
         <div className="flex flex-col gap-1.5">
           <label
             htmlFor="contact-name"
-            className="font-mono text-xs uppercase tracking-wide text-ink-soft"
+            className="text-xs text-ink-soft"
           >
             Name
           </label>
@@ -78,13 +78,13 @@ export function ContactForm() {
             name="name"
             type="text"
             required
-            className="rounded-md border border-border bg-bg px-3 py-2 text-ink placeholder:text-ink-soft/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink"
+            className="rounded-md border border-border bg-bg px-3 py-2 text-sm text-ink placeholder:text-ink-soft/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink"
           />
         </div>
         <div className="flex flex-col gap-1.5">
           <label
             htmlFor="contact-email"
-            className="font-mono text-xs uppercase tracking-wide text-ink-soft"
+            className="text-xs text-ink-soft"
           >
             Email
           </label>
@@ -93,7 +93,7 @@ export function ContactForm() {
             name="email"
             type="email"
             required
-            className="rounded-md border border-border bg-bg px-3 py-2 text-ink placeholder:text-ink-soft/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink"
+            className="rounded-md border border-border bg-bg px-3 py-2 text-sm text-ink placeholder:text-ink-soft/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink"
           />
         </div>
       </div>
@@ -101,7 +101,7 @@ export function ContactForm() {
       <div className="flex flex-col gap-1.5">
         <label
           htmlFor="contact-message"
-          className="font-mono text-xs uppercase tracking-wide text-ink-soft"
+          className="text-xs text-ink-soft"
         >
           Message
         </label>
@@ -110,7 +110,7 @@ export function ContactForm() {
           name="message"
           required
           rows={5}
-          className="rounded-md border border-border bg-bg px-3 py-2 text-ink placeholder:text-ink-soft/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink resize-y"
+          className="rounded-md border border-border bg-bg px-3 py-2 text-sm text-ink placeholder:text-ink-soft/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink resize-y"
         />
       </div>
 
@@ -119,13 +119,13 @@ export function ContactForm() {
       )}
 
       <div className="flex items-center justify-between gap-4 flex-wrap">
-        <p className="font-mono text-xs text-ink-soft">
+        <p className="text-xs text-ink-faint">
           Response within 48 hours.
         </p>
         <button
           type="submit"
           disabled={status === "sending"}
-          className="inline-flex items-center gap-1.5 rounded-md bg-ink text-bg px-5 py-2.5 font-medium text-sm hover:bg-ink/85 transition-colors disabled:opacity-60 disabled:cursor-not-allowed focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink focus-visible:outline-offset-2"
+          className="inline-flex items-center gap-1.5 rounded-md bg-ink text-bg px-4 py-2 font-medium text-sm hover:bg-ink/85 transition-colors disabled:opacity-60 disabled:cursor-not-allowed focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink focus-visible:outline-offset-2"
         >
           {status === "sending" ? "Sending…" : "Send message"}
         </button>

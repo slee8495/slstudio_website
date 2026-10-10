@@ -10,8 +10,8 @@ export function SocialImage() {
         flexDirection: "column",
         justifyContent: "center",
         padding: "88px 96px",
-        background: "#fffdf8",
-        color: "#3a2e26",
+        background: "#ffffff",
+        color: "#0a0a0a",
         fontFamily: "sans-serif",
       }}
     >
@@ -24,8 +24,8 @@ export function SocialImage() {
             width: 76,
             height: 76,
             borderRadius: 18,
-            background: "#3a2e26",
-            color: "#fffdf8",
+            background: "#0a0a0a",
+            color: "#ffffff",
             fontSize: 32,
             fontWeight: 700,
             letterSpacing: -1,
@@ -48,14 +48,14 @@ export function SocialImage() {
           maxWidth: 920,
         }}
       >
-        Small, careful apps, built to last.
+        SL Studio builds and operates software products.
       </div>
       <div
         style={{
           display: "flex",
           marginTop: 28,
           fontSize: 26,
-          color: "#6b5c4d",
+          color: "#737373",
         }}
       >
         sl-studio.dev

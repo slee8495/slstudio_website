@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { apps } from "@/lib/apps";
 
 export function SiteHeader() {
   return (
@@ -17,20 +16,17 @@ export function SiteHeader() {
       </Link>
       <nav className="flex items-center gap-6">
         <Link
+          href="/#products"
+          className="inline-block py-2 -my-2 font-mono text-xs uppercase tracking-wide text-ink-soft hover:text-ink transition-colors rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink focus-visible:outline-offset-2"
+        >
+          Products
+        </Link>
+        <Link
           href="/#about"
           className="inline-block py-2 -my-2 font-mono text-xs uppercase tracking-wide text-ink-soft hover:text-ink transition-colors rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink focus-visible:outline-offset-2"
         >
           About
         </Link>
-        {apps.filter((app) => !app.hidden).map((app) => (
-          <Link
-            key={app.slug}
-            href={`/${app.slug}`}
-            className="inline-block py-2 -my-2 font-mono text-xs uppercase tracking-wide text-ink-soft hover:text-ink transition-colors rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink focus-visible:outline-offset-2"
-          >
-            {app.name}
-          </Link>
-        ))}
         <Link
           href="/#contact"
           className="inline-block py-2 -my-2 font-mono text-xs uppercase tracking-wide text-ink-soft hover:text-ink transition-colors rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink focus-visible:outline-offset-2"

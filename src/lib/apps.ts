@@ -131,6 +131,18 @@ export type AppEntry = {
   // this when an app can't ship for reasons outside our control (a blocked license, a pulled
   // API) rather than "not built yet" (that's comingSoon).
   hidden?: boolean;
+  // How this app shows up in the homepage product directory. category is a short, human
+  // filter label; languages are the UI languages the app ships in (ISO 639-1, lowercase);
+  // launched is the public launch date (YYYY-MM-DD), or null while it's still coming soon.
+  directory: {
+    category: string;
+    languages: string[];
+    launched: string | null;
+    // The product itself, if it lives on its own domain.
+    website?: string;
+    // Plain one-line description for the studio directory. Falls back to tagline.
+    summary?: string;
+  };
 };
 
 export const apps: AppEntry[] = [
@@ -146,6 +158,14 @@ export const apps: AppEntry[] = [
     tagline: "The moments worth keeping, not another camera roll.",
     catchline: "Save the moments you'll want to hand back to them, someday.",
     meta: "Lifelong memory journal · iOS & Android",
+    directory: {
+      category: "Family",
+      languages: ["en", "ko", "ja", "zh", "es"],
+      launched: "2026-09-07",
+      website: "https://roun.sl-studio.dev",
+      summary:
+        "Private family journal that turns entries into photo albums. iOS and Android.",
+    },
     stamp: { text: "Launched", tone: "positive" },
     description:
       "A private, shared journal for our baby: not every photo, just the moments we'll want to remember, the date, and what we were thinking when it happened. A camera roll can hold the photo. It can't hold the memory. Built for our own family first, and private by default: only the people you invite can ever see it.",
@@ -453,6 +473,7 @@ export const apps: AppEntry[] = [
     tagline: "Bible reading that survives past January.",
     catchline: "Read the Bible in a few minutes a day.",
     meta: "Daily Bible reading · iOS & Android",
+    directory: { category: "Faith", languages: ["en"], launched: null },
     stamp: { text: "Coming soon", tone: "pending" },
     comingSoon: true,
     hidden: true,
@@ -476,37 +497,6 @@ export const apps: AppEntry[] = [
           "Commercial license from our Bible translation's publisher: submitted, awaiting approval",
       },
     ],
-  },
-  {
-    slug: "daily-math",
-    number: "003",
-    icon: "🧮",
-    name: "Daily Math",
-    tagline:
-      "Math for adults, in an age where it's tempting to let AI do the thinking for you.",
-    catchline: "Stay sharp, ten minutes a day.",
-    meta: "Math practice for adults · iOS & Android",
-    stamp: { text: "Coming soon", tone: "pending" },
-    comingSoon: true,
-    comingSoonNote: "Coming soon. Currently working on the content.",
-    description:
-      "A math practice app for adults, ten minutes a day to keep your own head sharp. Not test prep, not homework help, just the habit of thinking mathematically again to keep your brain fresh.",
-    different: {
-      title: "Why math, why now?",
-      body: "It's never been easier to let AI do your thinking for you. Daily Math is the opposite bet: ten minutes a day of real problem solving, slow and simple enough that the habit actually sticks, so your own reasoning stays sharp instead of fading into a search bar.",
-    },
-    cta: null,
-    story: {
-      label: "Our story",
-      paragraphs: [
-        "I studied data science, and I still work somewhere that math actually matters day to day. But this isn't about memorizing formulas, it's about how much math itself can actually be interesting once you get past the fear of it.",
-        "Growing up, I couldn't keep up with how fast and intense math class moved, the kind of pace a lot of Asian school systems run at, so I ended up scared of it and just checked out. I think a lot of adults have some version of that story. Underneath all of it, math actually explains a huge amount of how the world works, and if you come at it slowly, ten minutes at a time, I think you'll find something you lost along the way, or maybe never got to find in the first place. That's what happened to me, eventually.",
-        "It also felt like the right time to build this because it's gotten so easy to just hand your thinking over to AI. I wanted something that kept my own head working critically instead of outsourcing it blindly.",
-        "Also, as a parent of a son, I want to be able to sit down and make math feel easy and fun for him as he grows up, and stay someone he can actually talk through a hard problem with, even once he's way past where I am. This app started as that.",
-      ],
-      closing: "Now I want it to help whoever else at SL Studio needs the same thing. If you have any questions, or just want to tell me something, email me at",
-      email: "support@sl-studio.dev",
-    },
   },
 ];
 
