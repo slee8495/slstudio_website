@@ -11,7 +11,7 @@ const SEARCH_THRESHOLD = 12;
 
 const LANGUAGE_FILTERS: { code: string; label: string }[] = [
   { code: "en", label: "English" },
-  { code: "ko", label: "한국어" },
+  { code: "ko", label: "Korean" },
 ];
 
 // Muted tile colors, picked per category so products in the same field share a color.

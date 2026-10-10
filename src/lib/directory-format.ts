@@ -18,10 +18,10 @@ export function categoryHref(category: string): string {
 
 export const LANGUAGE_NAMES: Record<string, string> = {
   en: "English",
-  ko: "한국어",
-  ja: "日本語",
-  zh: "中文",
-  es: "Español",
+  ko: "Korean",
+  ja: "Japanese",
+  zh: "Chinese",
+  es: "Spanish",
 };
 
 const MONTHS = [

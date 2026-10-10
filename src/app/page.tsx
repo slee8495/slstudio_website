@@ -31,12 +31,6 @@ export default async function Home() {
           Small tools,
           <br />
           one job each.
-          <span
-            lang="ko"
-            className="mt-3 block text-[0.62em] font-medium tracking-normal text-ink-soft/80"
-          >
-            작은 도구, 한 가지 일.
-          </span>
         </h1>
         <p className="animate-rise-in [animation-delay:120ms] mt-8 max-w-xl text-base md:text-lg text-ink-soft leading-relaxed">
           SL Studio makes apps and web tools that each solve one specific

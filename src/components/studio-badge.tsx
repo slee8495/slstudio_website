@@ -8,12 +8,10 @@ const STUDIO_URL = "https://sl-studio.dev";
 
 export function StudioBadge({
   productId,
-  lang = "en",
   tone = "light",
 }: {
   // The product's id in the studio directory; the badge links to sl-studio.dev/p/<id>.
   productId: string;
-  lang?: "en" | "ko";
   tone?: "light" | "dark";
 }) {
   const dark = tone === "dark";
@@ -52,7 +50,7 @@ export function StudioBadge({
       >
         SL
       </span>
-      {lang === "ko" ? "SL Studio에서 만들었어요" : "Made by SL Studio"}
+      Made by SL Studio
     </a>
   );
 }

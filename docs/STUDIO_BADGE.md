@@ -13,7 +13,7 @@ vouches for each product.
   `smith_index.json`, e.g. `ca-minwage-ko`). The link only resolves once the product is
   `status: "live"` with a `url` set; until then `/p/<id>` returns 404.
 - Use a plain followed link. No `rel="nofollow"`, no tracking query string.
-- Use the Korean label on Korean-language products (`lang="ko"`).
+- The label is always English ("Made by SL Studio"), on every product.
 - Don't restyle it per product. The badge looks the same everywhere so people learn to
   recognize it. `tone="dark"` is the one allowed variant, for dark footers.
 
@@ -29,19 +29,18 @@ export function Footer() {
   return (
     <footer>
       {/* ...product footer content... */}
-      <StudioBadge productId="ca-minwage-ko" lang="ko" />
+      <StudioBadge productId="ca-minwage-ko" />
     </footer>
   );
 }
 ```
 
-Props: `productId` (required), `lang` (`"en"` default, or `"ko"`), `tone` (`"light"` default,
+Props: `productId` (required), `tone` (`"light"` default,
 or `"dark"`).
 
 ## Plain HTML
 
-For products that aren't React, paste this and replace `YOUR-ID` (and the label for English
-products: `Made by SL Studio`).
+For products that aren't React, paste this and replace `YOUR-ID`.
 
 ```html
 <a href="https://sl-studio.dev/p/YOUR-ID"
@@ -49,7 +48,7 @@ products: `Made by SL Studio`).
    style="display:inline-flex;align-items:center;gap:8px;padding:6px 12px 6px 6px;border-radius:999px;border:1px solid #e8dcc6;background:#fffdf8;color:#3a2e26;font:500 12px/1 ui-sans-serif,system-ui,-apple-system,sans-serif;text-decoration:none">
   <span aria-hidden="true"
         style="display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:999px;background:#3a2e26;color:#fffdf8;font-size:8px;font-weight:700;letter-spacing:.3px">SL</span>
-  SL Studio에서 만들었어요
+  Made by SL Studio
 </a>
 ```
 
